@@ -58,12 +58,10 @@
                            
                                 <li class="lang_top">
                                     <i class="bi bi-globe"></i>
-                                    <span class="lang" data-lang="EN">EN</span> - 
-                                    <span class="lang" data-lang="ZH">中国</span> - 
-                                    <span class="lang" data-lang="RU">Россия</span>
-                                </li>
-                                 
-                             
+                                    <span class="lang" @click="changeLanguage('en')">EN</span> -
+                                    <span class="lang" @click="changeLanguage('zh-CN')">中国</span> -
+                                    <span class="lang" @click="changeLanguage('ru')">Россия</span>
+                                </li>         
                             </ul>
                         </nav>
                     </div>
@@ -75,8 +73,21 @@
                 </div>
             </div>
         </div><!-- container -->
+
     </header><!-- End Header -->
 
 
   </template>
+
+<script setup>
+import { useI18n } from 'vue-i18n';
+
+const { locale } = useI18n();
+
+// Function to change language
+function changeLanguage(lang) {
+  locale.value = lang; // เปลี่ยนภาษา
+}
+</script>
+
   

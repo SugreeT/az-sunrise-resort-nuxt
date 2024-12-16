@@ -90,7 +90,7 @@
                         <a href="tel://423424234">
                             <i class="bi bi-telephone"></i>
                             <span>
-                                <em>Reservations</em> +41 934 121 1334
+                                <em>Reservations</em> + 61 (2) 8093 3402 + 61 (2) 8093 3402
                             </span>
                         </a>
                     </p>

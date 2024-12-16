@@ -6,7 +6,7 @@
     <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
         <div class="container">
             <small class="slide-animated one">Luxury Hotel Experience</small>
-            <h1 class="slide-animated two">Rooms & Suites</h1>
+            <h1 class="slide-animated two">Rooms</h1>
         </div>
     </div>
 </div>
@@ -18,7 +18,8 @@
             <div class="title">
                 <small>A.Z. Sunrise Resort</small>
                 <h2>Our Rooms</h2>
-                <p class="lead">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo <strong>minus id quod maxime</strong> placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendu</p>
+                <p class="lead">Our rooms are thoughtfully designed to provide <strong>luxury and comfort</strong> for every guest. With elegant interiors and modern amenities, each room offers a serene space for relaxation, ensuring a truly memorable stay.</p>
+
                 <p><a href="#booking_section" class="btn_1 outline">Book Now</a></p>
             </div>
         </div>
@@ -26,7 +27,7 @@
             <div class="row_list_version_3" data-cue="fadeIn">
                 <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
                     <div class="item">
-                        <a href="room-detail"><img src="/img/rooms/1.jpg" alt=""></a>
+                        <a href="room-detail"><img src="~assets/img/banner/rooms/room1.jpg" alt=""></a>
                     </div>
                     <div class="item">
                         <a href="room-detail"><img src="/img/rooms/opt_1.jpg" alt=""></a>
@@ -38,7 +39,7 @@
                 <!-- /carousel -->
                 <div class="box_item_info" data-jarallax-element="-25">
                     <small>From $150/night</small>
-                    <h2>Double Room</h2>
+                    <h2>Standard Room Double</h2>
                     <p>Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.</p>
                     <div class="facilities clearfix">
                         <ul>
@@ -58,7 +59,7 @@
             <div class="row_list_version_3" data-cue="fadeIn">
                 <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
                     <div class="item">
-                        <a href="room-detail"><img src="/img/rooms/2.jpg" alt=""></a>
+                        <a href="room-detail"><img src="~assets/img/banner/rooms/room3.jpg" alt=""></a>
                     </div>
                     <div class="item">
                         <a href="room-detail"><img src="/img/rooms/opt_2.jpg" alt=""></a>
@@ -70,7 +71,7 @@
                 <!-- /carousel -->
                 <div class="box_item_info" data-jarallax-element="-25">
                     <small>From $150/night</small>
-                    <h2>Double Room</h2>
+                    <h2>Standard Room Twin </h2>
                     <p>Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.</p>
                     <div class="facilities clearfix">
                         <ul>
@@ -90,7 +91,7 @@
             <div class="row_list_version_3" data-cue="fadeIn">
                 <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
                     <div class="item">
-                        <a href="room-detail"><img src="/img/img_ex/3.jpg" alt=""></a>
+                        <a href="room-detail"><img src="~assets/img/banner/rooms/room1.jpg" alt=""></a>
                     </div>
                     <div class="item">
                         <a href="room-detail"><img src="/img/rooms/opt_3.jpg" alt=""></a>
@@ -102,7 +103,7 @@
                 <!-- /carousel -->
                 <div class="box_item_info" data-jarallax-element="-25">
                     <small>From $230/night</small>
-                    <h2>Superior Room</h2>
+                    <h2>Deluxe Room Double</h2>
                     <p>Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.</p>
                     <div class="facilities clearfix">
                         <ul>
@@ -119,6 +120,68 @@
             </div>
             <!-- /row_list_version_3 -->
 
+            <div class="row_list_version_3" data-cue="fadeIn">
+                <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
+                    <div class="item">
+                        <a href="room-detail"><img src="~assets/img/banner/rooms/room3.jpg" alt=""></a>
+                    </div>
+                    <div class="item">
+                        <a href="room-detail"><img src="/img/rooms/opt_3.jpg" alt=""></a>
+                    </div>
+                    <div class="item">
+                        <a href="room-detail"><img src="/img/rooms/opt_6.jpg" alt=""></a>
+                    </div>
+                </div>
+                <!-- /carousel -->
+                <div class="box_item_info" data-jarallax-element="-25">
+                    <small>From $230/night</small>
+                    <h2>Deluxe Room Twin </h2>
+                    <p>Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.</p>
+                    <div class="facilities clearfix">
+                        <ul>
+                            <li>
+                                <i class="customicon-double-bed"></i> King Size Bed
+                            </li>
+                            <li>
+                                <i class="customicon-television"></i> 32 Inc TV
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /box_item_info -->
+            </div>
+
+            <div class="row_list_version_3" data-cue="fadeIn">
+                <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
+                    <div class="item">
+                        <a href="room-detail"><img src="~assets/img/banner/rooms/room1.jpg" alt=""></a>
+                    </div>
+                    <div class="item">
+                        <a href="room-detail"><img src="/img/rooms/opt_3.jpg" alt=""></a>
+                    </div>
+                    <div class="item">
+                        <a href="room-detail"><img src="/img/rooms/opt_6.jpg" alt=""></a>
+                    </div>
+                </div>
+                <!-- /carousel -->
+                <div class="box_item_info" data-jarallax-element="-25">
+                    <small>From $230/night</small>
+                    <h2>Family Room </h2>
+                    <p>Beautiful design with modern furnishings including a glamorous bay window with your own private view of Lucerne.</p>
+                    <div class="facilities clearfix">
+                        <ul>
+                            <li>
+                                <i class="customicon-double-bed"></i> King Size Bed
+                            </li>
+                            <li>
+                                <i class="customicon-television"></i> 32 Inc TV
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- /box_item_info -->
+            </div>
+
         </div>
     </div>
 </div>
@@ -126,7 +189,7 @@
 
 <div class="pinned-image pinned-image--medium">
     <div class="pinned-image__container">
-       <img src="/img/parallax_bg.jpg" alt="">
+       <img src="~assets/img/bg_img/ele_bg2.jpg" alt="">
         <div class="pinned-image__container-overlay"></div>
     </div>
     <div class="pinned_over_content">
@@ -174,7 +237,7 @@
                     <h2>Check Availability</h2>
                 </div>
                 <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p>
-                <p class="phone_element no_borders"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>Info and bookings</em>+41 934 121 1334</span></a></p>
+                <p class="phone_element no_borders"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>Info and bookings</em>+ 61 (2) 8093 3402 + 61 (2) 8093 3402</span></a></p>
             </div>
         </div>
         <div class="col-xl-7">

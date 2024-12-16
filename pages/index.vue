@@ -4,7 +4,7 @@
             <img class="jarallax-img kenburns" src="~assets/img/banner/main/main1.jpg" alt="">
             <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <div class="container">
-                    <small class="slide-animated one">Unwind in Luxury</small>
+                    <small class="slide-animated one"> Unwind in Luxury</small>
                     <h3 class="slide-animated two">Embrace Unique Experiences<br>Where Memories Are Made</h3>
                     <div class="row justify-content-center slide-animated three">
                         <div class="col-xl-10">
@@ -54,11 +54,14 @@
                         <div class="intro">
                             <div class="title">
                                 <!-- <small>About US</small> -->
-                                <h2 data-cue="slideInUp">About Us</h2>
+                                <h2 data-cue="slideInUp">{{ $t('about-us', { name: 'vue-i18n' }) }}</h2>
                             </div>
-                            <p class="lead" data-cue="slideInUp">Welcome to A.Z. Sunrise Resort, where luxury meets comfort. Nestled in the heart of Phuket, our hotel offers world-class amenities, exceptional service, and a serene ambiance tailored to provide you with an unforgettable experience.</p>
+                            <!-- <p class="lead" data-cue="slideInUp">Welcome to A.Z. Sunrise Resort, where luxury meets comfort. Nestled in the heart of Phuket, our hotel offers world-class amenities, exceptional service, and a serene ambiance tailored to provide you with an unforgettable experience.</p>
                             <p data-cue="slideInUp">Whether you're visiting for business or leisure, our spacious rooms, exquisite dining options, and modern facilities ensure your stay is nothing short of perfect. Explore nearby attractions or relax in our spa and wellness center, designed to rejuvenate your body and soul. </p>
-                            <p data-cue="slideInUp"><em>Let us make your stay extraordinary.</em></p>
+                            <p data-cue="slideInUp"><em>Let us make your stay extraordinary.</em></p> -->
+                            <p class="lead" data-cue="slideInUp">{{ $t('welcome-message', { name: 'vue-i18n' }) }}</p>
+                            <p data-cue="slideInUp">{{ $t('details-message', { name: 'vue-i18n' }) }}</p>
+                            <p data-cue="slideInUp"><em>{{ $t('extraordinary-message', { name: 'vue-i18n' }) }}</em></p>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -75,7 +78,7 @@
                 </div>
             </div>
 
-            <div class="container">
+            <div class="container main-index">
 
                 <div class="title text-center mb-1">
                     <h2 data-cue="slideInUp" data-delay="100">Service Items</h2>
@@ -155,16 +158,13 @@
                     <div data-cues="zoomIn">
                         <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/fit1.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="~assets/img/banner/fitness/f1.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/fit2.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="~assets/img/banner/fitness/f2.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/rooms/opt_4.jpg" alt=""></a>
-                            </div>
-                            <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/fit3.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="~assets/img/banner/fitness/f3.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -259,16 +259,13 @@
                     <div data-cues="zoomIn">
                         <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/spa1.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="~assets/img/banner/spa/spa3.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/spa2.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="~assets/img/banner/spa/spa10.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="/img/rooms/opt_4.jpg" alt=""></a>
-                            </div>
-                            <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/spa3.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="~assets/img/banner/spa/spa5.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -345,3 +342,21 @@
 
     </main>
   </template>
+
+<script>
+export default {
+  data() {
+    return {
+        title: '', // ค่าเริ่มต้น
+    };
+  },
+  computed: {
+    // progressClass() {
+    //   return this.isActive ? 'progress-wrap active-progress' : 'progress-wrap';
+    // },
+  },
+  created() {
+    this.title = this.$t('slide-title', { name: 'vue-i18n' });
+  },
+};
+</script>

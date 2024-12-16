@@ -86,7 +86,7 @@
                             <strong>Dinner</strong>  <span>open from 7.30pm<br><small>(kitchen close at 11.30pm)</small></span>
                         </li>
                     </ul>
-                    <p class="phone_element" data-cue="slideInUp" data-duration="2000"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>Reservations</em>+41 934 121 1334</span></a></p>
+                    <p class="phone_element" data-cue="slideInUp" data-duration="2000"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>Reservations</em>+ 61 (2) 8093 3402 + 61 (2) 8093 3402</span></a></p>
                 </div>
               </div>
           </div>

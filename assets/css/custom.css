@@ -158,46 +158,46 @@ header.fixed_header .lang_top .lang.active {
 }
 
  /* ตั้งค่าพื้นฐาน */
- .box_facilities {
+ .main-index .box_facilities {
     text-align: center;
     transition: transform 0.3s ease-in-out; /* เพิ่ม transition สำหรับการขยาย */
 }
 
-.box_facilities i {
+.main-index .box_facilities i {
     font-size: 40px; /* ขนาดไอคอนเริ่มต้น */
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* เพิ่ม transition สำหรับไอคอน */
     display: block;
     margin-bottom: 10px;
 }
 
-.box_facilities h3 {
+.main-index .box_facilities h3 {
     color: #333;
     transition: color 0.3s ease-in-out; /* เพิ่ม transition สำหรับข้อความ */
     font-size: 16px;
 }
 
 /* เมื่อ hover */
-.box_facilities:hover {
+.main-index .box_facilities:hover {
     transform: scale(1.05); /* ขยายขนาดกล่องเล็กน้อย */
 }
 
-.box_facilities:hover i {
+.main-index .box_facilities:hover i {
     transform: scale(1.2); /* ขยายขนาดไอคอน */
     /* color: #ff6f61; เปลี่ยนสีไอคอน */
 
 }
 
-.box_facilities:hover h3 {
+.main-index .box_facilities:hover h3 {
     color: #ff6f61; /* เปลี่ยนสีข้อความ */
     text-decoration: underline;
 }
 
 /* สำหรับ active */
-.box_facilities.active i {
+.main-index .box_facilities.active i {
     /* color: #ff6f61; สีไอคอนในสถานะ active */
 }
 
-.box_facilities.active h3 {
+.main-index .box_facilities.active h3 {
     color: #ff6f61; /* สีข้อความในสถานะ active */
     text-decoration: underline;
 }

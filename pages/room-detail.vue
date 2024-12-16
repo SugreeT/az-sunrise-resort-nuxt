@@ -269,7 +269,7 @@
                     <h2>Check Availability</h2>
                 </div>
                 <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p>
-                <p class="phone_element no_borders"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>Info and bookings</em>+41 934 121 1334</span></a></p>
+                <p class="phone_element no_borders"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>Info and bookings</em>+ 61 (2) 8093 3402 + 61 (2) 8093 3402</span></a></p>
             </div>
         </div>
         <div class="col-xl-7">

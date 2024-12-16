@@ -2,7 +2,7 @@
     <main>
         <div id="carousel-home">
             <div class="owl-carousel owl-theme kenburns">
-                <div class="owl-slide background-image cover" data-background="url(img/bg_img/spa1.jpg)">
+                <div class="owl-slide background-image cover" data-background="url(img/banner/spa/spa4.jpg)">
                     <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                         <div class="container">
                             <div class="row justify-content-center justify-content-md-start">
@@ -17,8 +17,8 @@
                         </div>
                     </div>
                 </div>
-                <!--/owl-slide-->
-                <div class="owl-slide background-image cover" data-background="url(img/bg_img/spa2.jpg)">
+
+                <!-- <div class="owl-slide background-image cover" data-background="url(img/bg_img/spa2.jpg)">
                     <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                         <div class="container">
                             <div class="row justify-content-center">
@@ -26,14 +26,13 @@
                                     <div class="slide-text white text-center">
                                         <small class="owl-slide-animated owl-slide-title">Spa Experience</small>
                                         <h2 class="owl-slide-animated owl-slide-title-2">The experience of unique</h2>
-                                        <!-- <div class="owl-slide-animated owl-slide-title-3"><a class="btn_1 outline white mt-3" href="#first_section">Read more</a></div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--/owl-slide-->
+
                 <div class="owl-slide background-image cover" data-background="url(img/bg_img/spa3.jpg)">
                     <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.6)">
                         <div class="container">
@@ -42,13 +41,12 @@
                                     <div class="slide-text text-end white">
                                         <small class="owl-slide-animated owl-slide-title">Spa Experience</small>
                                         <h2 class="owl-slide-animated owl-slide-title-2">The experience of unique</h2>
-                                        <!-- <div class="owl-slide-animated owl-slide-title-3"><a class="btn_1 outline white mt-3" href="#first_section">Read more</a></div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="mouse_wp">
                 <a href="#first_section" class="btn_scrollto">
@@ -90,7 +88,7 @@
                         <a href="tel://423424234">
                             <i class="bi bi-telephone"></i>
                             <span>
-                                <em>Reservations</em> +41 934 121 1334
+                                <em>Reservations</em> + 61 (2) 8093 3402 + 61 (2) 8093 3402
                             </span>
                         </a>
                     </p>
@@ -108,16 +106,22 @@
             <div data-cues="zoomIn">
                 <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
                     <div class="item">
-                        <img src="/img/rooms/opt_5.jpg" alt="">
+                        <img src="~assets/img/banner/spa/spa3.jpg" alt="">
                     </div>
                     <div class="item">
-                        <img src="/img/rooms/opt_1.jpg" alt="">
+                        <img src="~assets/img/banner/spa/spa4.jpg" alt="">
                     </div>
                     <div class="item">
-                        <img src="/img/rooms/opt_4.jpg" alt="">
+                        <img src="~assets/img/banner/spa/spa5.jpg" alt="">
                     </div>
                     <div class="item">
-                        <img src="/img/rooms/opt_6.jpg" alt="">
+                        <img src="~assets/img/banner/spa/spa6.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="~assets/img/banner/spa/spa7.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="~assets/img/banner/spa/spa8.jpg" alt="">
                     </div>
                 </div>
             </div>

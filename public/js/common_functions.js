@@ -395,7 +395,7 @@
 		});
 	});
 
-	const facilities = document.querySelectorAll('.box_facilities');
+	const facilities = document.querySelectorAll('.main-index .box_facilities');
 	const carouselLinks = document.querySelectorAll('.content-section .owl-carousel .item a');
 	const sections = document.querySelectorAll('.content-section');
 
