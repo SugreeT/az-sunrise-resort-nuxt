@@ -2,21 +2,6 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01', // ระบุวันที่รองรับฟีเจอร์ของ Nuxt
   devtools: { enabled: true }, // เปิดเครื่องมือ DevTools
   pages: true, // เปิดใช้งานระบบ Pages
-  css: [
-    '@/assets/css/bootstrap.min.css', // Bootstrap Minified CSS
-    '@/assets/css/style.css', // Main Style CSS
-    '@/assets/css/vendors.min.css', // Vendors Minified CSS
-    '@/assets/css/custom.css', // Custom CSS
-    // '@/assets/css/daterangepicker_v2.css', // Daterangepicker v2 CSS
-  
-  ],
-  modules: ['@pinia/nuxt'], // Pinia
-  postcss: {
-    plugins: {
-      tailwindcss: {}, // ตรวจสอบว่า TailwindCSS ถูกโหลด
-      autoprefixer: {}, // ใช้ Autoprefixer สำหรับเบราว์เซอร์
-    },
-  },
   app: {
     baseURL: '/', // หรือ '/subfolder/' หากใช้ Subdirectory
     buildAssetsDir: '/_nuxt/', // Path สำหรับ Static Assets
@@ -35,7 +20,42 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@400;500&family=Montserrat:wght@300;400;500;600;700&display=swap',
         },
+        {
+          rel: 'stylesheet',
+          href: '/css/bootstrap.min.css', // Path สำหรับ Bootstrap
+        },
+        {
+          rel: 'stylesheet',
+          href: '/css/style.css', // Path สำหรับ Main Style CSS
+        },
+        {
+          rel: 'stylesheet',
+          href: '/css/vendors.min.css', // Path สำหรับ Vendors CSS
+        },
+        {
+          rel: 'stylesheet',
+          href: '/css/custom.css', // Path สำหรับ Custom CSS
+        },
+        // หากใช้ Daterangepicker v2 CSS
+        // {
+        //   rel: 'stylesheet',
+        //   href: '/assets/css/daterangepicker_v2.css',
+        // },
       ],
+    },
+  },
+  css: [
+    // '@/assets/css/bootstrap.min.css', // Bootstrap Minified CSS
+    // '@/assets/css/style.css', // Main Style CSS
+    // '@/assets/css/vendors.min.css', // Vendors Minified CSS
+    // '@/assets/css/custom.css', // Custom CSS
+    // '@/assets/css/daterangepicker_v2.css', // Daterangepicker v2 CSS
+  ],
+  modules: ['@pinia/nuxt'], // Pinia
+  postcss: {
+    plugins: {
+      tailwindcss: {}, // ตรวจสอบว่า TailwindCSS ถูกโหลด
+      autoprefixer: {}, // ใช้ Autoprefixer สำหรับเบราว์เซอร์
     },
   },
   hooks: {

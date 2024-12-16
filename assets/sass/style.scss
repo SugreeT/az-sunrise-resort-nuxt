@@ -185,11 +185,11 @@ html * {
 }
 
 body {
-    background: $body-color;
+    background: $body-color !important;
     @include fontSize(15px);
-    line-height: 1.6;
-    font-family: $font-main;
-    color: $body-text-color;
+    line-height: 1.6 !important;
+    font-family: $font-main !important;
+    color: $body-text-color !important;
 }
 
 main {

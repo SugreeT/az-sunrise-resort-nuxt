@@ -1,0 +1,204 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+#top_line {
+    color: #fff;
+    height: 28px;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 11px;
+    visibility: visible;
+    opacity: 1;
+    margin-bottom: 5px;
+    position: relative;
+    z-index: 999999;
+}
+
+
+ul#top_links{
+	list-style:none;
+	margin:0;
+	padding:0;
+	float:right;
+}
+a#access_link, a#wishlist_link{
+	position:relative;
+	display:inline-block;
+	padding-left:20px;
+	line-height: 20px;
+}
+#access_link:before, #wishlist_link:before{
+	font-style: normal;
+ 	font-weight: normal;
+ 	font-family: "fontello";
+    font-size:15px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+
+#wishlist_link:before{content: '\ee7a';}
+#access_link:before{content: '\e9d1';}
+
+ul#top_links li{
+	display:inline-block;
+	border-left: 1px solid rgba(255,255,255,0.3);
+	margin-right:5px;
+	padding-left:8px;
+	position:relative;
+	font-weight: 600;
+}
+ul#top_links li:first-child{
+	border-left: none;
+	padding-left:0;
+}
+ul#top_links a{
+	color:#fff;
+}
+
+
+/* header.fixed_header nav ul li  {
+    background-color: #fff;
+  } */
+header.fixed_header.sticky .styled-select.lang-selector{
+    /* background-color: #333; */
+    color: #333 !important;
+    /* font-weight: bold; */
+    font-size: 0.9375rem;
+}
+
+header.fixed_header.sticky .styled-select select{
+    /* background-color: #333; */
+    color: #333 !important;
+    /* font-weight: bold; */
+    font-size: 0.9375rem;
+}
+header.fixed_header .styled-select.lang-selector select option[selected] {
+    color: #fff;
+    font-size: 0.9375rem;
+    /* font-weight: bold; */
+}
+
+header.fixed_header.sticky .styled-select.lang-selector select option {
+    color: #333;
+    font-size: 0.9375rem;
+    /* font-weight: bold; */
+}
+header.fixed_header.sticky .styled-select.lang-selector:after {
+  font-family: "bootstrap-icons";
+  content: "\F3EE";
+  color: #333;
+  position: absolute;
+  /* font-weight: bold; */
+  font-size: 0.9375rem;
+  right: 15px;
+  top: 3px;
+}
+
+
+
+/* สไตล์พื้นฐาน */
+header.fixed_header .lang_top {
+    color: #fff; /* สีข้อความ */
+    font-size: 0.9375rem;
+    cursor: pointer; /* เคอร์เซอร์เปลี่ยนเป็น pointer */
+    transition: color 0.3s ease; 
+}
+
+header.fixed_header .lang_top .bi-globe {
+    color: #fff; /* สีไอคอน */
+    cursor: pointer; /* เคอร์เซอร์เปลี่ยนเป็น pointer */
+    transition: color 0.3s ease; 
+}
+
+
+/* สำหรับโหมดมือถือ */
+@media (max-width: 768px) {
+    header.fixed_header .lang_top {
+        color: #333;
+        font-size: 0.9375rem;
+        cursor: pointer; /* เคอร์เซอร์เปลี่ยนเป็น pointer */
+        transition: color 0.3s ease; 
+        text-align: right; /* จัดข้อความชิดขวา */
+    }
+
+    header.fixed_header .lang_top .bi-globe {
+        color: #333; /* สีไอคอน */
+        cursor: pointer; /* เคอร์เซอร์เปลี่ยนเป็น pointer */
+        transition: color 0.3s ease; 
+        text-align: right; /* จัดข้อความชิดขวา */
+    }
+    
+}
+
+/* เมื่อเป็น sticky */
+header.fixed_header.sticky .lang_top {
+    color: #333; /* สีข้อความ */
+    transition: color 0.3s ease; 
+}
+
+header.fixed_header.sticky .lang_top .bi-globe {
+    color: #333; /* สีไอคอน */
+    transition: color 0.3s ease; 
+}
+
+
+/* เมื่อเมาส์วาง (hover) เฉพาะ span */
+header.fixed_header .lang_top .lang:hover {
+    color: #978667; /* เปลี่ยนเป็นสี #978667 เมื่อ hover */
+    transition: color 0.3s ease; 
+}
+
+
+/* เมื่อคลิก (active) เฉพาะ span */
+header.fixed_header .lang_top .lang.active {
+    color: #978667; /* เปลี่ยนเป็นสี #978667 ถาวรเมื่อ active */
+    font-weight: bold; /* เน้นข้อความ (ถ้าต้องการ) */
+    transition: color 0.3s ease; 
+}
+
+ /* ตั้งค่าพื้นฐาน */
+ .box_facilities {
+    text-align: center;
+    transition: transform 0.3s ease-in-out; /* เพิ่ม transition สำหรับการขยาย */
+}
+
+.box_facilities i {
+    font-size: 40px; /* ขนาดไอคอนเริ่มต้น */
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out; /* เพิ่ม transition สำหรับไอคอน */
+    display: block;
+    margin-bottom: 10px;
+}
+
+.box_facilities h3 {
+    color: #333;
+    transition: color 0.3s ease-in-out; /* เพิ่ม transition สำหรับข้อความ */
+    font-size: 16px;
+}
+
+/* เมื่อ hover */
+.box_facilities:hover {
+    transform: scale(1.05); /* ขยายขนาดกล่องเล็กน้อย */
+}
+
+.box_facilities:hover i {
+    transform: scale(1.2); /* ขยายขนาดไอคอน */
+    /* color: #ff6f61; เปลี่ยนสีไอคอน */
+
+}
+
+.box_facilities:hover h3 {
+    color: #ff6f61; /* เปลี่ยนสีข้อความ */
+    text-decoration: underline;
+}
+
+/* สำหรับ active */
+.box_facilities.active i {
+    /* color: #ff6f61; สีไอคอนในสถานะ active */
+}
+
+.box_facilities.active h3 {
+    color: #ff6f61; /* สีข้อความในสถานะ active */
+    text-decoration: underline;
+}
+
