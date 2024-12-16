@@ -18,6 +18,8 @@ export default defineNuxtConfig({
     },
   },
   app: {
+    baseURL: '/', // หรือ '/subfolder/' หากใช้ Subdirectory
+    buildAssetsDir: '/_nuxt/', // Path สำหรับ Static Assets
     head: {
       link: [
         {
@@ -52,6 +54,11 @@ export default defineNuxtConfig({
         path: '/menu-of-the-day',
         file: '~/pages/menu-of-the-day.vue',
         meta: { layout: 'default-blank' }, // กำหนด layout ที่นี่
+      },{
+        name: 'coming-soon',
+        path: '/coming-soon',
+        file: '~/pages/coming-soon.vue',
+        meta: { layout: 'default-commingsoon' }, // กำหนด layout ที่นี่
       })
 
       // remove routes
