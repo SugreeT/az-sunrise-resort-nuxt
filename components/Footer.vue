@@ -1,5 +1,10 @@
 <template>
-  <!-- <footer class="bg-gray-800 text-white p-4 text-center">
-    &copy; 2024 My Hotel. All rights reserved.
-  </footer> -->
+       <footer class="revealed">
+        <div class="copy">
+            <div class="container">
+                © A.Z. SUNRISE PHUKET - by <a href="javascript:void(0);">K&P</a>
+            </div>
+        </div>
+       </footer>
+ 
 </template>

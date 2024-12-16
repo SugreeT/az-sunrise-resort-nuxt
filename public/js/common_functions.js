@@ -57,11 +57,13 @@
 		});
 	});
 
-	// Pinned content
+	setTimeout(() => {
+		// Pinned content
 	const pinnedImages = document.querySelectorAll('.pinned-image');
 	pinnedImages.forEach(pinnedImage => {
+		console.log('pinnedImages >> '+ pinnedImages)
 	    const container = pinnedImage.querySelector('.pinned-image__container');
-	    const image = container.querySelector('img');
+	    // const image = container.querySelector('img');
 	    const overlay = container.querySelector('.pinned-image__container-overlay');
 	    const content = pinnedImage.querySelector('.pinned_over_content');
 	    const tl = gsap.timeline({paused: true});
@@ -83,6 +85,8 @@
 	        scrub: false,
 	    });
 	});
+	}, 1000);
+	
 
 	// Video Play on scroll
 	var $win = $(window);
@@ -94,6 +98,11 @@
       elementBottom = elementTop + $(elem).outerHeight();
       viewportTop = $win.scrollTop();
       viewportBottom = viewportTop + $win.height();
+	//   console.log((viewportTop))
+	//   console.log((elementBottom))
+	//   console.log((elementBottom > viewportTop))
+	//   console.log((elementTop < viewportBottom))
+	//   console.log((elementBottom > viewportTop && elementTop < viewportBottom))
       return (elementBottom > viewportTop && elementTop < viewportBottom);
     }
     
@@ -321,12 +330,14 @@
 	progressPath.getBoundingClientRect();
 	progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
 	var updateProgress = function() {
-	    var scroll = $(window).scrollTop();
-	    var height = $(document).height() - $(window).height();
-	    var progress = pathLength - (scroll * pathLength / height);
-	    progressPath.style.strokeDashoffset = progress;
+		var scroll = $(window).scrollTop();
+		var height = $(document).height() - $(window).height();
+		var progress = pathLength - (scroll * pathLength / height);
+		progressPath.style.strokeDashoffset = progress;
 	}
 	updateProgress();
+
+	
 	$(window).scroll(updateProgress);
 	var offset = 50;
 	var duration = 550;
@@ -345,25 +356,117 @@
 
 
 	document.addEventListener('DOMContentLoaded', function () {
-		const mainMenu = document.getElementById('main-menu');
-		const roomsSubMenu = document.getElementById('rooms-submenu');
-		const roomsMenuButton = document.getElementById('rooms-menu');
-		const backButton = document.getElementById('back-to-main');
-	
-		// เปิดเมนูย่อย
-		roomsMenuButton.addEventListener('click', function (e) {
-			e.preventDefault();
-			mainMenu.classList.add('shidden');
-			roomsSubMenu.classList.remove('shidden');
-		});
-	
-		// ย้อนกลับไปเมนูหลัก
-		backButton.addEventListener('click', function () {
-			roomsSubMenu.classList.add('shidden');
-			mainMenu.classList.remove('shidden');
+		function updatePinnedImageClass() {
+
+			const container = document.getElementById('image-container');
+			if (!container) {
+			//   console.warn('Element with id "image-container" not found!');
+			  return;
+			}
+		  
+			if (window.innerWidth < 992) {
+			  container.classList.remove('pinned-image--medium');
+			  container.classList.add('pinned-image--small');
+			} else {
+			  container.classList.remove('pinned-image--small');
+			  container.classList.add('pinned-image--medium');
+			}
+		  }
+		  
+		  // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บ
+		  updatePinnedImageClass();
+		  
+		  // อัปเดตคลาสเมื่อเปลี่ยนขนาดหน้าจอ
+		  window.addEventListener('resize', updatePinnedImageClass);
+	});
+
+
+	// เลือกทุก <span> ที่มี class .lang
+	const langSpans = document.querySelectorAll('.lang_top .lang');
+
+	// เพิ่ม event listener ให้กับแต่ละ <span>
+	langSpans.forEach(span => {
+		span.addEventListener('click', () => {
+			// ลบ class active ออกจาก span อื่น ๆ
+			langSpans.forEach(s => s.classList.remove('active'));
+			
+			// เพิ่ม class active ให้กับ span ที่ถูกคลิก
+			span.classList.add('active');
 		});
 	});
+
+	const facilities = document.querySelectorAll('.box_facilities');
+	const carouselLinks = document.querySelectorAll('.content-section .owl-carousel .item a');
+	const sections = document.querySelectorAll('.content-section');
+
+	// ฟังก์ชันสำหรับอัปเดตลิงก์ใน carousel
+	function updateCarouselLinks(link) {
+		carouselLinks.forEach(carouselLink => {
+			carouselLink.setAttribute('href', link);
+		});
+	}
 	
+	// ตั้งค่า default link และ active state
+	const defaultFacility = document.querySelector('.box_facilities[data-link="restaurant"]');
+	if (defaultFacility) {
+		defaultFacility.classList.add('active'); // เพิ่มสถานะ active ให้กับ Restaurant
+		const defaultLink = defaultFacility.getAttribute('data-link');
+		updateCarouselLinks(defaultLink); // ตั้งค่าเริ่มต้นของ carousel links
+	}
+
+	// ฟังก์ชันสำหรับซ่อนทุก Section
+	function hideAllSections() {
+		sections.forEach(section => {
+			section.style.display = 'none';
+		});
+	}
+
+	// ตั้งค่าเริ่มต้น (แสดง Restaurant)
+	const defaultSection = document.getElementById('restaurant');
+	if (defaultSection) {
+		defaultSection.style.display = 'block';
+	}
+
+
+	
+	// เพิ่ม event listener ให้กับทุกไอคอน
+	facilities.forEach(facility => {
+		facility.addEventListener('mouseover', () => {
+			facility.querySelector('h3').style.color = '#ff6f61'; // Highlight เมื่อ hover
+		});
+	
+		facility.addEventListener('mouseout', () => {
+			facility.querySelector('h3').style.color = ''; // Reset สีเมื่อออก
+		});
+	
+		facility.addEventListener('click', () => {
+			// ลบ class active จากทุกองค์ประกอบ
+			facilities.forEach(f => f.classList.remove('active'));
+	
+			// เพิ่ม class active ให้กับองค์ประกอบที่ถูกคลิก
+			facility.classList.add('active');
+	
+			// ดึงลิงก์จาก data-link ขององค์ประกอบที่ถูกคลิก
+			const link = facility.getAttribute('data-link');
+	
+			// อัปเดตลิงก์ของ carousel
+			updateCarouselLinks(link);
+
+			// ซ่อนทุก Section
+			hideAllSections();
+
+			// ดึง ID จาก data-link และแสดง Section ที่ตรงกัน
+			const sectionId = facility.getAttribute('data-link').split('.')[0]; // เช่น "restaurant"
+			const sectionToShow = document.getElementById(sectionId);
+			if (sectionToShow) {
+				sectionToShow.style.display = 'block';
+			}
+
+			// ตั้งค่า active class
+			facilities.forEach(f => f.classList.remove('active'));
+			facility.classList.add('active');
+		});
+	});
 
 })(jQuery);
 

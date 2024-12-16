@@ -22,11 +22,11 @@ try {
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients - main edits
-    $mail->setFrom('info@Paradise.com', 'Message from Paradise Hotel');             // Email Address and Name FROM
+    $mail->setFrom('info@Paradise.com', 'Message from A.Z. Sunrise Resort');             // Email Address and Name FROM
     $mail->addAddress('info@Paradise.com', 'Jhon Doe');                            // Email Address and Name TO - Name is optional
-    $mail->addReplyTo('noreply@Paradise.com', 'Message from Paradise Hotel');       // Email Address and Name NOREPLY
+    $mail->addReplyTo('noreply@Paradise.com', 'Message from A.Z. Sunrise Resort');       // Email Address and Name NOREPLY
     $mail->isHTML(true);                                                       
-    $mail->Subject = 'Message from Paradise Hotel';                                // Email Subject   
+    $mail->Subject = 'Message from A.Z. Sunrise Resort';                                // Email Subject   
 
      // Email verification, do not edit
     function isEmail($email_newsletter ) {

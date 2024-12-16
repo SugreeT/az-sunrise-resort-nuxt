@@ -1,3 +1,6 @@
+
+// import '@/assets/css/daterangepicker_v2.css';
+
 $(function() {
       "use strict";
 
@@ -37,12 +40,13 @@ $(function() {
         return new DateTime(d, 'YYYY-MM-DD');
       });
 
+      
       /* Configuration picker */
       const picker = new easepick.create({
         element: document.getElementById('date_booking'),
-        css: [
-          // '/css/daterangepicker_v2.css',
-        ],
+        // css: [
+        //   '@/assets/css/daterangepicker_v2.css',
+        // ],
         lang: 'fr-FR', // Language tags https://www.techonthenet.com/js/language_tags.php
         format: "DD/MM/YYYY",
         calendars: 2,
