@@ -2,7 +2,7 @@
        <footer class="revealed">
         <div class="copy">
             <div class="container">
-                © A.Z. SUNRISE PHUKET - by <a href="javascript:void(0);">K&P V.1.0.1</a>
+                © A.Z. SUNRISE PHUKET - by <a href="javascript:void(0);">K&P V.1.0.2</a>
             </div>
         </div>
        </footer>
