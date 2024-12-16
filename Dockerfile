@@ -1,23 +1,21 @@
-# Base image
 FROM node:18-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
+# คัดลอก package.json และไฟล์ที่เกี่ยวข้องกับ dependencies
 COPY package*.json ./
 
-# Install dependencies
+# ติดตั้ง dependencies
 RUN npm install
 
-# Copy application source code
+# คัดลอกโค้ดทั้งหมด
 COPY . .
 
-# Build the application for production
+# สร้าง production build
 RUN npm run build
 
-# Expose the port Nuxt.js will run on
+# เปิดพอร์ต 3000 สำหรับ Nuxt.js
 EXPOSE 3000
 
-# Start the Nuxt.js application
+# รันโปรเจคในโหมด production
 CMD ["npm", "run", "start"]
