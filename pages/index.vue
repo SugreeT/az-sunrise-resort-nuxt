@@ -60,7 +60,7 @@
                             <p data-cue="slideInUp">Whether you're visiting for business or leisure, our spacious rooms, exquisite dining options, and modern facilities ensure your stay is nothing short of perfect. Explore nearby attractions or relax in our spa and wellness center, designed to rejuvenate your body and soul. </p>
                             <p data-cue="slideInUp"><em>Let us make your stay extraordinary.</em></p> -->
                             <p class="lead" data-cue="slideInUp">{{ $t('welcome-message', { name: 'vue-i18n' }) }}</p>
-                            <p data-cue="slideInUp">{{ $t('details-message', { name: 'vue-i18n' }) }}</p>
+                            <!-- <p data-cue="slideInUp">{{ $t('details-message', { name: 'vue-i18n' }) }}</p> -->
                             <p data-cue="slideInUp"><em>{{ $t('extraordinary-message', { name: 'vue-i18n' }) }}</em></p>
                         </div>
                     </div>
@@ -309,7 +309,7 @@
                             <li>
                                 <i class="bi bi-telephone"></i>
                                 <h4>Telephone</h4>
-                                <div>+ 61 (2) 8093 3402 + 61 (2) 8093 3402<br><small>Monday to Friday 9am - 7pm</small></div>
+                                <div>076643222 <br><small>Monday to Friday 9am - 7pm</small></div>
                             </li>
                         </ul>
                     </div>
@@ -320,7 +320,7 @@
                             <li>
                                 <i class="bi bi-envelope-paper"></i>
                                 <h4>Email address</h4>
-                                <p><a href="#0">booking@azsunriseresort.com</a> - <a href="#0">info@azsunriseresort.com</a></p>
+                                <p><a href="#0">rsvn@azsunriseresort.com<br><small>&nbsp;</small></a></p>
                             </li>
                         </ul>
                     </div>

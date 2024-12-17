@@ -90,7 +90,7 @@
                         <a href="tel://423424234">
                             <i class="bi bi-telephone"></i>
                             <span>
-                                <em>Reservations</em> + 61 (2) 8093 3402 + 61 (2) 8093 3402
+                                <em>Reservations</em> 076643222 
                             </span>
                         </a>
                     </p>
@@ -158,7 +158,7 @@
                         <li>
                             <i class="bi bi-telephone"></i>
                             <h4>Telephone</h4>
-                            <div>+ 61 (2) 8093 3402 + 61 (2) 8093 3402<br><small>Monday to Friday 9am - 7pm</small></div>
+                            <div>076643222 <br><small>Monday to Friday 9am - 7pm</small></div>
                         </li>
                     </ul>
                 </div>
@@ -169,7 +169,7 @@
                         <li>
                             <i class="bi bi-envelope-paper"></i>
                             <h4>Email address</h4>
-                            <p><a href="#0">booking@azsunriseresort.com</a> - <a href="#0">info@azsunriseresort.com</a></p>
+                            <p><a href="#0">rsvn@azsunriseresort.com<br><small>&nbsp;</small></a></p>
                         </li>
                     </ul>
                 </div>

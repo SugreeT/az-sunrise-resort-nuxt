@@ -72,15 +72,16 @@ export default defineNuxtConfig({
   },
   hooks: {
     'pages:extend' (pages) {
-      // add a route
       pages.push({
         name: 'home',
         path: '/',
-        file: '~/pages/index.vue'
+        file: '~/pages/index.vue',
+        meta: { layout: 'default' }, // กำหนด layout ที่นี่
       },{
         name: 'index',
         path: '/index',
-        file: '~/pages/index.vue'
+        file: '~/pages/index.vue',
+        meta: { layout: 'default' }, // กำหนด layout ที่นี่
       },{
         name: 'menu-of-the-day',
         path: '/menu-of-the-day',
