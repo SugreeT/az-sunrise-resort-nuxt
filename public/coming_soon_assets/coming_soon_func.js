@@ -2,7 +2,7 @@
 
 	"use strict";
 	setInterval(function() {
-		var target = new Date("January 31 2025 08:00:00 GMT+0700"); //replace with YOUR DATE
+		var target = new Date("April 6 2025 08:00:00 GMT+0700"); //replace with YOUR DATE
 		var now = new Date();
 		var difference = Math.floor((target.getTime() - now.getTime()) / 1000);
 

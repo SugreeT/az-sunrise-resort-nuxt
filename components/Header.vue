@@ -23,7 +23,7 @@
                         <nav id="mainNav">
                             <ul>
                                  <li>
-                                    <a href="index" class="link">Home</a>
+                                    <a href="index" class="link">{{ $t('menu.home', { name: 'vue-i18n' }) }}</a>
                                 </li>
                                 <!-- <li class="submenu">
                                      <a href="#0" class="show-submenu">Rooms</a>
@@ -34,8 +34,8 @@
                                         <li><a href="room-details.html">Room details</a></li>
                                     </ul>
                                 </li> -->
-                                <li><a href="rooms">Rooms</a></li>
-                                <li><a href="restaurant">Restaurant</a></li>
+                                <li><a href="rooms">{{ $t('menu.rooms', { name: 'vue-i18n' }) }}</a></li>
+                                <li><a href="restaurant">{{ $t('menu.restaurant', { name: 'vue-i18n' }) }}</a></li>
                                 <!-- <li class="submenu">
                                     <a href="#0" class="show-submenu">Other Pages</a>
                                     <ul>
@@ -52,9 +52,9 @@
                                   
                                     </ul>
                                 </li> -->
-                                <li><a href="about">About</a></li>
-                                <li><a href="contact">Contact</a></li>
-                                <li><a href="#booking_section" class="btn_1">Book Now</a></li>
+                                <li><a href="about">{{ $t('menu.about', { name: 'vue-i18n' }) }}</a></li>
+                                <li><a href="contact">{{ $t('menu.contact', { name: 'vue-i18n' }) }}</a></li>
+                                <li><a href="#booking_section" class="btn_1">{{ $t('menu.bookNow', { name: 'vue-i18n' }) }}</a></li>
                            
                                 <li class="lang_top">
                                     <i class="bi bi-globe"></i>

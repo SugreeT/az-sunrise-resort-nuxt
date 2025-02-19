@@ -81,46 +81,46 @@
             <div class="container main-index">
 
                 <div class="title text-center mb-1">
-                    <h2 data-cue="slideInUp" data-delay="100">Service Items</h2>
+                    <h2 data-cue="slideInUp" data-delay="100">{{ $t('serviceItems.title', { name: 'vue-i18n' }) }}</h2>
                 </div>
     
                 <div class="row justify-content-center mt-1">
                     <div class="col-xl-2 col-lg-6 col-md-6 col-6">
                         <div class="box_facilities no-border active" data-cue="slideInUp" style="cursor: pointer;" data-link="restaurant">
                             <i class="icon-hotel-restaurant" data-cues="zoomOut"></i>
-                            <h3 >Bar & Restaurant</h3>
+                            <h3 >{{ $t('serviceItems.barAndRestaurant', { name: 'vue-i18n' }) }}</h3>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-6 col-md-6 col-6" >
                         <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer;" data-link="fitness">
                             <i class="customicon-gym"></i>
-                            <h3>Fitness Club</h3>
+                            <h3>{{ $t('serviceItems.fitnessClub', { name: 'vue-i18n' }) }}</h3>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-6 col-md-6 col-6">
                         <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer;" data-link="tour">
                             <i class="icon-spa-airplane"></i>
-                            <h3>Tour</h3>
+                            <h3>{{ $t('serviceItems.tour', { name: 'vue-i18n' }) }}</h3>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-6 col-md-6 col-6">
                         <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer;" data-link="transportation">
                             <i class="icon-spa-bus"></i>
-                            <h3>Transportation</h3>
+                            <h3>{{ $t('serviceItems.transportation', { name: 'vue-i18n' }) }}</h3>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-6 col-md-6 col-6">
                         <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer;" data-link="diving">
                             <i > <img src="~assets/img/icon/driving2.png" alt="Diving Icon" style="width: 80px; height: 40px;"></i>
                            
-                            <h3>Diving</h3>
+                            <h3>{{ $t('serviceItems.diving', { name: 'vue-i18n' }) }}</h3>
                         </div>
                     </div>
                     <div class="col-xl-2 col-lg-6 col-md-6 col-6">
                         <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer;" data-link="spa">
                             <!-- <i class="icon-spa-oil"></i> -->
                             <i > <img src="~assets/img/icon/spa2.png" alt="Diving Icon" style="width: 60px; height: 40px;"></i>
-                            <h3>Spa</h3>
+                            <h3>{{ $t('serviceItems.spa', { name: 'vue-i18n' }) }}</h3>
                         </div>
                     </div>
                 </div>
