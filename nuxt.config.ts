@@ -92,6 +92,11 @@ export default defineNuxtConfig({
         path: '/coming-soon',
         file: '~/pages/coming-soon.vue',
         meta: { layout: 'default-commingsoon' }, // กำหนด layout ที่นี่
+      },
+      {
+        name: 'custom-404',
+        path: '/:pathMatch(.*)*',
+        file: '~/pages/404.vue'  // ไฟล์ปลายทางที่จะ handle redirect
       })
 
       // remove routes

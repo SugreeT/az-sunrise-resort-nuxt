@@ -1,61 +1,72 @@
 (function ($) {
 
-	"use strict";
 	
+	"use strict";
 	// Preload
 	$(window).on('load', function () { // makes sure the whole site is loaded
-		$('[data-loader="circle-side"]').fadeOut(); // will first fade out the loading animation
-		$('#preloader').addClass('loaded');
-		$('.animate_hero').addClass('is-transitioned');
+		setTimeout(() => {
+			$('[data-loader="circle-side"]').fadeOut(); // will first fade out the loading animation
+			$('#preloader').addClass('loaded');
+			$('.animate_hero').addClass('is-transitioned');
+			
+
+			//Header Reveal On Scroll
+			$("header.reveal_header").headroom({
+				"offset": 50,
+				"tolerance": 5,
+				"classes": {
+					"initial": "animated",
+					"pinned": "slideDown",
+					"unpinned": "slideUp"
+				}
+			});
+
+			// Opacity mask
+			$('.opacity-mask').each(function(){
+				$(this).css('background-color', $(this).attr('data-opacity-mask'));
+			});
+
+			// Data Background
+			$('.background-image').each(function(){
+				$(this).css('background-image', $(this).attr('data-background'));
+			});
+			
+
+			
+			// Sticky Header
+			$(window).on('scroll', function () {
+				if ($(this).scrollTop() > 1) {
+					$('.fixed_header').addClass("sticky");
+				} else {
+					$('.fixed_header').removeClass("sticky");
+				}
+			});
+			$(window).scroll();
+
+			// Scroll animation
+			scrollCue.init({
+				percentage : 0.85
+			});
+
+
+			// Button scroll to
+			$('a[href^="#"].btn_scrollto').on('click', function (e) {
+					e.preventDefault();
+					var target = this.hash;
+					var $target = $(target);
+					$('html, body').stop().animate({
+						'scrollTop': $target.offset().top -60
+					}, 300, 'swing', function () {
+						window.location.hash = target;
+				});
+			});
+
+			scrollCue.update();
+		}, 500);
 	})
 
-	//Header Reveal On Scroll
-	$("header.reveal_header").headroom({
-	    "offset": 50,
-	    "tolerance": 5,
-	    "classes": {
-	        "initial": "animated",
-	        "pinned": "slideDown",
-	        "unpinned": "slideUp"
-	    }
-	});
 
-	// Sticky Header
-	$(window).on('scroll', function () {
-		if ($(this).scrollTop() > 1) {
-			$('.fixed_header').addClass("sticky");
-		} else {
-			$('.fixed_header').removeClass("sticky");
-		}
-	});
-	$(window).scroll();
 
-	// Scroll animation
-	scrollCue.init({
-	    percentage : 0.85
-	});
-
-	// Opacity mask
-	$('.opacity-mask').each(function(){
-		$(this).css('background-color', $(this).attr('data-opacity-mask'));
-	});
-
-	// Data Background
-	$('.background-image').each(function(){
-		$(this).css('background-image', $(this).attr('data-background'));
-	});
-
-	// Button scroll to
-    $('a[href^="#"].btn_scrollto').on('click', function (e) {
-			e.preventDefault();
-			var target = this.hash;
-			var $target = $(target);
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top -60
-			}, 300, 'swing', function () {
-				window.location.hash = target;
-		});
-	});
 
 	setTimeout(() => {
 		// Pinned content
@@ -85,8 +96,7 @@
 	        scrub: false,
 	    });
 	});
-	}, 1000);
-	
+
 
 	// Video Play on scroll
 	var $win = $(window);
@@ -467,6 +477,10 @@
 			facility.classList.add('active');
 		});
 	});
+
+	}, 600);
+	
+
 
 })(jQuery);
 

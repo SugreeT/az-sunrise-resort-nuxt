@@ -21,8 +21,8 @@ useHead({
   script: [
     { src: '/js/common_scripts.js', type: 'text/javascript', defer: true  },
     { src: '/js/common_functions.js', type: 'text/javascript', defer: true  },
-    { src: '/js/datepicker_search.js', type: 'text/javascript', defer: true  },
-    { src: '/js/datepicker_inline.js', type: 'text/javascript', defer: true  },
+    // { src: '/js/datepicker_search.js', type: 'text/javascript', defer: true  },
+    // { src: '/js/datepicker_inline.js', type: 'text/javascript', defer: true  },
     { src: '/js/slider.js', type: 'text/javascript', defer: true  },
     { src: '/phpmailer/validate.js', type: 'text/javascript', defer: true  },
     {
@@ -50,6 +50,8 @@ export default {
     // กำหนดให้ active เฉพาะหลังจากหน้าโหลดเสร็จ
     this.isActive = true;
   },
+  methods: {
+  }
 };
 </script>
 

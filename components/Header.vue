@@ -84,9 +84,17 @@ import { useI18n } from 'vue-i18n';
 
 const { locale } = useI18n();
 
-// Function to change language
+// โหลด locale จาก localStorage เมื่อเข้า
+if (process.client) {
+  const storedLang = localStorage.getItem('lang')
+  if (storedLang && storedLang !== locale.value) {
+    locale.value = storedLang
+  }
+}
+
 function changeLanguage(lang) {
-  locale.value = lang; // เปลี่ยนภาษา
+  locale.value = lang
+  localStorage.setItem('lang', lang)
 }
 </script>
 

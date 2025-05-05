@@ -1,11 +1,11 @@
 <template>
     <main>
-      <div class="hero small-height jarallax" data-jarallax data-speed="0.2">
+      <div class="hero small-height jarallax" >
           <img class="jarallax-img" src="~assets/img/img_ex/hero_home_1.jpg" alt="">
           <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
               <div class="container">
-                  <small class="slide-animated one">Luxury Hotel Experience</small>
-                  <h1 class="slide-animated two">About A.Z. SUNRISE Resort</h1>
+                  <small class="slide-animated one">{{ $t('experience_title') }}</small>
+                  <h1 class="slide-animated two">A.Z. SUNRISE Resort</h1>
               </div>
           </div>
       </div>
@@ -23,7 +23,7 @@
                   <div class="intro">
                     <div class="title">
                         <!-- <small>About US</small> -->
-                        <h2 data-cue="slideInUp">About Us</h2>
+                        <h2 data-cue="slideInUp">{{ $t('about-us') }}</h2>
                     </div>
                     <p class="lead" data-cue="slideInUp">{{ $t('welcome-message', { name: 'vue-i18n' }) }}</p>
                             <!-- <p data-cue="slideInUp">{{ $t('details-message', { name: 'vue-i18n' }) }}</p> -->
@@ -37,69 +37,68 @@
 
       <div class="bg_white">
           <div class="container margin_120_95">
-              <div>
-                  <div class="row justify-content-between">
-                      <div class="col-lg-5 fixed_title">
-                          <div class="title">
-                              <small>A.Z. Sunrise Resort</small>
-                              <h2>Local attractions</h2>
-                              <p>Discover the charm of our surroundings! Whether you’re a nature enthusiast, a culture explorer, or a foodie at heart, there’s something for everyone just a short distance away. Dive into the beauty and excitement of these must-visit places and make the most of your stay.</p>
-                          </div>
-                          <div class="list_ok">
-                              <ul>
-                                <li data-cue="slideInUp" data-delay="200">
-                                    <h5>Big Buddha</h5>
-                                    <p>A symbol of peace and serenity, the Big Buddha offers breathtaking panoramic views of the island. This 45-meter tall statue is a must-visit for those seeking tranquility.</p>
-                                </li>
-                                <li data-cue="slideInUp" data-delay="300">
-                                    <h5>Old Phuket Town</h5>
-                                    <p>Wander through the vibrant streets filled with Sino-Portuguese architecture, colorful buildings, and charming cafes. Perfect for history buffs and Instagram enthusiasts.</p>
-                                </li>
-                                <li data-cue="slideInUp" data-delay="400">
-                                    <h5>Patong Beach</h5>
-                                    <p>Known for its lively atmosphere, Patong Beach offers a mix of stunning sunsets, water sports, and vibrant nightlife, making it perfect for all types of travelers.</p>
-                                </li>
-                                <li data-cue="slideInUp" data-delay="500">
-                                    <h5>Phang Nga Bay</h5>
-                                    <p>Famous for its limestone cliffs and emerald waters, Phang Nga Bay is a paradise for kayaking and exploring hidden lagoons and caves.</p>
-                                </li>
-                                <li data-cue="slideInUp" data-delay="600">
-                                    <h5>Wat Chalong</h5>
-                                    <p>The largest and most revered Buddhist temple in Phuket, Wat Chalong is a place to learn about local culture and pay respects.</p>
-                                </li>
-                                <li data-cue="slideInUp" data-delay="700">
-                                    <h5>Similan Islands</h5>
-                                    <p>Known for their crystal-clear waters, diverse marine life, and pristine beaches, the Similan Islands are a diver's paradise.</p>
-                                </li>
-                                <li data-cue="slideInUp" data-delay="800">
-                                    <h5>Promthep Cape</h5>
-                                    <p>Catch the most stunning sunset in Phuket at Promthep Cape, a viewpoint offering unparalleled natural beauty.</p>
-                                </li>
-                                <li data-cue="slideInUp" data-delay="900">
-                                    <h5>Phi Phi Islands</h5>
-                                    <p>World-renowned for their stunning landscapes and crystal-clear waters, the Phi Phi Islands are ideal for snorkeling, diving, and relaxation.</p>
-                                </li>
+                  <div class="row justify-content-between" v-if="isMounted">
+                    <div class="col-lg-5 fixed_title">
+                        <div class="title">
+                            <small>{{ $t('section.hotel') }}</small>
+                            <h2>{{ $t('attractions.title') }}</h2>
+                            <p>{{ $t('attractions.intro') }}</p>
+                        </div>
 
-                              </ul>
-                          </div>
-                      </div>
+                        <div class="list_ok">
+                            <ul>
+                            <li data-cue="slideInUp" >
+                                <h5>{{ $t('attractions.bigBuddha.title') }}</h5>
+                                <p>{{ $t('attractions.bigBuddha.desc') }}</p>
+                            </li>
+                            <li data-cue="slideInUp" >
+                                <h5>{{ $t('attractions.oldPhuket.title') }}</h5>
+                                <p>{{ $t('attractions.oldPhuket.desc') }}</p>
+                            </li>
+                            <li data-cue="slideInUp" >
+                                <h5>{{ $t('attractions.patong.title') }}</h5>
+                                <p>{{ $t('attractions.patong.desc') }}</p>
+                            </li>
+                            <li data-cue="slideInUp" >
+                                <h5>{{ $t('attractions.phangnga.title') }}</h5>
+                                <p>{{ $t('attractions.phangnga.desc') }}</p>
+                            </li>
+                            <li data-cue="slideInUp" >
+                                <h5>{{ $t('attractions.chalong.title') }}</h5>
+                                <p>{{ $t('attractions.chalong.desc') }}</p>
+                            </li>
+                            <li data-cue="slideInUp" >
+                                <h5>{{ $t('attractions.similan.title') }}</h5>
+                                <p>{{ $t('attractions.similan.desc') }}</p>
+                            </li>
+                            <li data-cue="slideInUp" >
+                                <h5>{{ $t('attractions.promthep.title') }}</h5>
+                                <p>{{ $t('attractions.promthep.desc') }}</p>
+                            </li>
+                            <li data-cue="slideInUp">
+                                <h5>{{ $t('attractions.phiphi.title') }}</h5>
+                                <p>{{ $t('attractions.phiphi.desc') }}</p>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+
                       <div class="col-lg-6 ">
-                          <div data-cue="fadeIn" data-delay="500">
+                          <div data-cue="fadeIn" >
                               <figure><img src="~assets/img/local_amenities_1.jpg" alt="" class="img-fluid rounded-img"></figure>
                           </div>
-                          <div data-cue="fadeIn" data-delay="500">
+                          <div data-cue="fadeIn" >
                               <figure>
                                   <img src="~assets/img/local_amenities_2.jpg" alt="" class="img-fluid rounded-img">
                               </figure>
                           </div>
-                          <div data-cue="fadeIn" data-delay="500">
+                          <div data-cue="fadeIn" >
                               <figure>
                                   <img src="~assets/img/local_amenities_3.jpg" alt="" class="img-fluid rounded-img">
                               </figure>
                           </div>
                       </div>
                   </div>
-              </div>
               <hr class="more_margin">
           </div>
           <!-- /container-->
@@ -164,35 +163,35 @@
       <div class="container ">
           <div class="title text-center mb-5">
               <small data-cue="slideInUp">A.Z. Sunrise Resort</small>
-              <h2 data-cue="slideInUp" data-delay="100">Main Facilities</h2>
+              <h2 data-cue="slideInUp" data-delay="100">{{ $t('facilities.title') }}</h2>
           </div>
           <div class="row mt-4">
               <div class="col-lg-3 col-md-6">
                   <div class="box_facilities no-border" data-cue="slideInUp">
                       <i class="customicon-private-parking"></i>
-                      <h3>Private Parking</h3>
-                      <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.</p>
+                      <h3>{{ $t('facilities.privateParking') }}</h3>
+                      <p>{{ $t('facilities.parking.desc') }}</p>
                   </div>
               </div>
               <div class="col-lg-3 col-md-6">
                   <div class="box_facilities" data-cue="slideInUp">
                       <i class="customicon-wifi"></i>
-                      <h3>High Speed Wifi</h3>
-                      <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.</p>
+                      <h3>{{ $t('facilities.highSpeedWifi') }}</h3>
+                      <p>{{ $t('facilities.wifi.desc') }}</p>
                   </div>
               </div>
               <div class="col-lg-3 col-md-6">
                   <div class="box_facilities" data-cue="slideInUp">
                       <i class="customicon-cocktail"></i>
-                      <h3>Bar & Restaurant</h3>
-                      <p>Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.</p>
+                      <h3>{{ $t('facilities.barAndRestaurant') }}</h3>
+                      <p>{{ $t('facilities.bar.desc') }}</p>
                   </div>
               </div>
               <div class="col-lg-3 col-md-6">
                   <div class="box_facilities" data-cue="slideInUp">
                       <i class="customicon-swimming-pool"></i>
-                      <h3>Swimming Pool</h3>
-                      <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus.</p>
+                      <h3>{{ $t('facilities.swimmingPool') }}</h3>
+                      <p>{{ $t('facilities.pool.desc') }}</p>
                   </div>
               </div>
           </div>
@@ -202,11 +201,10 @@
               <div class="col-lg-4">
                   <div class="title">
                       <small>A.Z. Sunrise Resort Faq</small>
-                      <h3>Frequently Questions</h3>
+                      <h3>{{ $t('faq.title') }}</h3>
                   </div>
-                  <p>Can’t find your question in the list?
-                      Let us know your questions.</p>
-                  <p><a href="contact" class="animated_link"><strong>Contact Us <i class="bi bi-arrow-right"></i></strong></a></p>
+                  <p>{{ $t('faq.sub') }}</p>
+                  <p><a href="contact" class="animated_link"><strong>{{ $t('faq.contact') }}<i class="bi bi-arrow-right"></i></strong></a></p>
               </div>
               <div class="col-lg-7">
                   <div role="tablist" class="mb-5 accordion" id="faq">
@@ -214,7 +212,7 @@
                           <div class="card-header" role="tab">
                               <h5 class="mb-0">
                                   <a class="collapsed" data-bs-toggle="collapse" href="#collapseOne_product" aria-expanded="false">
-                                      <i class="indicator bi-plus-lg"></i>Cancellation
+                                      <i class="indicator bi-plus-lg"></i>{{ $t('faq.cat.cancellation') }}
                                   </a>
                               </h5>
                           </div>
@@ -230,7 +228,7 @@
                           <div class="card-header" role="tab">
                               <h5 class="mb-0">
                                   <a class="collapsed" data-bs-toggle="collapse" href="#collapseTwo_product" aria-expanded="false">
-                                      <i class="indicator bi-plus-lg"></i>Payments
+                                      <i class="indicator bi-plus-lg"></i>{{ $t('faq.cat.payments') }}
                                   </a>
                               </h5>
                           </div>
@@ -246,7 +244,7 @@
                           <div class="card-header" role="tab">
                               <h5 class="mb-0">
                                   <a class="collapsed" data-bs-toggle="collapse" href="#collapseThree_product" aria-expanded="false">
-                                      <i class="indicator bi-plus-lg"></i>Check In / Out Rules
+                                      <i class="indicator bi-plus-lg"></i>{{ $t('faq.cat.checkin') }}
                                   </a>
                               </h5>
                           </div>
@@ -262,7 +260,7 @@
                           <div class="card-header" role="tab">
                               <h5 class="mb-0">
                                   <a class="collapsed" data-bs-toggle="collapse" href="#collapseFour_product" aria-expanded="false">
-                                      <i class="indicator bi-plus-lg"></i>Disable Access
+                                      <i class="indicator bi-plus-lg"></i>{{ $t('faq.cat.access') }}
                                   </a>
                               </h5>
                           </div>
@@ -282,46 +280,64 @@
       </div>
       <!-- /container -->
       <div class="container mt-4">
-        <div class="row justify-content-center" >
-            <div class="title mb-3 text-center">
-                <!-- <small data-cue="slideInUp">Contact Us</small> -->
-                <h2 data-cue="slideInUp" data-delay="200">Contact Us</h2>
-            </div>
-            <div class="col-xl-4 col-lg-4 order-lg-2">
-                <div class="contact_info" data-cue="slideInUp" data-delay="200">
-                    <ul class="clearfix">
-                        <li>
-                            <i class="bi bi-telephone"></i>
-                            <h4>Telephone</h4>
-                            <div>076643222 <br><small>Monday to Friday 9am - 7pm</small></div>
-                        </li>
-                    </ul>
+            <div class="row justify-content-center" >
+                <div class="title mb-3 text-center">
+                    <!-- <small data-cue="slideInUp">Contact Us</small> -->
+                    <h2 data-cue="slideInUp" data-delay="200">{{ $t('contact_title') }}</h2>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 order-lg-2">
-                <div class="contact_info" data-cue="slideInUp" data-delay="200">
-                    <ul class="clearfix">
-                        <li>
-                            <i class="bi bi-envelope-paper"></i>
-                            <h4>Email address</h4>
-                            <p><a href="#0">rsvn@azsunriseresort.com<br><small>&nbsp;</small></a></p>
-                        </li>
-                    </ul>
+                <div class="col-xl-4 col-lg-4 order-lg-2">
+                    <div class="contact_info" data-cue="slideInUp" data-delay="200">
+                        <ul class="clearfix">
+                            <li>
+                                <i class="bi bi-telephone"></i>
+                                <h4>{{ $t('contact_phone_title') }}</h4>
+                                <div>{{ $t('contact_phone_value') }} <br>
+                                <small>{{ $t('contact_phone_note') }}</small></div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 order-lg-2">
-                <div class="contact_info" data-cue="slideInUp" data-delay="200">
-                    <ul class="clearfix">
-                        <li>
-                            <i class="bi bi-geo-alt"></i>
-                            <h4>Address</h4>
-                            <div>18 Moo 6 Cherngtalay, Thalang, Phuket 83110</div>
-                        </li>
-                    </ul>
+                <div class="col-xl-4 col-lg-4 order-lg-2">
+                    <div class="contact_info" data-cue="slideInUp" data-delay="200">
+                        <ul class="clearfix">
+                            <li>
+                                <i class="bi bi-envelope-paper"></i>
+                                <h4>{{ $t('contact_email_title') }}</h4>
+                                <p><a href="#0">rsvn@azsunriseresort.com<br><small>&nbsp;</small></a></p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <div class="col-xl-4 col-lg-4 order-lg-2">
+                    <div class="contact_info" data-cue="slideInUp" data-delay="200">
+                        <ul class="clearfix">
+                            <li>
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>{{ $t('contact_address_title') }}</h4>
+                                <div>{{ $t('contact_address_value') }}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+          
             </div>
-      
         </div>
-    </div>
   </main>
 </template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const isMounted = ref(false)
+
+onMounted(() => {
+  isMounted.value = true
+
+  // re-initialize cue-based animation if needed
+  if (window?.ScrollCue) {
+    window.ScrollCue.update()  // หรือ .init() แล้วแต่ lib
+  }
+})
+</script>
+
+

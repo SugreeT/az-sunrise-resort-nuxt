@@ -2,12 +2,12 @@
 
 <main>
 
-<div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
+<div class="hero medium-height jarallax">
     <img class="jarallax-img" src="~assets/img/img_ex/hero_home_2.jpg" alt="">
     <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
         <div class="container">
-            <small class="slide-animated one">Luxury Hotel Experience</small>
-            <h1 class="slide-animated two">Contact Us</h1>
+            <small class="slide-animated one">{{ $t('experience_title') }}</small>
+            <h1 class="slide-animated two">{{ $t('contact_title') }}</h1>
         </div>
     </div>
 </div>
@@ -20,37 +20,38 @@
                 <ul class="clearfix">
                     <li>
                         <i class="bi bi-geo-alt"></i>
-                        <h4>Address</h4>
-                        <div>18 Moo 6 Cherngtalay, Thalang, Phuket 83110</div>
+                        <h4>{{ $t('contact_address_title') }}</h4>
+                        <div>{{ $t('contact_address_value') }}</div>
                     </li>
                     <li>
                         <i class="bi bi-envelope-paper"></i>
-                        <h4>Email address</h4>
-                        <p><a href="#0">booking@Paradise.com</a> - <a href="#0">info@Paradise.com</a></p>
+                        <h4>{{ $t('contact_email_title') }}</h4>
+                        <p><a href="#0">rsvn@azsunriseresort.com<br><small>&nbsp;</small></a></p>
                     </li>
                     <li>
                         <i class="bi bi-telephone"></i>
-                        <h4>Telephone</h4>
-                        <div>076643222 <br><small>Monday to Friday 9am - 7pm</small></div>
+                        <h4>{{ $t('contact_phone_title') }}</h4>
+                        <div>{{ $t('contact_phone_value') }} <br>
+                        <small>{{ $t('contact_phone_note') }}</small></div>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="col-xl-7 col-lg-7 order-lg-1">
-            <h3 class="mb-3">Get in Touch</h3>
+            <h3 class="mb-3">{{ $t('contact.title2') }}</h3>
             <div id="message-contact"></div>
             <form method="post" action="phpmailer/contact_template_email.php" id="contactform" autocomplete="off">
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-floating mb-4">
                             <input class="form-control" type="text" id="name_contact" name="name_contact" placeholder="Name">
-                            <label for="name_contact">Name</label>
+                            <label for="name_contact">{{ $t('contact.firstName') }}</label>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-floating mb-4">
                             <input class="form-control" type="text" id="lastname_contact" name="lastname_contact" placeholder="Last Name">
-                            <label for="lastname_contact">Last name</label>
+                            <label for="lastname_contact">{{ $t('contact.lastName') }}</label>
                         </div>
                     </div>
                 </div>
@@ -59,30 +60,30 @@
                     <div class="col-sm-6">
                         <div class="form-floating mb-4">
                             <input class="form-control" type="email" id="email_contact" name="email_contact" placeholder="Email">
-                            <label for="email_contact">Email</label>
+                            <label for="email_contact">{{ $t('contact.email') }}</label>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-floating mb-4">
                             <input class="form-control" type="text" id="phone_contact" name="phone_contact" placeholder="Telephone">
-                            <label for="phone_contact">Telephone</label>
+                            <label for="phone_contact">{{ $t('contact.telephone') }}</label>
                         </div>
                     </div>
                 </div>
                 <!-- /row -->
                 <div class="form-floating mb-4">
                     <textarea class="form-control" placeholder="Message" id="message_contact" name="message_contact"></textarea>
-                    <label for="message_contact">Message</label>
+                    <label for="message_contact">{{ $t('contact.message') }}</label>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-md-6">
                         <div class="form-floating mb-4">
                             <input class="form-control" type="text" id="verify_contact" name="verify_contact" placeholder="Are you human? 3 + 1 =">
                             <label for="verify_contact">Are you human? 3 + 1 =</label>
                         </div>
                     </div>
-                </div>
-                <p class="mt-3"><input type="submit" value="Submit" class="btn_1 outline" id="submit-contact"></p>
+                </div> -->
+                <p class="mt-3"><input type="submit" :value="$t('contact.submit')" class="btn_1 outline" id="submit-contact"></p>
             </form>
         </div>
     </div>
@@ -102,10 +103,10 @@
             <div data-cue="slideInUp">
                 <div class="title">
                     <small>A.Z. Sunrise Resort</small>
-                    <h2>Check Availability</h2>
+                    <h2>{{ $t('checkAvailability.title') }}</h2>
                 </div>
-                <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p>
-                <p class="phone_element no_borders"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>Info and bookings</em>076643222 </span></a></p>
+                <!-- <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p> -->
+                <p class="phone_element no_borders"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>{{ $t('info.bookings') }}</em>076643222 </span></a></p>
             </div>
         </div>
         <div class="col-xl-7">
@@ -114,7 +115,7 @@
                     <div class="col-12">
                         <input type="hidden" id="date_booking" name="date_booking">
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-lg-6">
                             <div class="custom_select">
                                 <select class="wide">
@@ -144,10 +145,10 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <!-- / row -->
-                <p class="text-end mt-5"><a href="#0" class="btn_1 outline">Book Now</a></p>
+                <p class="text-end mt-2"><a href="#0" class="btn_1 outline">{{ $t('menu.bookNow') }}</a></p>
             </div>
         </div>
         <!-- /col -->
@@ -158,3 +159,80 @@
 
 </main>
 </template>
+<script>
+export default {
+  data() {
+    return {
+        title: '', // ค่าเริ่มต้น
+        test: 'TEST'
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+        this.initDateBookingPicker();    
+    }, 2000);
+  },
+  methods: {
+    initDateBookingPicker() {
+      const DateTime = easepick.DateTime
+
+      const bookedDates = [
+        ['2023-09-01', '2023-09-04'],
+        '2023-09-07',
+        ['2023-10-11', '2023-10-17'],
+      ].map(d => {
+        if (Array.isArray(d)) {
+          const start = new DateTime(d[0], 'YYYY-MM-DD')
+          const end = new DateTime(d[1], 'YYYY-MM-DD')
+          return [start, end]
+        }
+        return new DateTime(d, 'YYYY-MM-DD')
+      })
+
+      const datePB = document.getElementById('date_booking')
+      if (datePB) {
+        new easepick.create({
+          element: datePB,
+          css: ['/css/daterangepicker_v2.css'],
+          lang: 'en-EN',
+          format: 'DD/MM/YYYY',
+          calendars: 2,
+          grid: 2,
+          zIndex: 10,
+          inline: true,
+          plugins: ['LockPlugin', 'RangePlugin'],
+          RangePlugin: {
+            tooltipNumber(num) {
+              return num - 1
+            },
+            locale: {
+              one: 'night',
+              other: 'nights',
+            },
+          },
+          LockPlugin: {
+            minDate: new Date(),
+            minDays: 1,
+            inseparable: false,
+            filter(date, picked) {
+              if (picked.length === 1) {
+                const incl = date.isBefore(picked[0]) ? '[)' : '(]'
+                return !picked[0].isSame(date, 'day') && date.inArray(bookedDates, incl)
+              }
+              return date.inArray(bookedDates, '[)')
+            },
+          },
+        })
+      }
+    }
+   },
+  computed: {
+    // progressClass() {
+    //   return this.isActive ? 'progress-wrap active-progress' : 'progress-wrap';
+    // },
+  },
+  created() {
+    this.title = this.$t('slide-title', { name: 'vue-i18n' });
+  },
+};
+</script>

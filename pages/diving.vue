@@ -1,6 +1,26 @@
 <template>
     <main>
-        <div id="carousel-home">
+
+        <div class="hero full-height jarallax" data-jarallax data-speed="0.2">
+            <client-only>
+                <img class="jarallax-img" src="~assets/img/bg_img/driving1.jpg" alt="">
+                <div class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+                    <div class="container">
+                        <div class="row justify-content-center justify-content-md-start">
+                            <div class="col-lg-6 static">
+                                <div class="slide-text white">
+                                    <small class="slide-animated one">{{ $t('experience.diving') }}</small>
+                                    <h1 class="slide-animated two">{{ $t('experience.headline') }}</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </client-only>
+          
+        </div>
+
+        <!-- <div id="carousel-home">
             <div class="owl-carousel owl-theme kenburns">
                 <div class="owl-slide background-image cover" data-background="url(img/bg_img/driving1.jpg)">
                     <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
@@ -10,14 +30,12 @@
                                     <div class="slide-text white">
                                         <small class="owl-slide-animated owl-slide-title">Diving Experience</small>
                                         <h2 class="owl-slide-animated owl-slide-title-2">A unique experience</h2>
-                                        <!-- <div class="owl-slide-animated owl-slide-title-3"><a class="btn_1 outline white mt-3" href="#first_section">Read more</a></div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--/owl-slide-->
                 <div class="owl-slide background-image cover" data-background="url(img/bg_img/driving2.jpg)">
                     <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                         <div class="container">
@@ -26,14 +44,12 @@
                                     <div class="slide-text white text-center">
                                         <small class="owl-slide-animated owl-slide-title">Diving Experience</small>
                                         <h2 class="owl-slide-animated owl-slide-title-2">The experience of unique</h2>
-                                        <!-- <div class="owl-slide-animated owl-slide-title-3"><a class="btn_1 outline white mt-3" href="#first_section">Read more</a></div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--/owl-slide-->
                 <div class="owl-slide background-image cover" data-background="url(img/bg_img/driving3.jpg)">
                     <div class="opacity-mask d-flex align-items-center" data-opacity-mask="rgba(0, 0, 0, 0.6)">
                         <div class="container">
@@ -42,7 +58,6 @@
                                     <div class="slide-text text-end white">
                                         <small class="owl-slide-animated owl-slide-title">Diving Experience</small>
                                         <h2 class="owl-slide-animated owl-slide-title-2">The experience of unique</h2>
-                                        <!-- <div class="owl-slide-animated owl-slide-title-3"><a class="btn_1 outline white mt-3" href="#first_section">Read more</a></div> -->
                                     </div>
                                 </div>
                             </div>
@@ -55,53 +70,58 @@
                     <div class="mouse"></div>
                 </a>
             </div>
-            <!-- / mouse -->
-        </div>
+        </div> -->
         <!--/carousel-->
 
-       <div class="container margin_120_95" id="first_section">
-          <div class="row justify-content-between align-items-center">
-              <div class="col-lg-5">
-                  <div class="intro">
-                      <div class="title">
-                          <!-- <small>A.Z. Sunrise Resort</small> -->
-                          <h2 data-cue="slideInLeft"  data-duration="1000"> Diving Center </h2>
-                      </div>
-                      <p class="lead" data-cue="slideInLeft" data-duration="1500">Discover the wonders of the underwater world at our premier diving center. Whether you're an experienced diver or a beginner, we offer courses and guided tours to explore vibrant coral reefs and marine life.</p>
-                      <p >Our certified instructors and top-notch equipment ensure a safe and unforgettable experience. Dive into adventure and uncover the hidden treasures of the sea.</p>
-                      <p data-cue="slideInLeft" data-duration="2000"><em>Enjoy...the Owner</em></p>
-                  </div>
-              </div>
-       
-              <div class="col-lg-5">
+        <div class="container margin_120_95" id="first_section">
+            <div class="row justify-content-between align-items-center">
+                <div class="col-lg-5">
+                <div class="intro">
+                    <div class="title">
+                    <h2 data-cue="slideInLeft" data-duration="1000">{{ $t('diving.title') }}</h2>
+                    </div>
+                    <p class="lead" data-cue="slideInLeft" data-duration="1500">
+                    {{ $t('diving.desc') }}
+                    </p>
+                    <p>
+                    {{ $t('diving.highlight') }}
+                    </p>
+                    <!-- <p data-cue="slideInLeft" data-duration="2000">
+                    <em>{{ $t('diving.signature') }}</em>
+                    </p> -->
+                </div>
+                </div>
+
+                <div class="col-lg-5">
                 <div>
                     <ul class="list-unstyled mb-4">
-                        <li class="d-flex justify-content-between mb-2 text-end"  data-cue="slideInRight" data-duration="2000">
-                            <strong>Opening Hours</strong> <span>8.00am – 6.00pm</span>
-                        </li>
-                        <li class="d-flex justify-content-between mb-2 text-end"  data-cue="slideInRight" data-duration="2000">
-                            <strong>Beginner Class</strong> <span>9.00am – 10.30am</span>
-                        </li>
-                        <li class="d-flex justify-content-between mb-2 text-end"  data-cue="slideInRight" data-duration="2000">
-                            <strong>Advanced Dive</strong> <span>2.00pm – 4.30pm</span>
-                        </li>
+                    <li class="d-flex justify-content-between mb-2 text-end" data-cue="slideInRight" data-duration="2000">
+                        <strong>{{ $t('diving.open') }}</strong>
+                        <span>{{ $t('diving.time.open') }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between mb-2 text-end" data-cue="slideInRight" data-duration="2000">
+                        <strong>{{ $t('diving.beginner') }}</strong>
+                        <span>{{ $t('diving.time.beginner') }}</span>
+                    </li>
+                    <li class="d-flex justify-content-between mb-2 text-end" data-cue="slideInRight" data-duration="2000">
+                        <strong>{{ $t('diving.advanced') }}</strong>
+                        <span>{{ $t('diving.time.advanced') }}</span>
+                    </li>
                     </ul>
                     <p class="phone_element" data-cue="slideInUp" data-duration="2000">
-                        <a href="tel://423424234">
-                            <i class="bi bi-telephone"></i>
-                            <span>
-                                <em>Reservations</em> 076643222 
-                            </span>
-                        </a>
+                    <a href="tel://423424234">
+                        <i class="bi bi-telephone"></i>
+                        <span>
+                        <em>{{ $t('experience.reservations') }}</em> 076643222
+                        </span>
+                    </a>
                     </p>
                 </div>
+                </div>
             </div>
+        </div>
 
-          </div>
-          <!-- /Row -->
-      </div>
       <!-- /container -->
-
       <div class="bg_white add_bottom_120">
         <div class="container-fluid p-lg-0">
             <div data-cues="zoomIn">
@@ -121,7 +141,7 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a class="btn_1 outline" data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_5.jpg">FullScreen Gallery</a>
+                <a class="btn_1 outline" data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_5.jpg">{{ $t('gallery.fullscreen') }}</a>
                 <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_1.jpg"></a>
                 <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_4.jpg"></a>
                 <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_6.jpg"></a>
@@ -140,54 +160,56 @@
         </div>
         <div class="pinned_over_content">
             <div class="title white">
-                <small data-cue="slideInUp" data-delay="200">Luxury Hotel Experience</small>
-                <h2 data-cue="slideInUp" data-delay="300">Enjoy in a very<br> Immersive Relax</h2>
+                <small data-cue="slideInUp">{{ $t('experience_title') }}</small>
+                <h2 data-cue="slideInUp">{{ $t('experience_subtitle') }}</h2>
             </div>
         </div>
     </div>
 
-      <div class="container mt-4">
-        <div class="row justify-content-center" >
-            <div class="title mb-3 text-center">
-                <!-- <small data-cue="slideInUp">Contact Us</small> -->
-                <h2 data-cue="slideInUp" data-delay="200">Contact Us</h2>
-            </div>
-            <div class="col-xl-4 col-lg-4 order-lg-2">
-                <div class="contact_info" data-cue="slideInUp" data-delay="200">
-                    <ul class="clearfix">
-                        <li>
-                            <i class="bi bi-telephone"></i>
-                            <h4>Telephone</h4>
-                            <div>076643222 <br><small>Monday to Friday 9am - 7pm</small></div>
-                        </li>
-                    </ul>
+    <div class="container mt-4">
+            <div class="row justify-content-center" >
+                <div class="title mb-3 text-center">
+                    <!-- <small data-cue="slideInUp">Contact Us</small> -->
+                    <h2 data-cue="slideInUp" data-delay="200">{{ $t('contact_title') }}</h2>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 order-lg-2">
-                <div class="contact_info" data-cue="slideInUp" data-delay="200">
-                    <ul class="clearfix">
-                        <li>
-                            <i class="bi bi-envelope-paper"></i>
-                            <h4>Email address</h4>
-                            <p><a href="#0">rsvn@azsunriseresort.com<br><small>&nbsp;</small></a></p>
-                        </li>
-                    </ul>
+                <div class="col-xl-4 col-lg-4 order-lg-2">
+                    <div class="contact_info" data-cue="slideInUp" data-delay="200">
+                        <ul class="clearfix">
+                            <li>
+                                <i class="bi bi-telephone"></i>
+                                <h4>{{ $t('contact_phone_title') }}</h4>
+                                <div>{{ $t('contact_phone_value') }} <br>
+                                <small>{{ $t('contact_phone_note') }}</small></div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-xl-4 col-lg-4 order-lg-2">
-                <div class="contact_info" data-cue="slideInUp" data-delay="200">
-                    <ul class="clearfix">
-                        <li>
-                            <i class="bi bi-geo-alt"></i>
-                            <h4>Address</h4>
-                            <div>18 Moo 6 Cherngtalay, Thalang, Phuket 83110</div>
-                        </li>
-                    </ul>
+                <div class="col-xl-4 col-lg-4 order-lg-2">
+                    <div class="contact_info" data-cue="slideInUp" data-delay="200">
+                        <ul class="clearfix">
+                            <li>
+                                <i class="bi bi-envelope-paper"></i>
+                                <h4>{{ $t('contact_email_title') }}</h4>
+                                <p><a href="#0">rsvn@azsunriseresort.com<br><small>&nbsp;</small></a></p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <div class="col-xl-4 col-lg-4 order-lg-2">
+                    <div class="contact_info" data-cue="slideInUp" data-delay="200">
+                        <ul class="clearfix">
+                            <li>
+                                <i class="bi bi-geo-alt"></i>
+                                <h4>{{ $t('contact_address_title') }}</h4>
+                                <div>{{ $t('contact_address_value') }}</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+          
             </div>
-      
         </div>
-    </div>
+       
 
     </main>
 

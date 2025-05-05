@@ -12,7 +12,7 @@
                                     <h1>We will be back soon!</h1>
                                     <p class="lead">It's very important to have a very good customer service, but it's worth it!</p>
                                 </div>
-                                <div id="countdown_wp">
+                                <!-- <div id="countdown_wp">
                                     <div class="container_count">
                                         <div id="days">00</div>days
                                     </div>
@@ -25,7 +25,7 @@
                                     <div class="container_count last">
                                         <div id="seconds">00</div>seconds
                                     </div>
-                                </div>
+                                </div> -->
                             </div><!-- End Countdown-->
                         </div>
                     </div>

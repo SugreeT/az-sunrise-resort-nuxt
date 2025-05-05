@@ -1,38 +1,40 @@
 <template>
       <main>
         <div class="hero home-search full-height jarallax" data-jarallax data-speed="0.2">
+            <client-only>
             <img class="jarallax-img kenburns" src="~assets/img/banner/main/main1.jpg" alt="">
-            <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
+                <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <div class="container">
-                    <small class="slide-animated one"> Unwind in Luxury</small>
-                    <h3 class="slide-animated two">Embrace Unique Experiences<br>Where Memories Are Made</h3>
+                    <!-- <small class="slide-animated one"> Unwind in Luxury </small> -->
+                    <small class="slide-animated one"> {{ $t('slide-title', { name: 'vue-i18n' }) }} </small>
+                    <h3 class="slide-animated two">{{ $t('slide_title_2') }}</h3>
                     <div class="row justify-content-center slide-animated three">
                         <div class="col-xl-10">
                             <div class="row g-0 booking_form">
                                 <div class="col-lg-4 ">
                                     <div class="form-group">
-                                        <input class="form-control" type="text" name="dates" id="dates" placeholder="Check in / Check out" readonly="readonly">
+                                        <input class="form-control" type="text" name="dates" id="dates" :placeholder="$t('input_placeholder_dates')" readonly="readonly">
                                         <i class="bi bi-calendar2"></i>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 pe-lg-0 pe-sm-1">
                                     <div class="qty-buttons">
-                                        <label>Adults</label>
-                                        <input type="button" value="+" class="qtyplus" name="adults">
-                                        <input type="text" name="adults" id="adults" value="" class="qty form-control">
-                                        <input type="button" value="-" class="qtyminus" name="adults">
+                                        <label>{{ $t('label_adults') }}</label>
+                                        <input type="button" value="-"  class="qtyplus" name="childs" @click="adults++">
+                                        <input type="text" :value="adults" readonly class="qty form-control" />
+                                        <input type="button" value="+" class="qtyminus" name="childs" @click="adults = Math.max(adults - 1, 0)">
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-sm-6 ps-lg-0 ps-sm-1">
                                     <div class="qty-buttons">
-                                        <label>Childs</label>
-                                        <input type="button" value="+" class="qtyplus" name="childs">
-                                        <input type="text" name="childs" id="childs" value="" class="qty form-control">
-                                        <input type="button" value="-" class="qtyminus" name="childs">
+                                        <label>{{ $t('label_childs') }}</label>
+                                        <input type="button" value="+" class="qtyplus" name="childs" @click="childs++">
+                                        <input type="text" :value="childs" name="childs" class="qty form-control">
+                                        <input type="button" value="-" class="qtyminus" name="childs" @click="childs = Math.max(childs - 1, 0)">
                                     </div>
                                 </div>
                                 <div class="col-lg-2">
-                                    <input type="submit" class="btn_search" value="Check">
+                                    <input type="submit" class="btn_search" :value="$t('button_check')">
                                 </div>
                             </div>
                         </div>
@@ -44,6 +46,8 @@
                     </a>
                 </div>
             </div>
+        </client-only>
+           
         </div>
 
         <div class="pattern_2">
@@ -278,7 +282,7 @@
             </div>
           
               <!-- /Row -->
-              <div class="pinned-image pinned-image--medium pt-4 pb-2" id="image-container" >
+            <div class="pinned-image pinned-image--medium pt-4 pb-2" id="image-container" >
                 <div class="pinned-image__container" id="section_video">
                     <video loop="loop" muted="muted" id="video_home">
                         <source src="https://azsunriseresort.com/video/swimming_pool_2a.mp4" type="video/mp4">
@@ -289,8 +293,8 @@
                 </div>
                 <div class="pinned_over_content">
                     <div class="title white">
-                        <small data-cue="slideInUp" data-delay="200">Luxury Hotel Experience</small>
-                        <h2 data-cue="slideInUp" data-delay="300">Enjoy in a very<br> Immersive Relax</h2>
+                        <small data-cue="slideInUp">{{ $t('experience_title') }}</small>
+                        <h2 data-cue="slideInUp">{{ $t('experience_subtitle') }}</h2>
                     </div>
                 </div>
             </div>
@@ -301,15 +305,16 @@
             <div class="row justify-content-center" >
                 <div class="title mb-3 text-center">
                     <!-- <small data-cue="slideInUp">Contact Us</small> -->
-                    <h2 data-cue="slideInUp" data-delay="200">Contact Us</h2>
+                    <h2 data-cue="slideInUp" data-delay="200">{{ $t('contact_title') }}</h2>
                 </div>
                 <div class="col-xl-4 col-lg-4 order-lg-2">
                     <div class="contact_info" data-cue="slideInUp" data-delay="200">
                         <ul class="clearfix">
                             <li>
                                 <i class="bi bi-telephone"></i>
-                                <h4>Telephone</h4>
-                                <div>076643222 <br><small>Monday to Friday 9am - 7pm</small></div>
+                                <h4>{{ $t('contact_phone_title') }}</h4>
+                                <div>{{ $t('contact_phone_value') }} <br>
+                                <small>{{ $t('contact_phone_note') }}</small></div>
                             </li>
                         </ul>
                     </div>
@@ -319,7 +324,7 @@
                         <ul class="clearfix">
                             <li>
                                 <i class="bi bi-envelope-paper"></i>
-                                <h4>Email address</h4>
+                                <h4>{{ $t('contact_email_title') }}</h4>
                                 <p><a href="#0">rsvn@azsunriseresort.com<br><small>&nbsp;</small></a></p>
                             </li>
                         </ul>
@@ -330,8 +335,8 @@
                         <ul class="clearfix">
                             <li>
                                 <i class="bi bi-geo-alt"></i>
-                                <h4>Address</h4>
-                                <div>18 Moo 6 Cherngtalay, Thalang, Phuket 83110</div>
+                                <h4>{{ $t('contact_address_title') }}</h4>
+                                <div>{{ $t('contact_address_value') }}</div>
                             </li>
                         </ul>
                     </div>
@@ -344,10 +349,16 @@
   </template>
 
 <script>
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+
 export default {
+    
   data() {
     return {
-        title: '', // ค่าเริ่มต้น
+        title: '',
+        adults: '',
+        childs: ''
     };
   },
   computed: {
@@ -355,8 +366,149 @@ export default {
     //   return this.isActive ? 'progress-wrap active-progress' : 'progress-wrap';
     // },
   },
+  mounted() {
+    setTimeout(() => {
+        this.initPicker();  
+          
+    }, 2000);
+
+    gsap.registerPlugin(ScrollTrigger)
+
+    // -----------------------
+    // Animate pinned image
+    // -----------------------
+    const pinnedImages = document.querySelectorAll('.pinned-image')
+    pinnedImages.forEach(pinnedImage => {
+    const container = pinnedImage.querySelector('.pinned-image__container')
+    const overlay = container?.querySelector('.pinned-image__container-overlay')
+    const content = pinnedImage.querySelector('.pinned_over_content')
+
+    const tl = gsap.timeline({ paused: true })
+    if (container) tl.to(container, { scale: 1.05 }, 0)
+    if (content) tl.from(content, { autoAlpha: 0 }, 0)
+    if (overlay) tl.from(overlay, { autoAlpha: 0 }, 0)
+
+    ScrollTrigger.create({
+        animation: tl,
+        trigger: pinnedImage,
+        start: 'top center',
+        scrub: false,
+        pin: false,
+        markers: false
+    })
+    })
+
+    // -----------------------
+    // Video autoplay on scroll
+    // -----------------------
+    const video = document.getElementById('video_home')
+    if (video) {
+    video.setAttribute('playsinline', '')
+    video.setAttribute('muted', 'muted')
+    video.setAttribute('webkit-playsinline', '')
+    video.load()
+
+    video.addEventListener('loadeddata', () => {
+        ScrollTrigger.refresh() // ensure layout is recalculated
+    })
+    }
+
+    const checkVideoVisibility = () => {
+    if (!video) return
+    const rect = video.getBoundingClientRect()
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0
+    if (isVisible) {
+        video.play()
+    } else {
+        video.pause()
+    }
+    }
+
+    window.addEventListener('scroll', checkVideoVisibility, { passive: true })
+    checkVideoVisibility()
+
+    // fallback: refresh ScrollTrigger in case of layout shift
+    this.$nextTick(() => {
+        setTimeout(() => {
+            ScrollTrigger.refresh()
+        }, 1000)
+    })
+  },
   created() {
     this.title = this.$t('slide-title', { name: 'vue-i18n' });
   },
+ methods: {
+  initPicker() {
+    const DateTime = easepick.DateTime;
+    const bookedDates = [
+      ['2023-09-01', '2023-09-04'],
+      '2023-09-07',
+      ['2023-10-11', '2023-10-17'],
+    ].map(d => {
+      if (Array.isArray(d)) {
+        return [new DateTime(d[0], 'YYYY-MM-DD'), new DateTime(d[1], 'YYYY-MM-DD')];
+      }
+      return new DateTime(d, 'YYYY-MM-DD');
+    });
+    console.log('testttttttttttttttttttttt > ',  document.getElementById('dates'))
+    const dateP = document.getElementById('dates');
+    if (dateP) {
+      new easepick.create({
+        element: dateP,
+        css: ['/css/daterangepicker_v2.css'],
+        lang: 'en-EN',
+        format: 'MM/DD/YYYY',
+        calendars: 2,
+        grid: 2,
+        zIndex: 99999,
+        plugins: ['LockPlugin', 'RangePlugin'],
+        RangePlugin: {
+          tooltipNumber(num) {
+            return num - 1;
+          },
+          locale: {
+            one: 'night',
+            other: 'nights',
+          },
+        },
+        LockPlugin: {
+          minDate: new Date(),
+          minDays: 1,
+          inseparable: false,
+          filter(date, picked) {
+            if (picked.length === 1) {
+              const incl = date.isBefore(picked[0]) ? '[)' : '(]';
+              return !picked[0].isSame(date, 'day') && date.inArray(bookedDates, incl);
+            }
+            return date.inArray(bookedDates, '[)');
+          },
+        },
+      });
+    }
+  }
+}
 };
 </script>
+
+<style>
+.hero.home-search {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.wrapper.opacity-mask {
+  position: relative;
+  z-index: 3;
+}
+
+.jarallax-img.kenburns {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+</style>
