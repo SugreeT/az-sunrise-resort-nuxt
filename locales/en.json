@@ -9,6 +9,7 @@
     "button_check": "Check",
     "about-us": "About Us",
     "welcome-message": "A.Z. Sunrise Resort was established in 2023 and officially opened in 2025. We are a resort-style hotel offering comprehensive facilities and services, located just 5 minutes away from Layan Beach. Our mission is to provide an exceptional guest experience, making every stay memorable. Furthermore, we are committed to being environmentally friendly and continuously improving our organization to become a preferred destination for travelers visiting Phuket.",
+    "resort.description": "A.Z. Sunrise Resort & Fitness Club is located on a quiet hillside near the beautiful Layan Beach. There are only 18 luxury villas and 25 standard rooms to choose from. These villas and rooms feature a striking modern design with spacious open-air living and dining areas, surrounded by lush greenery, providing a peaceful retreat. The villas are tastefully designed to maximize comfort and elegance. The exterior of each villa and room has been designed for maximum relaxation and entertainment. In particular, the villas have terraces and a spacious outdoor swimming pool, which are complemented by poolside lounge chairs, creating the perfect environment for social gatherings or simply enjoying a quiet moment while immersing yourself in the beautiful nature.",
     "details-message": "Whether you're visiting for business or leisure, our spacious rooms, exquisite dining options, and modern facilities ensure your stay is nothing short of perfect. Explore nearby attractions or relax in our spa and wellness center, designed to rejuvenate your body and soul.",
     "extraordinary-message": "Let us make your stay extraordinary.",
     "serviceItems.title": "Service Items",
@@ -144,7 +145,7 @@
     },
     "fitness": {
       "title": "Fitness Center",
-      "description": "Discover the ultimate wellness experience at our state-of-the-art fitness center. Our facility is designed to cater to all fitness levels, offering a variety of modern equipment and classes that inspire and motivate.",
+      "description": "Welcome to A.Z. Sunrise Resort & Fitness Club Fitness Center. We inspire everyone and every goal of fitness. From beginners to athletes of all disciplines, we offer advice and consultation from experienced and expert trainers. We are a meeting place for health-minded people and we believe in more than just exercise. Whether you are an experienced athlete or a newbie to fitness, we have certified CrossFit coaches ready to guide you every step of the way. We also have premium equipment from American brands that emphasize innovation and comfort such as the world-class brand Life Fitness. We have treadmills, bikes, weight training and more. Guaranteed safety in the gym and exercise supervisors are the heart of professional fitness services. We help you achieve your goals in a supportive and inspiring environment.",
       "signature": "Enjoy...the Owner",
       "hours_title": "Opening Hours",
       "yoga_class": "Yoga Class",

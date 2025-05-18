@@ -45,7 +45,7 @@
         <div class="container margin_120_95" id="first_section">
             <div class="row justify-content-between align-items-center">
                 <!-- Left Side -->
-                <div class="col-lg-5">
+                <div class="col-lg-6">
                 <div class="intro">
                     <div class="title">
                     <h2 data-cue="slideInLeft" data-duration="1000">{{ $t('fitness.title') }}</h2>

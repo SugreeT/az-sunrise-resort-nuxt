@@ -99,10 +99,38 @@
                           </div>
                       </div>
                   </div>
-              <hr class="more_margin">
+              <!-- <hr class="more_margin"> -->
           </div>
           <!-- /container-->
       </div>
+      <div class="bg_white add_bottom_120">
+        <div class="title text-center ">
+              <small data-cue="slideInUp">A.Z. Sunrise Resort</small>
+              <h2 data-cue="slideInUp" data-delay="100">Hotel Gallery</h2>
+          </div>
+        <div class="container-fluid p-lg-0">
+            <div data-cues="zoomIn">
+                <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
+                    <div class="item">
+                        <img src="~assets/img/banner/fitness/f1.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="~assets/img/banner/fitness/f2.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="~assets/img/banner/fitness/f3.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="text-center mt-5">
+                <a class="btn_1 outline" data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_5.jpg">{{ $t('gallery.fullscreen') }}</a>
+                <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_1.jpg"></a>
+                <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_4.jpg"></a>
+                <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_6.jpg"></a>
+            </div> -->
+        </div>
+    </div>
+
       <!-- /bg_white -->
 
       <!-- <div class="parallax_section_1 jarallax" data-jarallax data-speed="0.2">
@@ -197,6 +225,7 @@
           </div>
           <!-- /Row -->
           <hr class="more_margin">
+          
           <div class="row justify-content-between ">
               <div class="col-lg-4">
                   <div class="title">

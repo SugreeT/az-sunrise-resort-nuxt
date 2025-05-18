@@ -2,13 +2,13 @@
       <main>
         <div class="hero home-search full-height jarallax" data-jarallax data-speed="0.2">
             <client-only>
-            <img class="jarallax-img kenburns" src="~assets/img/banner/main/main1.jpg" alt="">
+            <img class="jarallax-img kenburns" src="~assets/img/banner/main/new-lobby.jpg" alt="">
                 <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                 <div class="container">
                     <!-- <small class="slide-animated one"> Unwind in Luxury </small> -->
                     <small class="slide-animated one"> {{ $t('slide-title', { name: 'vue-i18n' }) }} </small>
                     <h3 class="slide-animated two">{{ $t('slide_title_2') }}</h3>
-                    <div class="row justify-content-center slide-animated three">
+                    <!-- <div class="row justify-content-center slide-animated three">
                         <div class="col-xl-10">
                             <div class="row g-0 booking_form">
                                 <div class="col-lg-4 ">
@@ -38,7 +38,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="mouse_wp slide-animated four">
                     <a href="#first_section" class="btn_scrollto">
@@ -63,9 +63,9 @@
                             <!-- <p class="lead" data-cue="slideInUp">Welcome to A.Z. Sunrise Resort, where luxury meets comfort. Nestled in the heart of Phuket, our hotel offers world-class amenities, exceptional service, and a serene ambiance tailored to provide you with an unforgettable experience.</p>
                             <p data-cue="slideInUp">Whether you're visiting for business or leisure, our spacious rooms, exquisite dining options, and modern facilities ensure your stay is nothing short of perfect. Explore nearby attractions or relax in our spa and wellness center, designed to rejuvenate your body and soul. </p>
                             <p data-cue="slideInUp"><em>Let us make your stay extraordinary.</em></p> -->
-                            <p class="lead" data-cue="slideInUp">{{ $t('welcome-message', { name: 'vue-i18n' }) }}</p>
+                            <p class="lead" data-cue="slideInUp">{{ $t('resort.description', { name: 'vue-i18n' }) }}</p>
                             <!-- <p data-cue="slideInUp">{{ $t('details-message', { name: 'vue-i18n' }) }}</p> -->
-                            <p data-cue="slideInUp"><em>{{ $t('extraordinary-message', { name: 'vue-i18n' }) }}</em></p>
+                            <!-- <p data-cue="slideInUp"><em>{{ $t('extraordinary-message', { name: 'vue-i18n' }) }}</em></p> -->
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -75,12 +75,16 @@
                             </div>
                         </div> -->
                         <div class="parallax_wrapper" data-cue="slideInUp" data-delay="200">
-                            <img src="~assets/img/banner/main/main3.jpg" alt="" class="img-fluid rounded-img">
+                            <!-- <img src="~assets/img/banner/main/new-lobby-about.jpg" alt="" class="img-fluid rounded-img"> -->
+                            <img src="~assets/img/banner/main/garden3.jpg" alt="" class="img-fluid rounded-img">
                             <!-- <div data-cue="slideInUp" class="img_over"><span data-jarallax-element="-30"><img src="img/home_1.jpg" alt="" class="rounded-img"></span></div> -->
                         </div>
                     </div>
                 </div>
+
             </div>
+
+                <!-- /Row -->
 
             <div class="container main-index">
 
@@ -282,12 +286,13 @@
             </div>
           
               <!-- /Row -->
-            <div class="pinned-image pinned-image--medium pt-4 pb-2" id="image-container" >
+            <div class="pinned-image pinned-image--medium pt-4 pb-2"  >
                 <div class="pinned-image__container" id="section_video">
                     <video loop="loop" muted="muted" id="video_home">
-                        <source src="https://azsunriseresort.com/video/swimming_pool_2a.mp4" type="video/mp4">
+                        <source src="~assets/video/sunrise__V1-0004.mp4" type="video/mp4">
+                        <!-- <source src="https://azsunriseresort.com/video/swimming_pool_2a.mp4" type="video/mp4">
                         <source src="https://azsunriseresort.com/video/swimming_pool_2a.webm" type="video/webm">
-                        <source src="https://azsunriseresort.com/video/swimming_pool_2.ogv" type="video/ogg">
+                        <source src="https://azsunriseresort.com/video/swimming_pool_2.ogv" type="video/ogg"> -->
                     </video>
                     <div class="pinned-image__container-overlay"></div>
                 </div>
@@ -351,6 +356,7 @@
 <script>
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import apiService from '@/services/apiService'
 
 export default {
     
@@ -358,7 +364,9 @@ export default {
     return {
         title: '',
         adults: '',
-        childs: ''
+        childs: '',
+        section1: null,
+        section2: null
     };
   },
   computed: {
@@ -367,77 +375,93 @@ export default {
     // },
   },
   mounted() {
-    setTimeout(() => {
-        this.initPicker();  
-          
-    }, 2000);
+    this.initPage()
 
-    gsap.registerPlugin(ScrollTrigger)
-
-    // -----------------------
-    // Animate pinned image
-    // -----------------------
-    const pinnedImages = document.querySelectorAll('.pinned-image')
-    pinnedImages.forEach(pinnedImage => {
-    const container = pinnedImage.querySelector('.pinned-image__container')
-    const overlay = container?.querySelector('.pinned-image__container-overlay')
-    const content = pinnedImage.querySelector('.pinned_over_content')
-
-    const tl = gsap.timeline({ paused: true })
-    if (container) tl.to(container, { scale: 1.05 }, 0)
-    if (content) tl.from(content, { autoAlpha: 0 }, 0)
-    if (overlay) tl.from(overlay, { autoAlpha: 0 }, 0)
-
-    ScrollTrigger.create({
-        animation: tl,
-        trigger: pinnedImage,
-        start: 'top center',
-        scrub: false,
-        pin: false,
-        markers: false
-    })
-    })
-
-    // -----------------------
-    // Video autoplay on scroll
-    // -----------------------
-    const video = document.getElementById('video_home')
-    if (video) {
-    video.setAttribute('playsinline', '')
-    video.setAttribute('muted', 'muted')
-    video.setAttribute('webkit-playsinline', '')
-    video.load()
-
-    video.addEventListener('loadeddata', () => {
-        ScrollTrigger.refresh() // ensure layout is recalculated
-    })
-    }
-
-    const checkVideoVisibility = () => {
-    if (!video) return
-    const rect = video.getBoundingClientRect()
-    const isVisible = rect.top < window.innerHeight && rect.bottom > 0
-    if (isVisible) {
-        video.play()
-    } else {
-        video.pause()
-    }
-    }
-
-    window.addEventListener('scroll', checkVideoVisibility, { passive: true })
-    checkVideoVisibility()
-
-    // fallback: refresh ScrollTrigger in case of layout shift
-    this.$nextTick(() => {
-        setTimeout(() => {
-            ScrollTrigger.refresh()
-        }, 1000)
-    })
+    this.callServiceMain()
   },
   created() {
     this.title = this.$t('slide-title', { name: 'vue-i18n' });
   },
  methods: {
+    initPage() {
+        setTimeout(() => {
+            this.initPicker();  
+            
+        }, 2000);
+
+        gsap.registerPlugin(ScrollTrigger)
+
+        // -----------------------
+        // Animate pinned image
+        // -----------------------
+        const pinnedImages = document.querySelectorAll('.pinned-image')
+        pinnedImages.forEach(pinnedImage => {
+        const container = pinnedImage.querySelector('.pinned-image__container')
+        const overlay = container?.querySelector('.pinned-image__container-overlay')
+        const content = pinnedImage.querySelector('.pinned_over_content')
+
+        const tl = gsap.timeline({ paused: true })
+        if (container) tl.to(container, { scale: 1.05 }, 0)
+        if (content) tl.from(content, { autoAlpha: 0 }, 0)
+        if (overlay) tl.from(overlay, { autoAlpha: 0 }, 0)
+
+        ScrollTrigger.create({
+            animation: tl,
+            trigger: pinnedImage,
+            start: 'top center',
+            scrub: false,
+            pin: false,
+            markers: false
+        })
+        })
+
+        // -----------------------
+        // Video autoplay on scroll
+        // -----------------------
+        const video = document.getElementById('video_home')
+        if (video) {
+        video.setAttribute('playsinline', '')
+        video.setAttribute('muted', 'muted')
+        video.setAttribute('webkit-playsinline', '')
+        video.load()
+
+        video.addEventListener('loadeddata', () => {
+            ScrollTrigger.refresh() // ensure layout is recalculated
+        })
+        }
+
+        const checkVideoVisibility = () => {
+        if (!video) return
+        const rect = video.getBoundingClientRect()
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0
+        if (isVisible) {
+            video.play()
+        } else {
+            video.pause()
+        }
+        }
+
+        window.addEventListener('scroll', checkVideoVisibility, { passive: true })
+        checkVideoVisibility()
+
+        // fallback: refresh ScrollTrigger in case of layout shift
+        this.$nextTick(() => {
+            setTimeout(() => {
+                ScrollTrigger.refresh()
+            }, 1000)
+        })
+    },
+    async callServiceMain() {
+        try {
+            const response = await apiService.get('/landingpage/content/main')
+            this.section1 = response.section1
+            this.section2 = response.section2
+            console.log(' this.section1  ',  this.section1 )
+            console.log(' this.section2  ',  this.section2 )
+        } catch (err) {
+            console.error('Error loading landing page:', err)
+        }
+    },
   initPicker() {
     const DateTime = easepick.DateTime;
     const bookedDates = [
