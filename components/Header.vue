@@ -54,7 +54,7 @@
                                 </li> -->
                                 <li><a href="about">{{ $t('menu.about', { name: 'vue-i18n' }) }}</a></li>
                                 <li><a href="contact">{{ $t('menu.contact', { name: 'vue-i18n' }) }}</a></li>
-                                <li><a href="#booking_section" class="btn_1">{{ $t('menu.bookNow', { name: 'vue-i18n' }) }}</a></li>
+                                <li><a href="javascript:void(0);" class="btn_1">{{ $t('menu.bookNow', { name: 'vue-i18n' }) }}</a></li>
                            
                                 <li class="lang_top">
                                     <i class="bi bi-globe"></i>

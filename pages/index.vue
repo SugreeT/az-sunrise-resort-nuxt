@@ -139,16 +139,16 @@
                     <div data-cues="zoomIn">
                         <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img ">
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/img_ex/slide_1.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/restaurant/AZ%20restaurant_1-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/img_ex/slide_2.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/restaurant/AZ%20restaurant_2-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/rooms/opt_6.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/restaurant/AZ%20restaurant_3-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/img_ex/slide_3.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/restaurant/AZ%20restaurant_4-topaz.jpg" alt=""></a>
                             </div>
                          
                         </div>
@@ -166,13 +166,16 @@
                     <div data-cues="zoomIn">
                         <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/banner/fitness/f1.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Fitness/AZ%20Fitness_1-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/banner/fitness/f2.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Fitness/AZ%20Fitness_4-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/banner/fitness/f3.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Fitness/AZ%20Fitness_6-topaz.jpg" alt=""></a>
+                            </div>
+                            <div class="item">
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Fitness/AZ%20Fitness_7-topaz.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -194,9 +197,9 @@
                             <div class="item">
                                 <a href="javascript:void(0);"><img src="~assets/img/bg_img/tour2.jpg" alt=""></a>
                             </div>
-                            <div class="item">
+                            <!-- <div class="item">
                                 <a href="javascript:void(0);"><img src="/img/rooms/opt_4.jpg" alt=""></a>
-                            </div>
+                            </div> -->
                             <div class="item">
                                 <a href="javascript:void(0);"><img src="~assets/img/bg_img/tour3.jpg" alt=""></a>
                             </div>
@@ -215,17 +218,15 @@
                     <div data-cues="zoomIn">
                         <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/driving1.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Garden/AZ Garden_8-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/driving2.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Garden/AZ Garden_6-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="/img/rooms/opt_4.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Garden/AZ Garden_7-topaz.jpg" alt=""></a>
                             </div>
-                            <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/driving3.jpg" alt=""></a>
-                            </div>
+                        
                         </div>
                     </div>
                 </div>
@@ -241,16 +242,13 @@
                     <div data-cues="zoomIn">
                         <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/bg_img/tran3.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/car/Hotel Car_1-topaz-sharpen-denoise.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="/img/rooms/opt_5.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/car/Hotel Car_2-topaz-sharpen-denoise.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="/img/rooms/opt_1.jpg" alt=""></a>
-                            </div>
-                            <div class="item">
-                                <a href="javascript:void(0);"><img src="/img/rooms/opt_4.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/car/Hotel Car_3-topaz-sharpen-denoise.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -267,13 +265,13 @@
                     <div data-cues="zoomIn">
                         <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/banner/spa/spa3.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Spa/AZ Spa_3-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/banner/spa/spa10.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Spa/AZ Spa_4-topaz.jpg" alt=""></a>
                             </div>
                             <div class="item">
-                                <a href="javascript:void(0);"><img src="~assets/img/banner/spa/spa5.jpg" alt=""></a>
+                                <a href="javascript:void(0);"><img src="https://azsunriseresort.com/images/Spa/AZ Spa_5-topaz.jpg" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -290,9 +288,6 @@
                 <div class="pinned-image__container" id="section_video">
                     <video loop="loop" muted="muted" id="video_home">
                         <source src="https://azsunriseresort.com/video/sunrise__V1-0004.mp4" type="video/mp4">
-                        <!-- <source src="https://azsunriseresort.com/video/swimming_pool_2a.mp4" type="video/mp4">
-                        <source src="https://azsunriseresort.com/video/swimming_pool_2a.webm" type="video/webm">
-                        <source src="https://azsunriseresort.com/video/swimming_pool_2.ogv" type="video/ogg"> -->
                     </video>
                     <div class="pinned-image__container-overlay"></div>
                 </div>

@@ -62,7 +62,7 @@
         <!--/carousel-->
         <div class="hero full-height jarallax" data-jarallax data-speed="0.2">
             <client-only>
-                <img class="jarallax-img" src="~assets/img/img_ex/slide_1.jpg" alt="">
+                <img class="jarallax-img" src="https://azsunriseresort.com/images/restaurant/AZ%20restaurant_1-topaz.jpg" alt="">
                 <div class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                     <div class="container">
                         <div class="row justify-content-center justify-content-md-start">

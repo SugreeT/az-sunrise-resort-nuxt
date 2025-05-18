@@ -79,7 +79,7 @@
 	    const content = pinnedImage.querySelector('.pinned_over_content');
 	    const tl = gsap.timeline({paused: true});
 	    tl.to(container, {
-	        scale: 1.05,
+	        scale: 1.0,
 	    }, 0);
 	    tl.from(content, {
 	        autoAlpha: 0,
@@ -120,15 +120,23 @@
 
       var loadVideo;
 
-      $sectionvideo.each(function(){
-        $(this).attr('webkit-playsinline', '');
-        $(this).attr('playsinline', '');
-        $(this).attr('muted', 'muted');
+    //   $sectionvideo.each(function(){
+    //     $(this).attr('webkit-playsinline', '');
+    //     $(this).attr('playsinline', '');
+    //     $(this).attr('muted', 'muted');
 
-        $(this).attr('id','loadvideo');
-        loadVideo = document.getElementById('loadvideo');
-        loadVideo.load();
-      });
+    //     $(this).attr('id','loadvideo');
+    //     loadVideo = document.getElementById('loadvideo');
+    //     loadVideo.load();
+    //   });
+
+	  $sectionvideo.each(function(){
+		this.setAttribute('webkit-playsinline', '');
+		this.setAttribute('playsinline', '');
+		this.setAttribute('muted', 'muted');
+		this.playbackRate = 0.5; // 👈 บังคับชัดเจน
+		this.load();
+	  });
 
       $win.scroll(function () { // video to play when is on viewport 
       
@@ -333,22 +341,24 @@
 
 	//Scroll back to top
 	var progressPath = document.querySelector('.progress-wrap path');
-	var pathLength = progressPath.getTotalLength();
-	progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
-	progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
-	progressPath.style.strokeDashoffset = pathLength;
-	progressPath.getBoundingClientRect();
-	progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
-	var updateProgress = function() {
-		var scroll = $(window).scrollTop();
-		var height = $(document).height() - $(window).height();
-		var progress = pathLength - (scroll * pathLength / height);
-		progressPath.style.strokeDashoffset = progress;
+	if (progressPath) {
+		var pathLength = progressPath.getTotalLength();
+		progressPath.style.transition = progressPath.style.WebkitTransition = 'none';
+		progressPath.style.strokeDasharray = pathLength + ' ' + pathLength;
+		progressPath.style.strokeDashoffset = pathLength;
+		progressPath.getBoundingClientRect();
+		progressPath.style.transition = progressPath.style.WebkitTransition = 'stroke-dashoffset 10ms linear';
+		var updateProgress = function() {
+			var scroll = $(window).scrollTop();
+			var height = $(document).height() - $(window).height();
+			var progress = pathLength - (scroll * pathLength / height);
+			progressPath.style.strokeDashoffset = progress;
+		}
+		updateProgress();
+		
+		$(window).scroll(updateProgress);
 	}
-	updateProgress();
 
-	
-	$(window).scroll(updateProgress);
 	var offset = 50;
 	var duration = 550;
 	$(window).on('scroll', function() {
@@ -478,7 +488,7 @@
 		});
 	});
 
-	}, 600);
+	}, 1000);
 	
 
 

@@ -30,6 +30,7 @@
         </div>
         <div class="col-xl-7">
             <div class="row_list_version_3" data-cue="fadeIn">
+
                 <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
                     <div class="item">
                         <a @click="goToRoomDetail('room.standardDouble')" style="cursor: pointer;"><img src="~assets/img/banner/rooms/room1.jpg" alt=""></a>
@@ -194,7 +195,7 @@
 
 <div class="pinned-image pinned-image--medium">
     <div class="pinned-image__container">
-       <img src="~assets/img/bg_img/ele_bg2.jpg" alt="">
+       <img src="https://azsunriseresort.com/images/Garden/AZ Garden_8-topaz.jpg" alt="">
         <div class="pinned-image__container-overlay"></div>
     </div>
     <div class="pinned_over_content">

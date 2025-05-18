@@ -96,8 +96,90 @@
 
 </div>
 <!--/map_contact -->
+    <div class="container mt-4">
+        <div class="row justify-content-between ">
+              <div class="col-lg-4">
+                  <div class="title">
+                      <small>A.Z. Sunrise Resort Faq</small>
+                      <h3>{{ $t('faq.title') }}</h3>
+                  </div>
+                  <p>{{ $t('faq.sub') }}</p>
+                  <p><a href="contact" class="animated_link"><strong>{{ $t('faq.contact') }}<i class="bi bi-arrow-right"></i></strong></a></p>
+              </div>
+              <div class="col-lg-7">
+                  <div role="tablist" class="mb-5 accordion" id="faq">
+                      <div class="card">
+                          <div class="card-header" role="tab">
+                              <h5 class="mb-0">
+                                  <a class="collapsed" data-bs-toggle="collapse" href="#collapseOne_product" aria-expanded="false">
+                                      <i class="indicator bi-plus-lg"></i>{{ $t('faq.cat.cancellation') }}
+                                  </a>
+                              </h5>
+                          </div>
+                          <div id="collapseOne_product" class="collapse" role="tabpanel" data-bs-parent="#faq">
+                              <div class="card-body">
+                                  <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- /card -->
+                      <div class="card">
+                          <div class="card-header" role="tab">
+                              <h5 class="mb-0">
+                                  <a class="collapsed" data-bs-toggle="collapse" href="#collapseTwo_product" aria-expanded="false">
+                                      <i class="indicator bi-plus-lg"></i>{{ $t('faq.cat.payments') }}
+                                  </a>
+                              </h5>
+                          </div>
+                          <div id="collapseTwo_product" class="collapse" role="tabpanel" data-bs-parent="#faq">
+                              <div class="card-body">
+                                  <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- /card -->
+                      <div class="card">
+                          <div class="card-header" role="tab">
+                              <h5 class="mb-0">
+                                  <a class="collapsed" data-bs-toggle="collapse" href="#collapseThree_product" aria-expanded="false">
+                                      <i class="indicator bi-plus-lg"></i>{{ $t('faq.cat.checkin') }}
+                                  </a>
+                              </h5>
+                          </div>
+                          <div id="collapseThree_product" class="collapse" role="tabpanel" data-bs-parent="#faq">
+                              <div class="card-body">
+                                  <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- /card -->
+                      <div class="card">
+                          <div class="card-header" role="tab">
+                              <h5 class="mb-0">
+                                  <a class="collapsed" data-bs-toggle="collapse" href="#collapseFour_product" aria-expanded="false">
+                                      <i class="indicator bi-plus-lg"></i>{{ $t('faq.cat.access') }}
+                                  </a>
+                              </h5>
+                          </div>
+                          <div id="collapseFour_product" class="collapse" role="tabpanel" data-bs-parent="#faq">
+                              <div class="card-body">
+                                  <p>Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</p>
+                                  <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.</p>
+                              </div>
+                          </div>
+                      </div>
+                      <!-- /card -->
+                  </div>
+                  <!-- /accordion -->
+              </div>
+          </div>
+    </div>
+    
 
-<div class="container margin_120_95" id="booking_section">
+<!-- <div class="container margin_120_95" id="booking_section">
     <div class="row justify-content-between">
         <div class="col-xl-4">
             <div data-cue="slideInUp">
@@ -105,7 +187,6 @@
                     <small>A.Z. Sunrise Resort</small>
                     <h2>{{ $t('checkAvailability.title') }}</h2>
                 </div>
-                <!-- <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p> -->
                 <p class="phone_element no_borders"><a href="tel://423424234"><i class="bi bi-telephone"></i><span><em>{{ $t('info.bookings') }}</em>076643222 </span></a></p>
             </div>
         </div>
@@ -115,46 +196,12 @@
                     <div class="col-12">
                         <input type="hidden" id="date_booking" name="date_booking">
                     </div>
-                    <!-- <div class="row">
-                        <div class="col-lg-6">
-                            <div class="custom_select">
-                                <select class="wide">
-                                    <option>Select Room</option>
-                                    <option>Double Room</option>
-                                    <option>Deluxe Room</option>
-                                    <option>Superior Room</option>
-                                    <option>Junior Suite</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="qty-buttons mb-3 version_2">
-                                        <input type="button" value="+" class="qtyplus" name="adults_booking">
-                                        <input type="text" name="adults_booking" id="adults_booking" value="" class="qty form-control" placeholder="Adults">
-                                        <input type="button" value="-" class="qtyminus" name="adults_booking">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="mb-3 qty-buttons mb-3 version_2">
-                                        <input type="button" value="+" class="qtyplus" name="childs_booking">
-                                        <input type="text" name="childs_booking" id="childs_booking" value="" class="qty form-control" placeholder="Childs">
-                                        <input type="button" value="-" class="qtyminus" name="childs_booking">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
-                <!-- / row -->
                 <p class="text-end mt-2"><a href="#0" class="btn_1 outline">{{ $t('menu.bookNow') }}</a></p>
             </div>
         </div>
-        <!-- /col -->
     </div>
-    <!-- /row -->
-</div>
+</div> -->
 <!-- /container -->
 
 </main>

@@ -97,7 +97,7 @@
         <div class="container-fluid p-lg-0">
             <div data-cues="zoomIn">
                 <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
-                    <div class="item">
+                    <!-- <div class="item">
                         <img src="~assets/img/banner/spa/spa3.jpg" alt="">
                     </div>
                     <div class="item">
@@ -114,14 +114,42 @@
                     </div>
                     <div class="item">
                         <img src="~assets/img/banner/spa/spa8.jpg" alt="">
+                    </div> -->
+                    <div class="item">
+                        <img src="https://azsunriseresort.com/images/Spa/AZ Spa_1-topaz.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://azsunriseresort.com/images/Spa/AZ Spa_2-topaz.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://azsunriseresort.com/images/Spa/AZ Spa_3-topaz.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://azsunriseresort.com/images/Spa/AZ Spa_4-topaz.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://azsunriseresort.com/images/Spa/AZ Spa_5-topaz.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://azsunriseresort.com/images/Spa/AZ Spa_6-topaz.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://azsunriseresort.com/images/Spa/AZ Spa_7-topaz.jpg" alt="">
+                    </div>
+                    <div class="item">
+                        <img src="https://azsunriseresort.com/images/Spa/AZ Spa_8-topaz.jpg" alt="">
                     </div>
                 </div>
             </div>
             <div class="text-center mt-5">
-                <a class="btn_1 outline" data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_5.jpg">{{ $t('gallery.fullscreen') }}</a>
-                <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_1.jpg"></a>
-                <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_4.jpg"></a>
-                <a data-fslightbox="gallery_1" data-type="image" href="img/rooms/opt_6.jpg"></a>
+                <a class="btn_1 outline" data-fslightbox="gallery_1" data-type="image" href="https://azsunriseresort.com/images/Spa/AZ Spa_1-topaz.jpg">{{ $t('gallery.fullscreen') }}</a>
+                <a data-fslightbox="gallery_1" data-type="image" href="https://azsunriseresort.com/images/Spa/AZ Spa_2-topaz.jpg"></a>
+                <a data-fslightbox="gallery_1" data-type="image" href="https://azsunriseresort.com/images/Spa/AZ Spa_3-topaz.jpg"></a>
+                <a data-fslightbox="gallery_1" data-type="image" href="https://azsunriseresort.com/images/Spa/AZ Spa_4-topaz.jpg"></a>
+                <a data-fslightbox="gallery_1" data-type="image" href="https://azsunriseresort.com/images/Spa/AZ Spa_5-topaz.jpg"></a>
+                <a data-fslightbox="gallery_1" data-type="image" href="https://azsunriseresort.com/images/Spa/AZ Spa_6-topaz.jpg"></a>
+                <a data-fslightbox="gallery_1" data-type="image" href="https://azsunriseresort.com/images/Spa/AZ Spa_7-topaz.jpg"></a>
+                <a data-fslightbox="gallery_1" data-type="image" href="https://azsunriseresort.com/images/Spa/AZ Spa_8-topaz.jpg"></a>
             </div>
         </div>
     </div>
@@ -129,7 +157,7 @@
       <div class="pinned-image pinned-image--medium pt-3">
         <div class="pinned-image__container" id="section_video">
             <video loop="loop" muted="muted" id="video_home">
-                <source src="https://azsunriseresort.com/video/swimming_pool_2a.mp4" type="video/mp4">
+                <source src="https://azsunriseresort.com/video/sunrise__V1-0004.mp4" type="video/mp4">
                 <source src="https://azsunriseresort.com/video/swimming_pool_2a.webm" type="video/webm">
                 <source src="https://azsunriseresort.com/video/swimming_pool_2.ogv" type="video/ogg">
             </video>

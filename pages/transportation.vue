@@ -2,7 +2,7 @@
     <main>
         <div class="hero full-height jarallax" data-jarallax data-speed="0.2">
             <client-only>
-                <img class="jarallax-img" src="~assets/img/bg_img/tran2.jpg" alt="">
+                <img class="jarallax-img" src="https://azsunriseresort.com/images/car/Hotel Car_2-topaz-sharpen-denoise.jpg" alt="">
                 <div class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero" data-opacity-mask="rgba(0, 0, 0, 0.5)">
                     <div class="container">
                         <div class="row justify-content-center justify-content-md-start">
@@ -124,7 +124,7 @@
       <div class="pinned-image pinned-image--medium pt-3">
         <div class="pinned-image__container" id="section_video">
             <video loop="loop" muted="muted" id="video_home">
-                <source src="https://azsunriseresort.com/video/swimming_pool_2a.mp4" type="video/mp4">
+                <source src="https://azsunriseresort.com/video/sunrise__V1-0004.mp4" type="video/mp4">
                 <source src="https://azsunriseresort.com/video/swimming_pool_2a.webm" type="video/webm">
                 <source src="https://azsunriseresort.com/video/swimming_pool_2.ogv" type="video/ogg">
             </video>

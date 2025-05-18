@@ -152,7 +152,7 @@
       <div class="pinned-image pinned-image--medium pt-3">
         <div class="pinned-image__container" id="section_video">
             <video loop="loop" muted="muted" id="video_home">
-                <source src="https://azsunriseresort.com/video/swimming_pool_2a.mp4" type="video/mp4">
+                <source src="https://azsunriseresort.com/video/sunrise__V1-0004.mp4" type="video/mp4">
                 <source src="https://azsunriseresort.com/video/swimming_pool_2a.webm" type="video/webm">
                 <source src="https://azsunriseresort.com/video/swimming_pool_2.ogv" type="video/ogg">
             </video>
