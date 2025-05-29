@@ -36,34 +36,13 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: '/css/custom.css', // Path สำหรับ Custom CSS
         },
-        // หากใช้ Daterangepicker v2 CSS
-        // {
-        //   rel: 'stylesheet',
-        //   href: '/assets/css/daterangepicker_v2.css',
-        // },
+
       ],
     },
   },
   css: [
-    // '@/assets/css/bootstrap.min.css', // Bootstrap Minified CSS
-    // '@/assets/css/style.css', // Main Style CSS
-    // '@/assets/css/vendors.min.css', // Vendors Minified CSS
-    // '@/assets/css/custom.css', // Custom CSS
-    // '@/assets/css/daterangepicker_v2.css', // Daterangepicker v2 CSS
   ],
   modules: ['@pinia/nuxt'], 
-  // i18n: {
-  //   // Module Options
-  //   lazy: true,
-  //   langDir: "@/locales", 
-  //   strategy: "prefix_except_default",
-  //   defaultLocale: "en", // Default Language
-  //   locales: [
-  //     { code: 'en', iso: 'en-US', file: 'en.json' },
-  //     { code: 'zh-CN', iso: 'zh-CN', file: 'zh-CN.json' },
-  //     { code: 'ru', iso: 'ru-RU', file: 'ru.json' },
-  //   ],
-  // },
   postcss: {
     plugins: {
       tailwindcss: {}, // ตรวจสอบว่า TailwindCSS ถูกโหลด

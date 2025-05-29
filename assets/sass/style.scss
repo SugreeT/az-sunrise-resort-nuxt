@@ -4439,7 +4439,7 @@ a.box_contents:hover {
 /* Carousel Centered */
 .carousel_item_centered .owl-item,
 .carousel_item_centered_rooms .owl-item {
-    opacity: 0.5;
+    opacity: 1;
     transform: scale(0.85) !important;
     @include backface-visibility (hidden);
     -webkit-transform: translateZ(0) scale(0.85, 0.85) !important;

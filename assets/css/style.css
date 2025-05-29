@@ -4250,7 +4250,7 @@ a.box_contents:hover img {
 /* Carousel Centered */
 .carousel_item_centered .owl-item,
 .carousel_item_centered_rooms .owl-item {
-  opacity: 0.5;
+  opacity: 1;
   transform: scale(0.85) !important;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;

@@ -226,25 +226,25 @@
 	});
 
 	// Carousel items centererd generals
-	$('.carousel_item_centered').owlCarousel({    
-	    loop:true,
-	    margin:5,
-	    nav:true,
-	    dots:false,
-	    center:true,
-	    navText: ["<i class='bi bi-arrow-left-short'></i>","<i class='bi bi-arrow-right-short'></i>"],
-	    responsive:{
-	        0:{
-	            items:1
-	        },
-	        600:{
-	            items:2
-	        },
-	        1000:{
-	            items:2
-	        }
-	    }
-	});
+	// $('.carousel_item_centered').owlCarousel({    
+	//     loop:true,
+	//     margin:5,
+	//     nav:true,
+	//     dots:false,
+	//     center:true,
+	//     navText: ["<i class='bi bi-arrow-left-short'></i>","<i class='bi bi-arrow-right-short'></i>"],
+	//     responsive:{
+	//         0:{
+	//             items:1
+	//         },
+	//         600:{
+	//             items:2
+	//         },
+	//         1000:{
+	//             items:2
+	//         }
+	//     }
+	// });
 
 	// Carousel items centered rooms
 	$('.carousel_item_centered_rooms').owlCarousel({    

@@ -1,4 +1,10 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "include": [
+    "nuxt.config.ts",
+    "types/**/*.d.ts",   // เพิ่มตรงนี้
+    "pages/**/*",
+    "components/**/*"
+  ]
 }
