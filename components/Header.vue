@@ -95,9 +95,11 @@
                   }}</a>
                 </li>
                 <li>
-                  <a href="javascript:void(0);" class="btn_1">{{
-                    $t("menu.bookNow", { name: "vue-i18n" })
-                  }}</a>
+                  <a
+                    href="https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en"
+                    class="btn_1"
+                    >{{ $t("menu.bookNow", { name: "vue-i18n" }) }}</a
+                  >
                 </li>
 
                 <li class="lang_top">
