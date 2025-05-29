@@ -6,5 +6,8 @@
     "types/**/*.d.ts",   // เพิ่มตรงนี้
     "pages/**/*",
     "components/**/*"
-  ]
+  ],
+  "compilerOptions": {
+    "types": ["nuxt/schema", "vite/client"]
+  }
 }

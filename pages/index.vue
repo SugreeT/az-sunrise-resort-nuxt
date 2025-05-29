@@ -650,9 +650,6 @@ const { locale } = useI18n();
 // i18n composable
 const { t } = useI18n();
 
-// register GSAP plugin once
-gsap.registerPlugin(ScrollTrigger);
-
 // reactive state
 const title = ref("");
 const adults = ref("");
@@ -702,6 +699,8 @@ const restaurantSpa = computed<GalleryItem[]>(() => {
 });
 
 onMounted(async () => {
+  // register GSAP plugin once
+
   // set initial title from i18n
   title.value = t("slide-title", { name: "vue-i18n" });
   // load sections 1–3
@@ -709,7 +708,11 @@ onMounted(async () => {
 
   await nextTick(); // รอ DOM อัปเดตก่อน
 
-  initPage();
+  if (typeof window !== "undefined") {
+    console.log("gsap >>", gsap);
+    gsap.registerPlugin(ScrollTrigger);
+    initPage();
+  }
 
   await nextTick(); // รอ DOM อัปเดตก่อน
   initCarousel();
@@ -832,7 +835,7 @@ async function loadOtherSections() {
   responseDataSection2.value = sec2;
   responseDataSection3.value = sec3;
 
-  console.log("responseDataSection3.value >> ", responseDataSection3.value);
+  // console.log("responseDataSection3.value >> ", responseDataSection3.value);
 }
 
 // 1) ฟังก์ชันสร้าง carousel ใหม่
@@ -863,7 +866,7 @@ function initCarousel() {
   });
 
   $owl.on("changed.owl.carousel", function (event: any) {
-    console.log("123123", event);
+    // console.log("123123", event);
   });
   $owl.on("click.owl.carousel", function (event: any) {
     // console.log("4444444", event);
