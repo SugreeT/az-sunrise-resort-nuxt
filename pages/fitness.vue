@@ -77,14 +77,16 @@
           <div>
             <ul class="list-unstyled mb-4">
               <li
+                v-for="(schedule, idx) in localizedDataSection2.schedules || []"
+                :key="idx"
                 class="d-flex justify-content-between mb-2 text-end"
                 data-cue="slideInRight"
                 data-duration="2000"
               >
-                <strong>{{ $t("fitness.hours_title") }}</strong>
-                <span>{{ $t("fitness.hours_open") }}</span>
+                <strong>{{ schedule.title }}</strong>
+                <span>{{ schedule.time }}</span>
               </li>
-              <li
+              <!-- <li
                 class="d-flex justify-content-between mb-2 text-end"
                 data-cue="slideInRight"
                 data-duration="2000"
@@ -99,7 +101,7 @@
               >
                 <strong>{{ $t("fitness.hiit_class") }}</strong>
                 <span>{{ $t("fitness.hiit_time") }}</span>
-              </li>
+              </li> -->
             </ul>
             <p class="phone_element" data-cue="slideInUp" data-duration="2000">
               <a href="tel://423424234">
@@ -116,27 +118,42 @@
 
     <!-- /container -->
 
-    <div class="bg_white add_bottom_120">
+    <div class="bg_white pt-4">
       <div class="container-fluid p-lg-0">
         <div data-cues="zoomIn">
           <div
             class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img"
           >
-            <div class="item">
+            <div
+              v-for="(gallery, idx) in responseDataSection3.galleries || []"
+              :key="idx"
+              class="item"
+            >
               <img
-                src="https://azsunriseresort.com/images/Fitness/AZ Fitness_1-topaz.jpg"
+                :src="
+                  apiService.getImageUrl(
+                    gallery.image.path,
+                    gallery.image.thumbnail_name
+                  )
+                "
+                alt=""
+              />
+            </div>
+            <!-- <div class="item">
+              <img
+                src="https://azsunriseresort.com/images/media/fitness/mqwXAbtWVZQrvrK.jpg"
                 alt=""
               />
             </div>
             <div class="item">
               <img
-                src="https://azsunriseresort.com/images/Fitness/AZ Fitness_2-topaz.jpg"
+                src="https://azsunriseresort.com/images/media/fitness/mqwXAbtWVZQrvrK.jpg"
                 alt=""
               />
             </div>
             <div class="item">
               <img
-                src="https://azsunriseresort.com/images/Fitness/AZ Fitness_3-topaz.jpg"
+                src="https://azsunriseresort.com/images/media/fitness/mqwXAbtWVZQrvrK.jpg"
                 alt=""
               />
             </div>
@@ -169,10 +186,10 @@
                 src="https://azsunriseresort.com/images/Fitness/AZ Fitness_8-topaz.jpg"
                 alt=""
               />
-            </div>
+            </div> -->
           </div>
         </div>
-        <div class="text-center mt-5">
+        <!-- <div class="text-center mt-5">
           <a
             class="btn_1 outline"
             data-fslightbox="gallery_1"
@@ -215,6 +232,16 @@
             data-type="image"
             href="https://azsunriseresort.com/images/Fitness/AZ Fitness_8-topaz.jpg"
           ></a>
+        </div> -->
+      </div>
+      <div class="marquee">
+        <div class="track">
+          <div class="content">
+            &nbsp;Relax Enjoy Luxury Holiday Travel Discover Experience Relax
+            Enjoy Luxury Holiday Travel Discover Experience Relax Enjoy Luxury
+            Holiday Travel Discover Experience Relax Enjoy Luxury Holiday Travel
+            Discover Experience
+          </div>
         </div>
       </div>
     </div>
@@ -342,9 +369,10 @@ onMounted(async () => {
   }
 
   await nextTick(); // รอ DOM อัปเดตก่อน
-  initCarousel(); // เรียก re-init carousel
-  await nextTick();
-  refreshFsLightbox();
+  initCarousel();
+
+  // await nextTick();
+  // refreshFsLightbox();
 });
 
 // 6) compute a short getLang ("cn" instead of "zh-CN")
@@ -364,13 +392,24 @@ const localizedDataSection1 = computed(() => {
 });
 
 const localizedDataSection2 = computed(() => {
-  const t = `title_${getLang.value}`;
-  const d = `description_${getLang.value}`;
+  const lang = getLang.value;
+  const titleKey = `title_${lang}`;
+  const descKey = `description_${lang}`;
+  const schedKey = `schedules_${lang}`;
+
+  const schedules =
+    responseDataSection2.value[schedKey] ||
+    responseDataSection2.value.schedules_en ||
+    [];
+
   return {
-    title: responseDataSection2.value[t] ?? responseDataSection2.value.title_en,
+    title:
+      responseDataSection2.value[titleKey] ||
+      responseDataSection2.value.title_en,
     description:
-      responseDataSection2.value[d] ??
+      responseDataSection2.value[descKey] ||
       responseDataSection2.value.description_en,
+    schedules,
   };
 });
 
@@ -393,18 +432,18 @@ async function loadOtherSections() {
 
 // 1) ฟังก์ชันสร้าง carousel ใหม่
 function initCarousel() {
-  const $owl = $(".carousel_item_centered2");
+  const $owl = $(".carousel_item_centered");
 
   $owl.owlCarousel({
     loop: true,
     margin: 5,
-    nav: false,
+    nav: true,
     dots: false,
     center: true,
-    // navText: [
-    //   "<i class='bi bi-arrow-left-short'></i>",
-    //   "<i class='bi bi-arrow-right-short'></i>",
-    // ],
+    navText: [
+      "<i class='bi bi-arrow-left-short'></i>",
+      "<i class='bi bi-arrow-right-short'></i>",
+    ],
     responsive: {
       0: {
         items: 1,
@@ -412,11 +451,8 @@ function initCarousel() {
       600: {
         items: 2,
       },
-      800: {
-        items: 3,
-      },
       1000: {
-        items: 4,
+        items: 2,
       },
     },
   });
