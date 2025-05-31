@@ -124,7 +124,7 @@
             <p class="lead" data-cue="slideInUp">
               {{ localizedDataSection2.description }}
             </p>
-            <p data-cue="slideInLeft" data-duration="2000"></p>
+            <p data-cue="slideInLeft"></p>
           </div>
         </div>
 
@@ -137,7 +137,6 @@
                 :key="idx"
                 class="d-flex justify-content-between mb-2 text-end"
                 data-cue="slideInRight"
-                data-duration="2000"
               >
                 <strong>{{ schedule.title }}</strong>
                 <span>{{ schedule.time }}</span>
