@@ -322,7 +322,7 @@
             </div>
             <!-- <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p> -->
             <p class="phone_element no_borders">
-              <a href="tel://423424234"
+              <a href="tel://076643222"
                 ><i class="bi bi-telephone"></i
                 ><span
                   ><em>{{ $t("info.bookings") }}</em

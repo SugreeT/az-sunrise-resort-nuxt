@@ -67,7 +67,9 @@
           :src="
             apiService.getImageUrl(
               responseDataSection1.banner?.path,
-              responseDataSection1.banner?.name
+              isMobile
+                ? responseDataSection1.banner?.thumbnail_name
+                : responseDataSection1.banner?.name
             )
           "
           alt=""
@@ -159,7 +161,7 @@
               </li> -->
             </ul>
             <p class="phone_element" data-cue="slideInUp" data-duration="2000">
-              <a href="tel://423424234">
+              <a href="tel://076643222">
                 <i class="bi bi-telephone"></i>
                 <span>
                   <em>{{ $t("experience.reservations") }}</em> 076643222
@@ -170,7 +172,6 @@
         </div>
       </div>
     </div>
-    s
     <!-- /container -->
 
     <div class="pattern_3">
@@ -189,7 +190,6 @@
               class="nav-item"
               role="presentation"
             >
-              <!-- :href="`#pane-${tab.id}`" -->
               <a
                 href="#"
                 :id="`tab-${tab.id}`"
@@ -203,11 +203,13 @@
               </a>
             </li>
           </ul>
+
           <div class="tab-content add_bottom_25" role="tablist">
             <div
               v-for="(tab, index) in localizedSection3Tabs || []"
               :id="`pane-${tab.id}`"
-              class="card tab-pane fade show active"
+              class="card tab-pane fade"
+              :class="{ show: index === 0, active: index === 0 }"
               role="tabpanel"
               :aria-labelledby="`tab-${tab.id}`"
             >
@@ -221,7 +223,7 @@
                     aria-expanded="true"
                     :aria-controls="`collapse-${tab.id}`"
                   >
-                    {{ $t("menu.tab.starters") }}
+                    {{ tab.name }}
                   </a>
                 </h5>
               </div>
@@ -235,23 +237,24 @@
                   <div
                     class="banner background-image"
                     :style="{
-                      backgroundImage: `url(img/restaurant/bg-res-2.jpeg)`,
+                      backgroundImage: `url(img/restaurant/bg-res-4.jpg)`,
                     }"
                   >
                     <div
-                      class="wrapper d-flex align-items-center justify-content-between opacity-mask"
+                      class="wrapper d-flex align-items-center opacity-mask"
+                      :class="isMobile ? '' : 'justify-content-between'"
                       data-opacity-mask="rgba(0, 0, 0, 0.6)"
                     >
-                      <template v-if="firstMenuSection3">
+                      <template v-if="tab.firstMenu">
                         <div>
                           <!-- แสดงชื่อเมนูและราคา -->
                           <h3>
-                            {{ firstMenuSection3.name }} &nbsp;&nbsp;&nbsp;{{
-                              firstMenuSection3.price
+                            {{ tab.firstMenu.name }} &nbsp;&nbsp;&nbsp;{{
+                              tab.firstMenu.price
                             }}
                           </h3>
                           <!-- แสดงวัตถุดิบ -->
-                          <p>{{ firstMenuSection3.material }}</p>
+                          <p>{{ tab.firstMenu.material }}</p>
                           <a href="menu-of-the-day" class="btn_1">{{
                             $t("menu.view")
                           }}</a>
@@ -259,23 +262,23 @@
 
                         <figure
                           class="banner-figure"
-                          v-if="firstMenuSection3.image"
+                          v-if="!isMobile && tab.firstMenu.image"
                         >
                           <a>
                             <!-- ใช้ class เดิม “circle-img” แต่เปลี่ยน src เป็น binding -->
                             <img
                               :src="
                                 apiService.getImageUrl(
-                                  firstMenuSection3.image.path,
-                                  firstMenuSection3.image.name
+                                  tab.firstMenu.image.path,
+                                  tab.firstMenu.image.name
                                 )
                               "
-                              :alt="firstMenuSection3.name"
+                              :alt="tab.firstMenu.name"
                               class="circle-img"
                             />
                           </a>
                         </figure>
-                        <figure class="banner-figure" v-else>
+                        <figure class="banner-figure" v-if="!isMobile">
                           <a title="">
                             <img
                               src="~assets/img/no-image4.jpg"
@@ -289,11 +292,12 @@
                     <!-- /wrapper -->
                   </div>
                   <!-- /banner -->
+
                   <div class="row magnific-gallery add_top_30">
-                    <!-- วนลูปเมนูจาก localizedSection3Tabs.food_menus -->
+                    <!-- วนลูปเมนูจาก tab.otherMenus -->
                     <div
                       class="col-lg-6"
-                      v-for="(menu, idx) in tab.food_menus"
+                      v-for="(menu, idx) in tab.otherMenus"
                       :key="menu.id || idx"
                     >
                       <div class="menu_item">
@@ -303,7 +307,9 @@
                               :src="
                                 apiService.getImageUrl(
                                   menu.image.path,
-                                  menu.image.name
+                                  isMobile
+                                    ? menu.image.thumbnail_name
+                                    : menu.image.name
                                 )
                               "
                               alt=""
@@ -333,6 +339,7 @@
           </div>
           <!-- /tab-content -->
         </div>
+
         <!-- /tabs_menu-->
 
         <p class="text-center mt-5">
@@ -407,7 +414,12 @@ import type {
   GalleryItem,
   Tab,
   FoodMenuItem,
+  TranslatedMenu,
+  TranslatedTabEach,
 } from "@/interfaces/Section3Item";
+import { useIsMobile } from "~/composables/useIsMobile";
+
+const { isMobile } = useIsMobile();
 
 // 1) Simple mount flag + ScrollCue
 const isMounted = ref(false);
@@ -506,107 +518,131 @@ const localizedDataSection2 = computed(() => {
   };
 });
 
-const firstMenuSection3 = computed<
-  | (FoodMenuItem & {
-      name: string;
-      price: string;
-      material: string;
-      image: { path: string; name: string };
-    })
-  | null
->(() => {
-  // ถ้าไม่มีข้อมูล หรือ ไม่มีแท็บ ให้ return null
-  if (
-    !localizedSection3Tabs.value ||
-    localizedSection3Tabs.value.length === 0
-  ) {
-    return null;
+// const firstMenuSection3 = computed<TranslatedMenu | null>(() => {
+//   const allTabs = localizedSection3Tabs.value;
+//   if (allTabs.length === 0) return null;
+//   // เรียกใช้ firstMenu ที่เราแยกไว้แล้ว
+//   return allTabs[0].firstMenu;
+// });
+// ----------------------------------------------------------------
+// 1. สร้าง computed สำหรับ “แปลทุกแท็บ” (ยังไม่แยก first/others)
+// ----------------------------------------------------------------
+const localizedSection3TabsRaw = computed<TranslatedTabEach[]>(() => {
+  // ถ้า API ยังไม่มี data ให้คืน array ว่าง (ไทป์ TranslatedTabEach[])
+  if (!responseDataSection3.value) {
+    return [] as TranslatedTabEach[];
   }
-  // ดึงแท็บตัวแรก (index 0)
-  const firstTab = localizedSection3Tabs.value[0];
-  // ถ้า food_menus ว่าง หรือไม่มี ให้ return null
-  if (!firstTab.food_menus || firstTab.food_menus.length === 0) {
-    return null;
+
+  // หาภาษาปัจจุบัน (เช่น "en", "zh-CN", "ru", "cn")
+  const lang = getLang.value; // สมมติคืน "en", "zh-CN", "ru", "cn"
+  const langKey = lang === "zh-CN" ? "cn" : lang;
+
+  // ฟังก์ชันช่วยดึง field ที่ถูกแปล (fallback ไป _en ถ้าไม่มีข้อมูล)
+  function getField(
+    obj: Record<string, any>,
+    fieldBase: "name" | "price" | "material"
+  ): string {
+    const fullKey = `${fieldBase}_${langKey}`; // เช่น "name_cn", "price_ru"
+    if (obj[fullKey] != null && obj[fullKey].toString().trim() !== "") {
+      return obj[fullKey];
+    }
+    // fallback ไปใช้ภาษาอังกฤษ (เช่น name_en, price_en, material_en)
+    return obj[`${fieldBase}_en`] || "";
   }
-  // คืนค่าตัวเมนูตัวแรก
-  return firstTab.food_menus[0];
+
+  // map แต่ละแท็บจาก responseDataSection3.value.tabs → TranslatedTabEach (แต่ยังไม่แยก first/others)
+  return responseDataSection3.value.tabs.map((tab: any) => {
+    // 1.1) หา localized ชื่อแท็บ (fallback เป็น name_en ถ้า empty)
+    const rawTabName = (tab[`name_${langKey}`] as string) || "";
+    const localizedTabName =
+      rawTabName.trim() !== "" ? rawTabName : tab.name_en;
+
+    // 1.2) แปล food_menus ภายในแท็บนั้นเป็น array ของ TranslatedMenu
+    const translatedMenus: TranslatedMenu[] = tab.food_menus.map(
+      (menu: any) => ({
+        ...menu,
+        name: getField(menu, "name"),
+        price: getField(menu, "price"),
+        material: getField(menu, "material"),
+      })
+    );
+
+    // 1.3) คืนค่าเป็น TranslatedTabEach (แต่ยังไม่แยก first/other)
+    return {
+      id: tab.id,
+      name: localizedTabName,
+      firstMenu: null, // เดี๋ยวเราจะแทนที่ในขั้นตอนถัดไป
+      otherMenus: [], // เดี๋ยวแทนที่เช่นกัน
+      // แต่เรายังเก็บ translatedMenus เอาไว้ในตัวแปรเพื่อใช้ในขั้นตอนที่ 2
+      // (เราไม่เอา translatedMenus ลงใน object ตรงนี้)
+      // แค่นี้พอให้ Vue รู้ว่าโครงสร้างเป็น TranslatedTabEach[]
+    };
+  });
 });
 
-// 3. สร้าง computed เพื่อ localized tabs
-//    แต่ละ tab จะถูก “map” ให้มี property ชุดเดียวกัน เช่น name, image, ฯลฯ
-const localizedSection3Tabs = computed(
-  (): Array<
-    Tab & {
-      name: string; // ฟิลด์ `name` ใหม่ (ชื่อแท็บตามภาษาปัจจุบัน)
-      // นอกจากนี้แต่ละแท็บจะมี food_menus เป็นอาเรย์ของเมนูที่ "ถูกแปล" มาแล้ว
-      food_menus: Array<
-        FoodMenuItem & {
-          name: string;
-          price: string;
-          material: string;
-        }
-      >;
-    }
-  > => {
-    // ถ้า API ยังไม่มี data ให้คืนเป็นอาเรย์เปล่า
-    if (!responseDataSection3.value) {
-      return [];
-    }
+const localizedSection3Tabs = computed<TranslatedTabEach[]>(() => {
+  // เอาข้อมูล raw มาเก็บไว้
+  const rawTabs = localizedSection3TabsRaw.value;
 
-    const lang = getLang.value; // "en" / "cn" / "ru" / "zh-CN"
-    // แปลง "zh-CN" เป็น "cn" เพื่อ match กับชื่อฟิลด์ใน interface (name_cn, price_cn, material_cn)
-    const langKey = lang === "zh-CN" ? "cn" : lang;
-
-    // ฟังก์ชันช่วยดึงค่า localized field (fallback ไปภาษาอังกฤษถ้าไม่มีข้อมูล)
-    function getField(
-      obj: Record<string, any>,
-      fieldBase: "name" | "price" | "material"
-    ): string {
-      // fullKey เช่น "name_cn" หรือ "price_ru"
-      const fullKey = `${fieldBase}_${langKey}`;
-      if (obj[fullKey] != null && obj[fullKey].toString().trim() !== "") {
-        return obj[fullKey];
-      }
-      // fallback ไปใช้ภาษาอังกฤษ
-      return obj[`${fieldBase}_en`] || "";
-    }
-
-    // ทำการ map แต่ละ tab ใน responseDataSection3.value.tabs
-    const responseTab3 = responseDataSection3.value.tabs.map((tab) => {
-      // 2.1) หา `localizedName` สำหรับแต่ละแท็บ (fallback ไปแท็บภาษาอังกฤษ)
-      const tabNameKey = `name_${langKey}` as keyof Pick<
-        Tab,
-        "name_en" | "name_cn" | "name_ru"
-      >;
-      const rawTabName = (tab[tabNameKey] as unknown as string) || "";
-      const localizedTabName =
-        rawTabName.trim() !== "" ? rawTabName : tab.name_en;
-
-      // 2.2) แปล food_menus ภายในแท็บนั้น
-      const localizedMenus = tab.food_menus.map((menu) => {
-        return {
-          ...menu,
-          // เพิ่ม field ชื่อเดียว (name, price, material) ที่ถูกแปลเรียบร้อยแล้ว
-          name: getField(menu, "name"),
-          price: getField(menu, "price"),
-          material: getField(menu, "material"),
-        };
-      });
-
-      // 2.3) คืนค่าเป็น object เดิม (Tab) + ฟิลด์ name ใหม่ + แทนที่ food_menus ด้วย array ที่แปลแล้ว
-      return {
-        ...tab,
-        // .name เป็นชื่อแท็บตามภาษาปัจจุบัน
-        name: localizedTabName,
-        // .food_menus เป็นเมนูที่แปลชื่อ/ราคา/วัตถุดิบมาแล้ว
-        food_menus: localizedMenus,
-      };
-    });
-
-    console.log("responseTab3 >>> ", responseTab3);
-    return responseTab3;
+  // ถ้า array ว่าง (ยังไม่โหลดข้อมูล) ให้คืน [] ทันที
+  if (rawTabs.length === 0) {
+    return [] as TranslatedTabEach[];
   }
-);
+
+  if (!responseDataSection3.value) {
+    // ถ้ายังไม่โหลด data หรือเป็น null ให้คืน array ว่าง (type เป็น TranslatedTabRaw[])
+    return [] as TranslatedTabEach[];
+  }
+
+  // จะเรียกซ้ำฟังก์ชันแปลเมนูอีกครั้ง เพื่อได้ array TranslatedMenu[]
+  // (ทำซ้ำจุดแปลชื่อ/ราคา/material ตามขั้นตอนหน้าที่ 1.2)
+  // เพราะเราไม่ได้เก็บ translatedMenus เอาไว้ใน localizedSection3TabsRaw แต่เลือกแยกคำสั่งให้ชัดเจน
+  const lang = getLang.value;
+  const langKey = lang === "zh-CN" ? "cn" : lang;
+  function getField(
+    obj: Record<string, any>,
+    fieldBase: "name" | "price" | "material"
+  ): string {
+    const fullKey = `${fieldBase}_${langKey}`;
+    if (obj[fullKey] != null && obj[fullKey].toString().trim() !== "") {
+      return obj[fullKey];
+    }
+    return obj[`${fieldBase}_en`] || "";
+  }
+
+  // map แต่ละแท็บ (rawTabs[i]) เพื่อสร้าง TranslatedTabEach ที่สมบูรณ์
+  return responseDataSection3.value.tabs.map((tab: any, tabIndex) => {
+    // (2.1) หา localized ชื่อแท็บ (เหมือนเดิม)
+    const rawTabName = (tab[`name_${langKey}`] as string) || "";
+    const localizedTabName =
+      rawTabName.trim() !== "" ? rawTabName : tab.name_en;
+
+    // (2.2) แปลเมนูทั้งหมดในแท็บนี้เป็น TranslatedMenu[]
+    const translatedMenus: TranslatedMenu[] = tab.food_menus.map(
+      (menu: any) => ({
+        ...menu,
+        name: getField(menu, "name"),
+        price: getField(menu, "price"),
+        material: getField(menu, "material"),
+      })
+    );
+
+    // (2.3) แยก firstMenu กับ otherMenus
+    const first = translatedMenus.length > 0 ? translatedMenus[0] : null;
+    const rest =
+      translatedMenus.length > 1
+        ? translatedMenus.slice(1)
+        : ([] as TranslatedMenu[]);
+
+    // (2.4) คืน object TranslatedTabEach สำหรับแท็บนี้
+    return {
+      id: tab.id,
+      name: localizedTabName,
+      firstMenu: first,
+      otherMenus: rest,
+    };
+  });
+});
 
 function getLocalizedField(obj: any, fieldBase: any) {
   // currentLang มีค่า เช่น "en", "cn", "ru"
@@ -705,10 +741,22 @@ function initCarousel() {
 
 /* ทำให้ img มีขนาดเท่ากันทั้งกว้างและสูง แล้วตั้งเป็นวงกลม */
 .circle-img {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   object-fit: cover; /* ตัดขอบรูปให้เต็มวงกลมอย่างเหมาะสม */
   border-radius: 50%; /* ทำให้ขอบเป็นวงกลม */
   display: block;
+}
+
+@media (max-width: 768px) {
+  /* ซ่อนทั้ง carousel เมื่อความกว้างหน้าจอ <= 768px (มือถือ) */
+  .circle-img {
+    /* display: none; */
+    width: 100px;
+    height: 100px;
+    object-fit: cover; /* ตัดขอบรูปให้เต็มวงกลมอย่างเหมาะสม */
+    border-radius: 50%; /* ทำให้ขอบเป็นวงกลม */
+    display: block;
+  }
 }
 </style>

@@ -89,3 +89,23 @@ export interface Section3Item {
   galleries: GalleryItem[]
   page_id: number
 }
+
+
+export interface TranslatedMenu extends FoodMenuItem {
+  name: string      // ชื่อเมนูที่แปลแล้ว
+  price: string     // ราคาเมนูที่แปลแล้ว
+  material: string  // วัตถุดิบที่แปลแล้ว
+}
+
+export interface TranslatedTabEach {
+  id: number
+  name: string                // ชื่อแท็บตามภาษาปัจจุบัน
+  firstMenu: TranslatedMenu | null
+  otherMenus: TranslatedMenu[]
+}
+
+export interface TranslatedTab {
+  id: number
+  name: string             // ชื่อแท็บตามภาษาปัจจุบัน
+  food_menus: TranslatedMenu[]
+}

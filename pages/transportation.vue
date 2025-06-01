@@ -104,7 +104,7 @@
               </li> -->
             </ul>
             <p class="phone_element" data-cue="slideInUp" data-duration="2000">
-              <a href="tel://423424234">
+              <a href="tel://076643222">
                 <i class="bi bi-telephone"></i>
                 <span>
                   <em>{{ $t("experience.reservations") }}</em> 076643222
