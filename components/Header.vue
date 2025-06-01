@@ -105,7 +105,9 @@
                 <li class="lang_top">
                   <i class="bi bi-globe"></i>
                   <span class="lang" @click="changeLanguage('en')">EN</span> -
-                  <span class="lang" @click="changeLanguage('cn')">中国</span>
+                  <span class="lang" @click="changeLanguage('zh-CN')"
+                    >中国</span
+                  >
                   -
                   <span class="lang" @click="changeLanguage('ru')">Россия</span>
                 </li>
