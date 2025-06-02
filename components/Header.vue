@@ -45,7 +45,7 @@
             <nav id="mainNav">
               <ul>
                 <li>
-                  <a href="index" class="link">{{
+                  <a href="/index" class="link">{{
                     $t("menu.home", { name: "vue-i18n" })
                   }}</a>
                 </li>
@@ -59,12 +59,12 @@
                                     </ul>
                                 </li> -->
                 <li>
-                  <a href="rooms">{{
+                  <a href="/rooms">{{
                     $t("menu.rooms", { name: "vue-i18n" })
                   }}</a>
                 </li>
                 <li>
-                  <a href="restaurant">{{
+                  <a href="/restaurant">{{
                     $t("menu.restaurant", { name: "vue-i18n" })
                   }}</a>
                 </li>
@@ -85,12 +85,12 @@
                                     </ul>
                                 </li> -->
                 <li>
-                  <a href="about">{{
+                  <a href="/about">{{
                     $t("menu.about", { name: "vue-i18n" })
                   }}</a>
                 </li>
                 <li>
-                  <a href="contact">{{
+                  <a href="/contact">{{
                     $t("menu.contact", { name: "vue-i18n" })
                   }}</a>
                 </li>

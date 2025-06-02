@@ -1,16 +1,37 @@
 <template>
   <main>
-    <div class="hero small-height jarallax">
-      <img class="jarallax-img" src="/img/img_ex/3.jpg" alt="" />
-      <div
-        class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero"
-        data-opacity-mask="rgba(0, 0, 0, 0.5)"
-      >
-        <div class="container">
-          <small class="slide-animated one">{{ $t("hero.experience") }}</small>
-          <h1 class="slide-animated two">{{ $t("hero.rooms") }}</h1>
+    <div class="hero small-height jarallax" data-jarallax data-speed="0.2">
+      <client-only>
+        <img
+          class="jarallax-img"
+          :src="
+            apiService.getImageUrl(
+              responseDataSection1.banner?.path,
+              responseDataSection1.banner?.name
+            )
+          "
+          alt=""
+        />
+        <div
+          class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero"
+          data-opacity-mask="rgba(0, 0, 0, 0.5)"
+        >
+          <div class="container">
+            <div class="row justify-content-center justify-content-md-start">
+              <div class="col-lg-6 static">
+                <div class="slide-text white">
+                  <small class="slide-animated one">
+                    {{ localizedDataSection1.title }}</small
+                  >
+                  <h1 class="slide-animated two">
+                    {{ localizedDataSection1.titleMini }}
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </client-only>
     </div>
     <!-- /Background Img Parallax -->
 
@@ -19,11 +40,10 @@
         <div class="col-xl-4 fixed_title">
           <div class="title">
             <small class="title-small">A.Z. Sunrise Resort</small>
-            <h2>{{ $t("section.ourRooms") }}</h2>
+            <!-- <h2>{{ $t("section.ourRooms") }}</h2> -->
+            <h2>{{ localizedDataSection2.title }}</h2>
             <p class="lead">
-              {{ $t("section.ourRooms.lead.part1") }}
-              <strong>{{ $t("section.ourRooms.lead.strong") }}</strong>
-              {{ $t("section.ourRooms.lead.part2") }}
+              {{ localizedDataSection2.description }}
             </p>
 
             <p>
@@ -34,11 +54,58 @@
           </div>
         </div>
         <div class="col-xl-7">
-          <div class="row_list_version_3" data-cue="fadeIn">
+          <div
+            class="row_list_version_3"
+            data-cue="fadeIn"
+            v-for="(room, idx) in localizedRoomTypes"
+            :key="idx"
+          >
             <div
               class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img"
             >
-              <div class="item">
+              <div class="item" v-for="(g, gidx) in room.galleries" :key="gidx">
+                >
+                <a @click="goToRoomDetail(room.id)" style="cursor: pointer">
+                  <img
+                    :src="
+                      apiService.getImageUrl(
+                        g.image.path,
+                        g.image.thumbnail_name
+                      )
+                    "
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+
+            <div class="box_item_info" data-jarallax-element="-25">
+              <small>{{ room.titleMini }}</small>
+              <h2>{{ room.title }}</h2>
+
+              <!-- ตรงนี้คือส่วน details -->
+              <p>
+                {{ truncatedText(room.details) }}
+                <span v-if="isLong(room.details)">
+                  ...
+                  <a
+                    href="javascript:void(0);"
+                    @click.prevent="goToRoomDetail(room.id)"
+                    >See more</a
+                  >
+                </span>
+              </p>
+              <div class="facilities clearfix">
+                <ul>
+                  <li v-for="(f, fidx) in room.facilities" :key="fidx">
+                    <i :class="f.icon"></i> {{ f.name }}
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="item">
                 <a
                   @click="goToRoomDetail('room.standardDouble')"
                   style="cursor: pointer"
@@ -58,29 +125,9 @@
                   style="cursor: pointer"
                   ><img src="/img/rooms/opt_8.jpg" alt=""
                 /></a>
-              </div>
-            </div>
-            <!-- /carousel -->
-            <div class="box_item_info" data-jarallax-element="-25">
-              <small>{{ $t("room.price150") }}</small>
-              <h2>{{ $t("room.standardDouble") }}</h2>
-              <p>{{ $t("room.description") }}</p>
-              <div class="facilities clearfix">
-                <ul>
-                  <li>
-                    <i class="customicon-double-bed"></i> {{ $t("room.bed") }}
-                  </li>
-                  <li>
-                    <i class="customicon-television"></i> {{ $t("room.tv") }}
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <!-- /box_item_info -->
-          </div>
-          <!-- /row_list_version_3 -->
+              </div> -->
 
-          <div class="row_list_version_3" data-cue="fadeIn">
+          <!-- <div class="row_list_version_3" data-cue="fadeIn">
             <div
               class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img"
             >
@@ -106,7 +153,7 @@
                 /></a>
               </div>
             </div>
-            <!-- /carousel -->
+            
             <div class="box_item_info" data-jarallax-element="-25">
               <small>{{ $t("room.price150") }}</small>
               <h2>{{ $t("room.standardTwin") }}</h2>
@@ -122,9 +169,9 @@
                 </ul>
               </div>
             </div>
-            <!-- /box_item_info -->
+            
           </div>
-          <!-- /row_list_version_3 -->
+          
 
           <div class="row_list_version_3" data-cue="fadeIn">
             <div
@@ -152,7 +199,7 @@
                 /></a>
               </div>
             </div>
-            <!-- /carousel -->
+            
             <div class="box_item_info" data-jarallax-element="-25">
               <small>{{ $t("room.price230") }}</small>
               <h2>{{ $t("room.deluxeDouble") }}</h2>
@@ -168,9 +215,9 @@
                 </ul>
               </div>
             </div>
-            <!-- /box_item_info -->
+            
           </div>
-          <!-- /row_list_version_3 -->
+          
 
           <div class="row_list_version_3" data-cue="fadeIn">
             <div
@@ -198,7 +245,7 @@
                 /></a>
               </div>
             </div>
-            <!-- /carousel -->
+            
             <div class="box_item_info" data-jarallax-element="-25">
               <small>{{ $t("room.price230") }}</small>
               <h2>{{ $t("room.deluxeTwin") }}</h2>
@@ -214,7 +261,7 @@
                 </ul>
               </div>
             </div>
-            <!-- /box_item_info -->
+            
           </div>
 
           <div class="row_list_version_3" data-cue="fadeIn">
@@ -243,7 +290,7 @@
                 /></a>
               </div>
             </div>
-            <!-- /carousel -->
+            
             <div class="box_item_info" data-jarallax-element="-25">
               <small>{{ $t("room.price230") }}</small>
               <h2>{{ $t("room.family") }}</h2>
@@ -259,8 +306,8 @@
                 </ul>
               </div>
             </div>
-            <!-- /box_item_info -->
-          </div>
+            
+          </div> -->
         </div>
       </div>
     </div>
@@ -269,7 +316,7 @@
     <div class="pinned-image pinned-image--medium">
       <div class="pinned-image__container">
         <img
-          src="https://azsunriseresort.com/images/Garden/AZ Garden_8-topaz.jpg"
+          src="https://azsunriseresort.com/images/media/diving/p08Ue95G9Ic9Nlz_thumb_30pct.jpg"
           alt=""
         />
         <div class="pinned-image__container-overlay"></div>
@@ -374,7 +421,8 @@
             <!-- / row -->
             <p class="text-end mt-3">
               <a
-                href="https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en"
+                href="javascript:void(0);"
+                @click.prevent="gotoBookDirect()"
                 class="btn_1 outline"
                 >{{ $t("menu.bookNow") }}</a
               >
@@ -441,90 +489,286 @@
     </div>
   </main>
 </template>
-<script>
-export default {
-  data() {
+
+<script setup lang="ts">
+import { ref, onMounted, computed } from "vue";
+import { useI18n } from "vue-i18n";
+import { useAsyncData } from "#app";
+import apiService from "@/services/apiService";
+
+// 1) Simple mount flag + ScrollCue
+const isMounted = ref(false);
+
+// 2) i18n
+const { locale } = useI18n();
+
+// 3) pageId constant
+const pageId = 8;
+const pageName = "room";
+
+// 4) fetch main landing section via useAsyncData (runs before render)
+const {
+  data: responseDataSection,
+  pending,
+  error,
+} = await useAsyncData("landing-section", () =>
+  apiService.get(`/api/landingpage/content/${pageId}`)
+);
+
+// 5) other sections loaded onMounted
+const responseDataSection1 = ref<Record<string, any>>({});
+const responseDataSection2 = ref<Record<string, any>>({});
+const responseDataSection3 = ref<{ galleries: any[] }>({ galleries: [] });
+
+onMounted(async () => {
+  isMounted.value = true;
+
+  // re-init ScrollCue if provided
+  if (window?.ScrollCue) {
+    window.ScrollCue.update();
+  }
+
+  // load sections 1–3
+  await loadOtherSections();
+
+  // sync locale from localStorage
+  if (process.client) {
+    const saved = localStorage.getItem("lang");
+    if (saved) {
+      locale.value = saved;
+    }
+  }
+
+  await nextTick(); // รอ DOM อัปเดตก่อน
+  initCarousel();
+
+  await nextTick(); //
+  setTimeout(() => {
+    initDateBookingPicker();
+  }, 2000);
+
+  // await nextTick();
+  // refreshFsLightbox();
+});
+
+// 6) compute a short getLang ("cn" instead of "zh-CN")
+const getLang = computed(() =>
+  locale.value === "zh-CN" ? "cn" : locale.value
+);
+
+// 7) localized getters for section1 & section2
+const localizedDataSection1 = computed(() => {
+  const t = `title_${getLang.value}`;
+  const m = `title_mini_${getLang.value}`;
+  return {
+    title: responseDataSection1.value[t] ?? responseDataSection1.value.title_en,
+    titleMini:
+      responseDataSection1.value[m] ?? responseDataSection1.value.title_mini_en,
+  };
+});
+
+const localizedDataSection2 = computed(() => {
+  const lang = getLang.value;
+  const titleKey = `title_${lang}`;
+  const descKey = `description_${lang}`;
+  const schedKey = `schedules_${lang}`;
+
+  const schedules =
+    responseDataSection2.value[schedKey] ||
+    responseDataSection2.value.schedules_en ||
+    [];
+
+  return {
+    title:
+      responseDataSection2.value[titleKey] ||
+      responseDataSection2.value.title_en,
+    description:
+      responseDataSection2.value[descKey] ||
+      responseDataSection2.value.description_en,
+    schedules,
+  };
+});
+
+const localizedRoomTypes = computed(() => {
+  const lang = getLang.value; // 'en' | 'cn' | 'ru'
+  const titleKey = `title_${lang}`;
+  const titleMiniKey = `title_mini_${lang}`;
+  const detailsKey = `details_${lang}`;
+
+  // ถ้ามีฟิลด์อื่นที่ต้องแปล เช่น facilities, schedules ก็สร้าง key เพิ่มได้
+  const facilitiesKey = `facilities_${lang}`;
+  // const schedulesKey  = `schedules_${lang}`;
+
+  // 1) ดึง array ดิบจาก responseDataSection2
+  const rawList = responseDataSection2.value.room_types || [];
+
+  // 2) map แต่ละ room_type ให้ได้โครงสร้างตามต้องการ
+  return rawList.map((room: Record<string, any>) => {
+    // 2.1) แปลง title และ details โดย fallback เป็น _en เสมอ
+    const localizedTitle = room[titleKey] || room.title_en || "";
+    const localizedTitleMini = room[titleMiniKey] || room.title_mini_en || "";
+    const localizedDetails = room[detailsKey] || room.details_en || "";
+    const localizedFacilities = room[facilitiesKey] || room.details_en || "";
+
+    // 2.2) เอา galleries มาแบบดิบ ๆ จากฐานข้อมูล
+    //      ไม่ต้องแปลงใด ๆ ให้เขียนตรงนี้เลย
+    const galleriesArray = Array.isArray(room.galleries) ? room.galleries : [];
+
     return {
-      title: "", // ค่าเริ่มต้น
-      test: "TEST",
+      id: room.id,
+      title: localizedTitle,
+      titleMini: localizedTitleMini,
+      details: localizedDetails,
+      facilities: localizedFacilities
+        ?.filter((item: any) => item.status === "Y")
+        .slice(0, 3),
+      // ถ้ามี fields อื่น ๆ ที่อยากให้ส่งผ่านไปด้วย ก็เพิ่มได้ตรงนี้
+      // facilities: room[facilitiesKey] || room.facilities_en || [],
+      // schedules:  room[schedulesKey]  || room.schedules_en  || [],
+
+      // 2.3) galleries ส่งแบบดิบ ๆ จาก DB
+      galleries: galleriesArray?.slice(0, 3),
     };
-  },
-  mounted() {
-    setTimeout(() => {
-      this.initDateBookingPicker();
-    }, 2000);
-  },
-  methods: {
-    initDateBookingPicker() {
-      const DateTime = easepick.DateTime;
+  });
+});
 
-      const bookedDates = [
-        ["2023-09-01", "2023-09-04"],
-        "2023-09-07",
-        ["2023-10-11", "2023-10-17"],
-      ].map((d) => {
-        if (Array.isArray(d)) {
-          const start = new DateTime(d[0], "YYYY-MM-DD");
-          const end = new DateTime(d[1], "YYYY-MM-DD");
-          return [start, end];
-        }
-        return new DateTime(d, "YYYY-MM-DD");
-      });
+// 1.2 ฟังก์ชันเช็กว่าข้อความยาวเกิน 100 ไหม
+function isLong(text: string | null | undefined): boolean {
+  if (!text) return false;
+  return text.length > 100;
+}
 
-      const datePB = document.getElementById("date_booking");
-      if (datePB) {
-        new easepick.create({
-          element: datePB,
-          css: ["/css/daterangepicker_v2.css"],
-          lang: "en-EN",
-          format: "DD/MM/YYYY",
-          calendars: 2,
-          grid: 2,
-          zIndex: 10,
-          inline: true,
-          plugins: ["LockPlugin", "RangePlugin"],
-          RangePlugin: {
-            tooltipNumber(num) {
-              return num - 1;
-            },
-            locale: {
-              one: "night",
-              other: "nights",
-            },
-          },
-          LockPlugin: {
-            minDate: new Date(),
-            minDays: 1,
-            inseparable: false,
-            filter(date, picked) {
-              if (picked.length === 1) {
-                const incl = date.isBefore(picked[0]) ? "[)" : "(]";
-                return (
-                  !picked[0].isSame(date, "day") &&
-                  date.inArray(bookedDates, incl)
-                );
-              }
-              return date.inArray(bookedDates, "[)");
-            },
-          },
-        });
-      }
+// 1.3 ฟังก์ชันตัดข้อความให้เหลือ 100 ตัวอักษร
+function truncatedText(text: string | null | undefined): string {
+  if (!text) return "";
+  return text.length > 100 ? text.slice(0, 100) : text;
+}
+
+async function loadOtherSections() {
+  const [
+    sec0,
+    //  sec1, sec2, sec3
+  ] = await Promise.all([
+    apiService.get(`/landingpage/content/${pageName}`),
+    // apiService.get(`/api/page-info/content/section1/${pageId}`),
+    // apiService.get(`/api/page-info/content/section2/${pageId}`),
+    // apiService.get(`/api/page-info/content/section3/${pageId}`),
+  ]);
+  console.log("sec0 >> ", sec0);
+  const data = sec0.data;
+  responseDataSection1.value = data.section1;
+  responseDataSection2.value = data.section2;
+  responseDataSection3.value = data.section3;
+}
+
+// 1) ฟังก์ชันสร้าง carousel ใหม่
+function initCarousel() {
+  const $owl = $(".carousel_item_1");
+
+  $owl.owlCarousel({
+    center: true,
+    items: 1,
+    loop: false,
+    addClassActive: true,
+    margin: 0,
+    autoplay: false,
+    autoplayTimeout: 3000,
+    autoplayHoverPause: true,
+    animateOut: "fadeOut",
+    responsive: {
+      0: {
+        dots: true,
+      },
+      991: {
+        dots: true,
+      },
     },
-    goToRoomDetail(roomName) {
-      localStorage.setItem("roomKey", roomName);
-      window.location.href = "/room-detail";
-    },
-  },
-  computed: {
-    // progressClass() {
-    //   return this.isActive ? 'progress-wrap active-progress' : 'progress-wrap';
-    // },
-  },
-  created() {
-    this.title = this.$t("slide-title", { name: "vue-i18n" });
-  },
-};
+  });
+}
+
+function initDateBookingPicker() {
+  const DateTime = easepick.DateTime;
+
+  const bookedDates = [
+    ["2023-09-01", "2023-09-04"],
+    "2023-09-07",
+    ["2023-10-11", "2023-10-17"],
+  ].map((d) => {
+    if (Array.isArray(d)) {
+      const start = new DateTime(d[0], "YYYY-MM-DD");
+      const end = new DateTime(d[1], "YYYY-MM-DD");
+      return [start, end];
+    }
+    return new DateTime(d, "YYYY-MM-DD");
+  });
+
+  const datePB = document.getElementById("date_booking");
+  if (datePB) {
+    new easepick.create({
+      element: datePB,
+      css: ["/css/daterangepicker_v2.css"],
+      lang: "en-EN",
+      format: "YYYY-MM-DD",
+      calendars: 2,
+      grid: 2,
+      zIndex: 10,
+      inline: true,
+      plugins: ["LockPlugin", "RangePlugin"],
+      RangePlugin: {
+        tooltipNumber(num) {
+          return num - 1;
+        },
+        locale: {
+          one: "night",
+          other: "nights",
+        },
+      },
+      LockPlugin: {
+        minDate: new Date(),
+        minDays: 1,
+        inseparable: false,
+        filter(date, picked) {
+          if (picked.length === 1) {
+            const incl = date.isBefore(picked[0]) ? "[)" : "(]";
+            return (
+              !picked[0].isSame(date, "day") && date.inArray(bookedDates, incl)
+            );
+          }
+          return date.inArray(bookedDates, "[)");
+        },
+      },
+    });
+  }
+}
+
+function goToRoomDetail(roomId: any) {
+  localStorage.setItem("roomKey", roomId);
+  window.location.href = "/room-detail/" + roomId;
+}
+
+function gotoBookDirect() {
+  let date = $("#date_booking").val().split("-");
+  let dateStr = "";
+  if (date.length > 4) {
+    let startDate = date[0] + "-" + date[1] + "-" + date[2];
+    let endDate = date[3] + "-" + date[4] + "-" + date[5];
+    dateStr = "&checkInDate=" + startDate + "&checkOutDate=" + endDate;
+  }
+
+  window.location.href =
+    "https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" +
+    dateStr;
+}
 </script>
+
+<style scoped>
+@media (max-width: 768px) {
+  /* ซ่อนทั้ง carousel เมื่อความกว้างหน้าจอ <= 768px (มือถือ) */
+  .fullscreen-btn {
+    display: none !important;
+  }
+}
+</style>
 
 <style>
 .title-small {

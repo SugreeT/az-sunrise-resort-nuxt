@@ -1,20 +1,37 @@
 <template>
   <main>
-    <div class="hero medium-height jarallax">
-      <img
-        class="jarallax-img"
-        src="~assets/img/img_ex/hero_home_2.jpg"
-        alt=""
-      />
-      <div
-        class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero"
-        data-opacity-mask="rgba(0, 0, 0, 0.5)"
-      >
-        <div class="container">
-          <small class="slide-animated one">{{ $t("experience_title") }}</small>
-          <h1 class="slide-animated two">{{ $t("contact_title") }}</h1>
+    <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
+      <client-only>
+        <img
+          class="jarallax-img"
+          :src="
+            apiService.getImageUrl(
+              responseDataSection1.banner?.path,
+              responseDataSection1.banner?.name
+            )
+          "
+          alt=""
+        />
+        <div
+          class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero"
+          data-opacity-mask="rgba(0, 0, 0, 0.5)"
+        >
+          <div class="container">
+            <div class="row justify-content-center justify-content-md-start">
+              <div class="col-lg-6 static">
+                <div class="slide-text white">
+                  <small class="slide-animated one">
+                    {{ localizedDataSection1.title }}</small
+                  >
+                  <h1 class="slide-animated two">
+                    {{ localizedDataSection1.titleMini }}
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+      </client-only>
     </div>
     <!-- /Background Img Parallax -->
 
@@ -53,116 +70,44 @@
             <div class="row justify-content-between">
               <div class="col-lg-12">
                 <div class="title">
-                  <small>A.Z. Sunrise Resort Faq</small>
-                  <h3>{{ $t("faq.title") }}</h3>
+                  <small>A.Z. Sunrise Resort {{ $t("faq.mini") }}</small>
+                  <h3>{{ localizedDataSection2.title }}</h3>
                 </div>
-                <p>{{ $t("faq.sub") }}</p>
+                <p>{{ localizedDataSection2.description }}</p>
               </div>
               <div class="col-lg-12">
                 <div role="tablist" class="mb-5 accordion" id="faq">
-                  <div class="card">
+                  <div
+                    class="card"
+                    v-for="(schedule, idx) in localizedDataSection2.schedules ||
+                    []"
+                    :key="idx"
+                  >
                     <div class="card-header" role="tab">
                       <h5 class="mb-0">
                         <a
                           class="collapsed"
                           data-bs-toggle="collapse"
-                          href="#collapseOne_product"
+                          :href="'#collapseOne_product' + idx"
                           aria-expanded="false"
                         >
                           <i class="indicator bi-plus-lg"></i
-                          >{{ $t("faq.cat.cancellation") }}
+                          >{{ schedule.question }}
                         </a>
                       </h5>
                     </div>
                     <div
-                      id="collapseOne_product"
+                      :id="'collapseOne_product' + idx"
                       class="collapse"
                       role="tabpanel"
                       data-bs-parent="#faq"
                     >
                       <div class="card-body">
-                        <p>.....</p>
+                        <p>{{ schedule.answer }}</p>
                       </div>
                     </div>
                   </div>
-                  <!-- /card -->
-                  <div class="card">
-                    <div class="card-header" role="tab">
-                      <h5 class="mb-0">
-                        <a
-                          class="collapsed"
-                          data-bs-toggle="collapse"
-                          href="#collapseTwo_product"
-                          aria-expanded="false"
-                        >
-                          <i class="indicator bi-plus-lg"></i
-                          >{{ $t("faq.cat.payments") }}
-                        </a>
-                      </h5>
-                    </div>
-                    <div
-                      id="collapseTwo_product"
-                      class="collapse"
-                      role="tabpanel"
-                      data-bs-parent="#faq"
-                    >
-                      <div class="card-body">
-                        <p>.....</p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /card -->
-                  <div class="card">
-                    <div class="card-header" role="tab">
-                      <h5 class="mb-0">
-                        <a
-                          class="collapsed"
-                          data-bs-toggle="collapse"
-                          href="#collapseThree_product"
-                          aria-expanded="false"
-                        >
-                          <i class="indicator bi-plus-lg"></i
-                          >{{ $t("faq.cat.checkin") }}
-                        </a>
-                      </h5>
-                    </div>
-                    <div
-                      id="collapseThree_product"
-                      class="collapse"
-                      role="tabpanel"
-                      data-bs-parent="#faq"
-                    >
-                      <div class="card-body">
-                        <p>.....</p>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- /card -->
-                  <div class="card">
-                    <div class="card-header" role="tab">
-                      <h5 class="mb-0">
-                        <a
-                          class="collapsed"
-                          data-bs-toggle="collapse"
-                          href="#collapseFour_product"
-                          aria-expanded="false"
-                        >
-                          <i class="indicator bi-plus-lg"></i
-                          >{{ $t("faq.cat.access") }}
-                        </a>
-                      </h5>
-                    </div>
-                    <div
-                      id="collapseFour_product"
-                      class="collapse"
-                      role="tabpanel"
-                      data-bs-parent="#faq"
-                    >
-                      <div class="card-body">
-                        <p>test</p>
-                      </div>
-                    </div>
-                  </div>
+
                   <!-- /card -->
                 </div>
                 <!-- /accordion -->
@@ -214,83 +159,152 @@
     <!-- /container -->
   </main>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      title: "", // ค่าเริ่มต้น
-      test: "TEST",
-    };
-  },
-  mounted() {
-    setTimeout(() => {
-      this.initDateBookingPicker();
-    }, 2000);
-  },
-  methods: {
-    initDateBookingPicker() {
-      const DateTime = easepick.DateTime;
 
-      const bookedDates = [
-        ["2023-09-01", "2023-09-04"],
-        "2023-09-07",
-        ["2023-10-11", "2023-10-17"],
-      ].map((d) => {
-        if (Array.isArray(d)) {
-          const start = new DateTime(d[0], "YYYY-MM-DD");
-          const end = new DateTime(d[1], "YYYY-MM-DD");
-          return [start, end];
-        }
-        return new DateTime(d, "YYYY-MM-DD");
-      });
+<script setup lang="ts">
+import { ref, onMounted, computed } from "vue";
+import { useI18n } from "vue-i18n";
+import { useAsyncData } from "#app";
+import apiService from "@/services/apiService";
 
-      const datePB = document.getElementById("date_booking");
-      if (datePB) {
-        new easepick.create({
-          element: datePB,
-          css: ["/css/daterangepicker_v2.css"],
-          lang: "en-EN",
-          format: "DD/MM/YYYY",
-          calendars: 2,
-          grid: 2,
-          zIndex: 10,
-          inline: true,
-          plugins: ["LockPlugin", "RangePlugin"],
-          RangePlugin: {
-            tooltipNumber(num) {
-              return num - 1;
-            },
-            locale: {
-              one: "night",
-              other: "nights",
-            },
-          },
-          LockPlugin: {
-            minDate: new Date(),
-            minDays: 1,
-            inseparable: false,
-            filter(date, picked) {
-              if (picked.length === 1) {
-                const incl = date.isBefore(picked[0]) ? "[)" : "(]";
-                return (
-                  !picked[0].isSame(date, "day") &&
-                  date.inArray(bookedDates, incl)
-                );
-              }
-              return date.inArray(bookedDates, "[)");
-            },
-          },
-        });
-      }
+// 1) Simple mount flag + ScrollCue
+const isMounted = ref(false);
+
+// 2) i18n
+const { locale } = useI18n();
+
+// 3) pageId constant
+const pageId = 10;
+const pageName = "contact";
+
+// 4) fetch main landing section via useAsyncData (runs before render)
+const {
+  data: responseDataSection,
+  pending,
+  error,
+} = await useAsyncData("landing-section", () =>
+  apiService.get(`/api/landingpage/content/${pageId}`)
+);
+
+// 5) other sections loaded onMounted
+const responseDataSection1 = ref<Record<string, any>>({});
+const responseDataSection2 = ref<Record<string, any>>({});
+const responseDataSection3 = ref<{ galleries: any[] }>({ galleries: [] });
+
+onMounted(async () => {
+  isMounted.value = true;
+
+  // re-init ScrollCue if provided
+  if (window?.ScrollCue) {
+    window.ScrollCue.update();
+  }
+
+  // load sections 1–3
+  await loadOtherSections();
+
+  // sync locale from localStorage
+  if (process.client) {
+    const saved = localStorage.getItem("lang");
+    if (saved) {
+      locale.value = saved;
+    }
+  }
+
+  // await nextTick(); // รอ DOM อัปเดตก่อน
+  // initCarousel();
+
+  // await nextTick();
+  // refreshFsLightbox();
+});
+
+// 6) compute a short getLang ("cn" instead of "zh-CN")
+const getLang = computed(() =>
+  locale.value === "zh-CN" ? "cn" : locale.value
+);
+
+// 7) localized getters for section1 & section2
+const localizedDataSection1 = computed(() => {
+  const t = `title_${getLang.value}`;
+  const m = `title_mini_${getLang.value}`;
+  return {
+    title: responseDataSection1.value[t] ?? responseDataSection1.value.title_en,
+    titleMini:
+      responseDataSection1.value[m] ?? responseDataSection1.value.title_mini_en,
+  };
+});
+
+const localizedDataSection2 = computed(() => {
+  const lang = getLang.value;
+  const titleKey = `title_${lang}`;
+  const descKey = `description_${lang}`;
+  const schedKey = `questions_${lang}`;
+
+  const schedules =
+    responseDataSection2.value[schedKey] ||
+    responseDataSection2.value.schedules_en ||
+    [];
+
+  return {
+    title:
+      responseDataSection2.value[titleKey] ||
+      responseDataSection2.value.title_en,
+    description:
+      responseDataSection2.value[descKey] ||
+      responseDataSection2.value.description_en,
+    schedules,
+  };
+});
+
+async function loadOtherSections() {
+  const [
+    sec0,
+    //  sec1, sec2, sec3
+  ] = await Promise.all([
+    apiService.get(`/landingpage/content/${pageName}`),
+    // apiService.get(`/api/page-info/content/section1/${pageId}`),
+    // apiService.get(`/api/page-info/content/section2/${pageId}`),
+    // apiService.get(`/api/page-info/content/section3/${pageId}`),
+  ]);
+  console.log("sec0 >> ", sec0);
+  const data = sec0.data;
+  responseDataSection1.value = data.section1;
+  responseDataSection2.value = data.section5;
+  // responseDataSection3.value = data.section3;
+}
+
+// 1) ฟังก์ชันสร้าง carousel ใหม่
+function initCarousel() {
+  const $owl = $(".carousel_item_centered");
+
+  $owl.owlCarousel({
+    loop: true,
+    margin: 5,
+    nav: true,
+    dots: false,
+    center: true,
+    navText: [
+      "<i class='bi bi-arrow-left-short'></i>",
+      "<i class='bi bi-arrow-right-short'></i>",
+    ],
+    responsive: {
+      0: {
+        items: 1,
+      },
+      600: {
+        items: 2,
+      },
+      1000: {
+        items: 2,
+      },
     },
-  },
-  computed: {
-    // progressClass() {
-    //   return this.isActive ? 'progress-wrap active-progress' : 'progress-wrap';
-    // },
-  },
-  created() {
-    this.title = this.$t("slide-title", { name: "vue-i18n" });
-  },
-};
+  });
+}
 </script>
+
+<style scoped>
+@media (max-width: 768px) {
+  /* ซ่อนทั้ง carousel เมื่อความกว้างหน้าจอ <= 768px (มือถือ) */
+  .fullscreen-btn {
+    display: none !important;
+  }
+}
+</style>
