@@ -538,7 +538,7 @@ function initCarousel() {
   const $owl = $(".carousel_item_centered");
 
   $owl.owlCarousel({
-    loop: true,
+    loop: false,
     margin: 5,
     nav: true,
     dots: false,

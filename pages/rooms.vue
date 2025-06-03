@@ -64,7 +64,6 @@
               class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img"
             >
               <div class="item" v-for="(g, gidx) in room.galleries" :key="gidx">
-                >
                 <a @click="goToRoomDetail(room.id)" style="cursor: pointer">
                   <img
                     :src="
@@ -668,9 +667,9 @@ function initCarousel() {
   $owl.owlCarousel({
     center: true,
     items: 1,
-    loop: false,
+    loop: true,
     addClassActive: true,
-    margin: 0,
+    margin: 5,
     autoplay: false,
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
