@@ -18,7 +18,7 @@
         >
           <div class="container">
             <div class="row justify-content-center justify-content-md-start">
-              <div class="col-lg-6 static">
+              <div class="col-lg-10 static">
                 <div class="slide-text white">
                   <small class="slide-animated one">
                     {{ localizedDataSection1.title }}</small

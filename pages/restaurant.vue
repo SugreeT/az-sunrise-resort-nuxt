@@ -260,12 +260,12 @@
                           }}</a>
                         </div>
 
+                        <!-- ถ้ามีรูปภาพ ก็ให้แสดงรูปจริง -->
                         <figure
                           class="banner-figure"
                           v-if="!isMobile && tab.firstMenu.image"
                         >
                           <a>
-                            <!-- ใช้ class เดิม “circle-img” แต่เปลี่ยน src เป็น binding -->
                             <img
                               :src="
                                 apiService.getImageUrl(
@@ -278,11 +278,13 @@
                             />
                           </a>
                         </figure>
-                        <figure class="banner-figure" v-if="!isMobile">
+
+                        <!-- ถ้าไม่มีรูปภาพ และไม่ใช่มือถือ ให้แสดงรูปสำรอง -->
+                        <figure class="banner-figure" v-else-if="!isMobile">
                           <a title="">
                             <img
                               src="~assets/img/no-image4.jpg"
-                              alt=""
+                              alt="No image available"
                               class="circle-img"
                             />
                           </a>
