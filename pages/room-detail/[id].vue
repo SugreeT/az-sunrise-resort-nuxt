@@ -1,6 +1,6 @@
 <template>
   <main>
-    <div class="hero small-height jarallax" data-jarallax data-speed="0.2">
+    <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
       <client-only>
         <img
           class="jarallax-img"
@@ -17,8 +17,8 @@
           data-opacity-mask="rgba(0, 0, 0, 0.5)"
         >
           <div class="container">
-            <div class="row justify-content-center justify-content-md-start">
-              <div class="col-lg-6 static">
+            <div class="row justify-content-center justify-content-lg-start">
+              <div class="col-sm-12 col-md-12 col-lg-10 static">
                 <div class="slide-text white">
                   <small class="slide-animated one">
                     {{ localizedDataSection1.title }}</small
