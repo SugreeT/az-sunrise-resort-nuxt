@@ -1,6 +1,17 @@
 <template>
-  <div>
-    <h1 class="text-2xl font-bold">News</h1>
-    <p>Welcome to the News page.</p>
-  </div>
+  <div id="be-booking-form"></div>
 </template>
+
+
+
+<style>
+#be-booking-form {
+  width: 100%;
+  /* max-width: 1296px; */
+  margin: 0 auto;
+}
+
+#tl-booking-cart {
+  z-index: 1 !important;
+}
+</style>

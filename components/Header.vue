@@ -14,33 +14,16 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-3">
-          <a href="index" class="logo_normal"
-            ><img
-              src="/img/logo/AZ-sunrise-logo-h2.png"
-              width="180"
-              height="45"
-              alt=""
-          /></a>
-          <a href="index" class="logo_sticky"
-            ><img
-              src="/img/logo/AZ-sunrise-logo-h2.png"
-              width="180"
-              height="45"
-              alt=""
-          /></a>
+          <a href="index" class="logo_normal"><img src="/img/logo/AZ-sunrise-logo-h2.png" width="180" height="45"
+              alt="" /></a>
+          <a href="index" class="logo_sticky"><img src="/img/logo/AZ-sunrise-logo-h2.png" width="180" height="45"
+              alt="" /></a>
         </div>
         <div class="col-9">
           <div class="main-menu">
-            <a href="#0" class="closebt open_close_menu"
-              ><i class="bi bi-x"></i
-            ></a>
+            <a href="#0" class="closebt open_close_menu"><i class="bi bi-x"></i></a>
             <div class="logo_panel">
-              <img
-                src="/img/logo/AZ-sunrise-logo-h2.png"
-                width="135"
-                height="45"
-                alt=""
-              />
+              <img src="/img/logo/AZ-sunrise-logo-h2.png" width="135" height="45" alt="" />
             </div>
             <nav id="mainNav">
               <ul>
@@ -95,19 +78,18 @@
                   }}</a>
                 </li>
                 <li>
-                  <a
-                    href="https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en"
-                    class="btn_1"
-                    >{{ $t("menu.bookNow", { name: "vue-i18n" }) }}</a
-                  >
+                  <!-- <a href="https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" class="btn_1">{{
+                    $t("menu.bookNow", { name: "vue-i18n" }) }}</a> -->
+                  <a href="#" class="btn_1" @click.prevent="goToBooking">
+                    {{ $t('menu.bookNow') }}
+                  </a>
+
                 </li>
 
                 <li class="lang_top">
                   <i class="bi bi-globe"></i>
                   <span class="lang" @click="changeLanguage('en')">EN</span> -
-                  <span class="lang" @click="changeLanguage('zh-CN')"
-                    >中国</span
-                  >
+                  <span class="lang" @click="changeLanguage('zh-CN')">中国</span>
                   -
                   <span class="lang" @click="changeLanguage('ru')">Россия</span>
                 </li>
@@ -132,6 +114,10 @@ import { useI18n } from "vue-i18n";
 
 const { locale } = useI18n();
 
+const goToBooking = () => {
+  window.location.href = '/booking' // full redirect
+}
+
 // โหลด locale จาก localStorage เมื่อเข้า
 if (process.client) {
   const storedLang = localStorage.getItem("lang");
@@ -145,3 +131,15 @@ function changeLanguage(lang) {
   localStorage.setItem("lang", lang);
 }
 </script>
+
+<style>
+#be-booking-form {
+  width: 100%;
+  max-width: 1296px;
+  margin: 0 auto;
+}
+
+#tl-booking-cart {
+  z-index: 1 !important;
+}
+</style>

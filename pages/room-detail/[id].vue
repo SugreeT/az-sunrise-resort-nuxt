@@ -2,27 +2,19 @@
   <main>
     <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
       <client-only>
-        <img
-          class="jarallax-img"
-          :src="
-            apiService.getImageUrl(
-              localizedRoomTypesDetail?.image?.path,
-              localizedRoomTypesDetail?.image?.thumbnail_name
-            )
-          "
-          alt=""
-        />
-        <div
-          class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero"
-          data-opacity-mask="rgba(0, 0, 0, 0.5)"
-        >
+        <img class="jarallax-img" :src="apiService.getImageUrl(
+          localizedRoomTypesDetail?.image?.path,
+          localizedRoomTypesDetail?.image?.thumbnail_name
+        )
+          " alt="" />
+        <div class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero"
+          data-opacity-mask="rgba(0, 0, 0, 0.5)">
           <div class="container">
             <div class="row justify-content-center justify-content-lg-start">
               <div class="col-sm-12 col-md-12 col-lg-10 static">
                 <div class="slide-text white">
                   <small class="slide-animated one">
-                    {{ localizedDataSection1.title }}</small
-                  >
+                    {{ localizedDataSection1.title }}</small>
                   <h1 class="slide-animated two">
                     {{ localizedDataSection1.titleMini }}
                   </h1>
@@ -76,10 +68,7 @@
             <div class="room_facilities_list">
               <ul data-cues="slideInLeft">
                 <ul class="list-unstyled">
-                  <li
-                    v-for="(f, fidx) in localizedRoomTypesDetail?.facilities"
-                    :key="fidx"
-                  >
+                  <li v-for="(f, fidx) in localizedRoomTypesDetail?.facilities" :key="fidx">
                     <i :class="f.icon"></i> {{ f.name }}
                   </li>
                   <!-- <li>
@@ -126,23 +115,13 @@
       <div class="container-fluid p-lg-0">
         <!-- {{ roomTypesGallery }} -->
         <div data-cues="zoomIn">
-          <div
-            class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img"
-          >
-            <div
-              v-for="(gallery, idx) in roomTypesGallery?.galleries || []"
-              :key="idx"
-              class="item"
-            >
-              <img
-                :src="
-                  apiService.getImageUrl(
-                    gallery.image.path,
-                    gallery.image.thumbnail_name
-                  )
-                "
-                alt=""
-              />
+          <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
+            <div v-for="(gallery, idx) in roomTypesGallery?.galleries || []" :key="idx" class="item">
+              <img :src="apiService.getImageUrl(
+                gallery.image.path,
+                gallery.image.thumbnail_name
+              )
+                " alt="" />
             </div>
           </div>
         </div>
@@ -182,22 +161,16 @@
             <h2>{{ $t("room.similar") }}</h2>
           </div>
           <div class="row">
-            <div
-              class="col-xl-4 col-lg-6 col-md-6 col-sm-6"
-              v-for="(roomOther, idx) in localizedRoomTypesDetailOther || []"
-              :key="idx"
-            >
+            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6"
+              v-for="(roomOther, idx) in localizedRoomTypesDetailOther || []" :key="idx">
               <a :href="'/room-detail/' + roomOther.id" class="box_cat_rooms">
                 <figure>
-                  <div
-                    class="background-image"
-                    :style="{
-                      backgroundImage: `url(${apiService.getImageUrl(
-                        roomOther.image.path,
-                        roomOther.image.thumbnail_name
-                      )})`,
-                    }"
-                  ></div>
+                  <div class="background-image" :style="{
+                    backgroundImage: `url(${apiService.getImageUrl(
+                      roomOther.image.path,
+                      roomOther.image.thumbnail_name
+                    )})`,
+                  }"></div>
                   <div class="info">
                     <small>{{ roomOther.titleMini }}</small>
                     <h3>{{ roomOther.title }}</h3>
@@ -253,13 +226,8 @@
             </div>
             <!-- <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p> -->
             <p class="phone_element no_borders">
-              <a href="tel://076643222"
-                ><i class="bi bi-telephone"></i
-                ><span
-                  ><em>{{ $t("info.bookings") }}</em
-                  >076643222
-                </span></a
-              >
+              <a href="tel://076643222"><i class="bi bi-telephone"></i><span><em>{{ $t("info.bookings") }}</em>076643222
+                </span></a>
             </p>
           </div>
         </div>
@@ -303,12 +271,8 @@
             </div>
             <!-- / row -->
             <p class="text-end mt-3">
-              <a
-                href="javascript:void(0);"
-                @click.prevent="gotoBookDirect()"
-                class="btn_1 outline"
-                >{{ $t("menu.bookNow") }}</a
-              >
+              <a href="javascript:void(0);" @click.prevent="gotoBookDirect()" class="btn_1 outline">{{
+                $t("menu.bookNow") }}</a>
             </p>
           </div>
         </div>
@@ -630,14 +594,16 @@ function gotoBookDirect() {
     dateStr = "&checkInDate=" + startDate + "&checkOutDate=" + endDate;
   }
 
-  window.location.href =
-    "https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" +
-    dateStr;
+  // window.location.href =
+  //   "https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" +
+  //   dateStr;
+  window.location.href = '/booking' // full redirect
 }
 </script>
 
 <style scoped>
 @media (max-width: 768px) {
+
   /* ซ่อนทั้ง carousel เมื่อความกว้างหน้าจอ <= 768px (มือถือ) */
   .fullscreen-btn {
     display: none !important;

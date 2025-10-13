@@ -1,30 +1,18 @@
 <template>
   <main>
-    <div
-      class="hero home-search full-height jarallax"
-      data-jarallax
-      data-speed="0.2"
-    >
+    <div class="hero home-search full-height jarallax" data-jarallax data-speed="0.2">
       <client-only>
-        <img
-          class="jarallax-img kenburns"
-          :src="
-            apiService.getImageUrl(
-              responseDataSection1.banner?.path,
-              responseDataSection1.banner?.name
-            )
-          "
-          alt=""
-        />
-        <div
-          class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero"
-          data-opacity-mask="rgba(0, 0, 0, 0.5)"
-        >
+        <img class="jarallax-img kenburns" :src="apiService.getImageUrl(
+          responseDataSection1.banner?.path,
+          responseDataSection1.banner?.name
+        )
+          " alt="" />
+        <div class="wrapper opacity-mask d-flex align-items-center justify-content-center text-center animate_hero"
+          data-opacity-mask="rgba(0, 0, 0, 0.5)">
           <div class="container">
             <!-- <small class="slide-animated one"> Unwind in Luxury </small> -->
             <small class="slide-animated one">
-              {{ localizedDataSection1.title }}</small
-            >
+              {{ localizedDataSection1.title }}</small>
             <h3 class="slide-animated two">
               {{ localizedDataSection1.titleMini }}
             </h3>
@@ -71,9 +59,7 @@
 
     <div class="pattern_2">
       <div class="container margin_120_95">
-        <div
-          class="row justify-content-between flex-lg-row-reverse align-items-start"
-        >
+        <div class="row justify-content-between flex-lg-row-reverse align-items-start">
           <div class="col-lg-6">
             <div class="intro">
               <div class="title">
@@ -89,16 +75,11 @@
           <div class="col-lg-6">
             <div class="parallax_wrapper" data-cue="slideInUp" data-delay="200">
               <!-- <img src="~assets/img/banner/main/new-lobby-about.jpg" alt="" class="img-fluid rounded-img"> -->
-              <img
-                :src="
-                  apiService.getImageUrl(
-                    responseDataSection2.image?.path,
-                    responseDataSection2.image?.thumbnail_name
-                  )
-                "
-                alt=""
-                class="img-fluid rounded-img"
-              />
+              <img :src="apiService.getImageUrl(
+                responseDataSection2.image?.path,
+                responseDataSection2.image?.thumbnail_name
+              )
+                " alt="" class="img-fluid rounded-img" />
               <!-- <div data-cue="slideInUp" class="img_over"><span data-jarallax-element="-30"><img src="img/home_1.jpg" alt="" class="rounded-img"></span></div> -->
             </div>
           </div>
@@ -116,12 +97,8 @@
 
         <div class="row justify-content-center mt-1">
           <div class="col-xl-2 col-lg-6 col-md-6 col-6">
-            <div
-              class="box_facilities no-border active"
-              data-cue="slideInUp"
-              style="cursor: pointer"
-              data-link="restaurant"
-            >
+            <div class="box_facilities no-border active" data-cue="slideInUp" style="cursor: pointer"
+              data-link="restaurant">
               <i class="icon-hotel-restaurant" data-cues="zoomOut"></i>
               <h3>
                 {{ $t("serviceItems.barAndRestaurant", { name: "vue-i18n" }) }}
@@ -129,12 +106,7 @@
             </div>
           </div>
           <div class="col-xl-2 col-lg-6 col-md-6 col-6">
-            <div
-              class="box_facilities"
-              data-cue="slideInUp"
-              style="cursor: pointer"
-              data-link="fitness"
-            >
+            <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer" data-link="fitness">
               <i class="customicon-gym"></i>
               <h3>
                 {{ $t("serviceItems.fitnessClub", { name: "vue-i18n" }) }}
@@ -142,23 +114,13 @@
             </div>
           </div>
           <div class="col-xl-2 col-lg-6 col-md-6 col-6">
-            <div
-              class="box_facilities"
-              data-cue="slideInUp"
-              style="cursor: pointer"
-              data-link="tour"
-            >
+            <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer" data-link="tour">
               <i class="icon-spa-airplane"></i>
               <h3>{{ $t("serviceItems.tour", { name: "vue-i18n" }) }}</h3>
             </div>
           </div>
           <div class="col-xl-2 col-lg-6 col-md-6 col-6">
-            <div
-              class="box_facilities"
-              data-cue="slideInUp"
-              style="cursor: pointer"
-              data-link="transportation"
-            >
+            <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer" data-link="transportation">
               <i class="icon-spa-bus"></i>
               <h3>
                 {{ $t("serviceItems.transportation", { name: "vue-i18n" }) }}
@@ -166,67 +128,34 @@
             </div>
           </div>
           <div class="col-xl-2 col-lg-6 col-md-6 col-6">
-            <div
-              class="box_facilities"
-              data-cue="slideInUp"
-              style="cursor: pointer"
-              data-link="diving"
-            >
+            <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer" data-link="diving">
               <i>
-                <img
-                  src="~assets/img/icon/driving2.png"
-                  alt="Diving Icon"
-                  style="width: 80px; height: 40px"
-              /></i>
+                <img src="~assets/img/icon/driving2.png" alt="Diving Icon" style="width: 80px; height: 40px" /></i>
 
               <h3>{{ $t("serviceItems.diving", { name: "vue-i18n" }) }}</h3>
             </div>
           </div>
           <div class="col-xl-2 col-lg-6 col-md-6 col-6">
-            <div
-              class="box_facilities"
-              data-cue="slideInUp"
-              style="cursor: pointer"
-              data-link="spa"
-            >
+            <div class="box_facilities" data-cue="slideInUp" style="cursor: pointer" data-link="spa">
               <!-- <i class="icon-spa-oil"></i> -->
               <i>
-                <img
-                  src="~assets/img/icon/spa2.png"
-                  alt="Diving Icon"
-                  style="width: 60px; height: 40px"
-              /></i>
+                <img src="~assets/img/icon/spa2.png" alt="Diving Icon" style="width: 60px; height: 40px" /></i>
               <h3>{{ $t("serviceItems.spa", { name: "vue-i18n" }) }}</h3>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        class="content-section"
-        style="display: none; background-color: #faf8f5"
-        id="restaurant"
-      >
+      <div class="content-section" style="display: none; background-color: #faf8f5" id="restaurant">
         <div class="container-fluid p-lg-0">
           <div data-cues="zoomIn">
-            <div
-              class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-restaurant"
-            >
-              <div
-                v-for="(gallery, idx) in restaurantGalleries || []"
-                :key="idx"
-                class="item"
-                style="cursor: pointer"
-              >
-                <img
-                  :src="
-                    apiService.getImageUrl(
-                      gallery.image.path,
-                      gallery.image.thumbnail_name
-                    )
-                  "
-                  alt=""
-                />
+            <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-restaurant">
+              <div v-for="(gallery, idx) in restaurantGalleries || []" :key="idx" class="item" style="cursor: pointer">
+                <img :src="apiService.getImageUrl(
+                  gallery.image.path,
+                  gallery.image.thumbnail_name
+                )
+                  " alt="" />
               </div>
               <!-- <div class="item">
                 <a href="javascript:void(0);"
@@ -235,7 +164,8 @@
                     alt=""
                 /></a>
               </div>
-            --></div>
+            -->
+            </div>
           </div>
         </div>
         <div class="marquee">
@@ -250,31 +180,16 @@
         </div>
       </div>
 
-      <div
-        class="content-section"
-        style="display: none; background-color: #faf8f5"
-        id="fitness"
-      >
+      <div class="content-section" style="display: none; background-color: #faf8f5" id="fitness">
         <div class="container-fluid p-lg-0">
           <div data-cues="zoomIn">
-            <div
-              class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-fitness"
-            >
-              <div
-                v-for="(gallery, idx) in restaurantFitness || []"
-                :key="idx"
-                class="item"
-                style="cursor: pointer"
-              >
-                <img
-                  :src="
-                    apiService.getImageUrl(
-                      gallery.image.path,
-                      gallery.image.thumbnail_name
-                    )
-                  "
-                  alt=""
-                />
+            <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-fitness">
+              <div v-for="(gallery, idx) in restaurantFitness || []" :key="idx" class="item" style="cursor: pointer">
+                <img :src="apiService.getImageUrl(
+                  gallery.image.path,
+                  gallery.image.thumbnail_name
+                )
+                  " alt="" />
               </div>
               <!-- <div class="item">
                 <a href="javascript:void(0);"
@@ -319,31 +234,16 @@
         </div>
       </div>
 
-      <div
-        class="content-section"
-        style="display: none; background-color: #faf8f5"
-        id="tour"
-      >
+      <div class="content-section" style="display: none; background-color: #faf8f5" id="tour">
         <div class="container-fluid p-lg-0">
           <div data-cues="zoomIn">
-            <div
-              class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-tour"
-            >
-              <div
-                v-for="(gallery, idx) in restaurantTour || []"
-                :key="idx"
-                class="item"
-                style="cursor: pointer"
-              >
-                <img
-                  :src="
-                    apiService.getImageUrl(
-                      gallery.image.path,
-                      gallery.image.thumbnail_name
-                    )
-                  "
-                  alt=""
-                />
+            <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-tour">
+              <div v-for="(gallery, idx) in restaurantTour || []" :key="idx" class="item" style="cursor: pointer">
+                <img :src="apiService.getImageUrl(
+                  gallery.image.path,
+                  gallery.image.thumbnail_name
+                )
+                  " alt="" />
               </div>
 
               <!-- <div class="item">
@@ -377,31 +277,16 @@
         </div>
       </div>
 
-      <div
-        class="content-section"
-        style="display: none; background-color: #faf8f5"
-        id="diving"
-      >
+      <div class="content-section" style="display: none; background-color: #faf8f5" id="diving">
         <div class="container-fluid p-lg-0">
           <div data-cues="zoomIn">
-            <div
-              class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-diving"
-            >
-              <div
-                v-for="(gallery, idx) in restaurantDiving || []"
-                :key="idx"
-                class="item"
-                style="cursor: pointer"
-              >
-                <img
-                  :src="
-                    apiService.getImageUrl(
-                      gallery.image.path,
-                      gallery.image.thumbnail_name
-                    )
-                  "
-                  alt=""
-                />
+            <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-diving">
+              <div v-for="(gallery, idx) in restaurantDiving || []" :key="idx" class="item" style="cursor: pointer">
+                <img :src="apiService.getImageUrl(
+                  gallery.image.path,
+                  gallery.image.thumbnail_name
+                )
+                  " alt="" />
               </div>
               <!-- <div class="item">
                 <a href="javascript:void(0);"
@@ -439,31 +324,16 @@
         </div>
       </div>
 
-      <div
-        class="content-section"
-        style="display: none; background-color: #faf8f5"
-        id="transportation"
-      >
+      <div class="content-section" style="display: none; background-color: #faf8f5" id="transportation">
         <div class="container-fluid p-lg-0">
           <div data-cues="zoomIn">
-            <div
-              class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-transportation"
-            >
-              <div
-                v-for="(gallery, idx) in restaurantTransport || []"
-                :key="idx"
-                class="item"
-                style="cursor: pointer"
-              >
-                <img
-                  :src="
-                    apiService.getImageUrl(
-                      gallery.image.path,
-                      gallery.image.thumbnail_name
-                    )
-                  "
-                  alt=""
-                />
+            <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-transportation">
+              <div v-for="(gallery, idx) in restaurantTransport || []" :key="idx" class="item" style="cursor: pointer">
+                <img :src="apiService.getImageUrl(
+                  gallery.image.path,
+                  gallery.image.thumbnail_name
+                )
+                  " alt="" />
               </div>
               <!-- <div class="item">
                 <a href="javascript:void(0);"
@@ -501,31 +371,16 @@
         </div>
       </div>
 
-      <div
-        class="content-section"
-        style="display: none; background-color: #faf8f5"
-        id="spa"
-      >
+      <div class="content-section" style="display: none; background-color: #faf8f5" id="spa">
         <div class="container-fluid p-lg-0">
           <div data-cues="zoomIn">
-            <div
-              class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-spa"
-            >
-              <div
-                v-for="(gallery, idx) in restaurantSpa || []"
-                :key="idx"
-                class="item"
-                style="cursor: pointer"
-              >
-                <img
-                  :src="
-                    apiService.getImageUrl(
-                      gallery.image.path,
-                      gallery.image.thumbnail_name
-                    )
-                  "
-                  alt=""
-                />
+            <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img link-spa">
+              <div v-for="(gallery, idx) in restaurantSpa || []" :key="idx" class="item" style="cursor: pointer">
+                <img :src="apiService.getImageUrl(
+                  gallery.image.path,
+                  gallery.image.thumbnail_name
+                )
+                  " alt="" />
               </div>
               <!-- <div class="item">
                 <a href="javascript:void(0);"
@@ -567,10 +422,7 @@
       <div class="pinned-image pinned-image--medium pt-4 pb-2">
         <div class="pinned-image__container" id="section_video">
           <video loop="loop" muted="muted" id="video_home">
-            <source
-              src="https://azsunriseresort.com/video/sunrise__V1-0004.mp4"
-              type="video/mp4"
-            />
+            <source src="https://azsunriseresort.com/video/sunrise__V1-0004.mp4" type="video/mp4" />
           </video>
           <div class="pinned-image__container-overlay"></div>
         </div>
@@ -612,9 +464,7 @@
                 <i class="bi bi-envelope-paper"></i>
                 <h4>{{ $t("contact_email_title") }}</h4>
                 <p>
-                  <a href="#0"
-                    >rsvn@azsunriseresort.com<br /><small>&nbsp;</small></a
-                  >
+                  <a href="#0">rsvn@azsunriseresort.com<br /><small>&nbsp;</small></a>
                 </p>
               </li>
             </ul>

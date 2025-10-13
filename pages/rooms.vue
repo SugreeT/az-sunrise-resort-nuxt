@@ -2,27 +2,19 @@
   <main>
     <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
       <client-only>
-        <img
-          class="jarallax-img"
-          :src="
-            apiService.getImageUrl(
-              responseDataSection1.banner?.path,
-              responseDataSection1.banner?.name
-            )
-          "
-          alt=""
-        />
-        <div
-          class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero"
-          data-opacity-mask="rgba(0, 0, 0, 0.5)"
-        >
+        <img class="jarallax-img" :src="apiService.getImageUrl(
+          responseDataSection1.banner?.path,
+          responseDataSection1.banner?.name
+        )
+          " alt="" />
+        <div class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero"
+          data-opacity-mask="rgba(0, 0, 0, 0.5)">
           <div class="container">
             <div class="row justify-content-center justify-content-lg-start">
               <div class="col-sm-12 col-md-12 col-lg-10 static">
                 <div class="slide-text white">
                   <small class="slide-animated one">
-                    {{ localizedDataSection1.title }}</small
-                  >
+                    {{ localizedDataSection1.title }}</small>
                   <h1 class="slide-animated two">
                     {{ localizedDataSection1.titleMini }}
                   </h1>
@@ -54,26 +46,15 @@
           </div>
         </div>
         <div class="col-xl-7">
-          <div
-            class="row_list_version_3"
-            data-cue="fadeIn"
-            v-for="(room, idx) in localizedRoomTypes"
-            :key="idx"
-          >
-            <div
-              class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img"
-            >
+          <div class="row_list_version_3" data-cue="fadeIn" v-for="(room, idx) in localizedRoomTypes" :key="idx">
+            <div class="owl-carousel owl-theme carousel_item_1 kenburns rounded-img">
               <div class="item" v-for="(g, gidx) in room.galleries" :key="gidx">
                 <a @click="goToRoomDetail(room.id)" style="cursor: pointer">
-                  <img
-                    :src="
-                      apiService.getImageUrl(
-                        g.image.path,
-                        g.image.thumbnail_name
-                      )
-                    "
-                    alt=""
-                  />
+                  <img :src="apiService.getImageUrl(
+                    g.image.path,
+                    g.image.thumbnail_name
+                  )
+                    " alt="" />
                 </a>
               </div>
             </div>
@@ -87,11 +68,7 @@
                 {{ truncatedText(room.details) }}
                 <span v-if="isLong(room.details)">
                   ...
-                  <a
-                    href="javascript:void(0);"
-                    @click.prevent="goToRoomDetail(room.id)"
-                    >See more</a
-                  >
+                  <a href="javascript:void(0);" @click.prevent="goToRoomDetail(room.id)">See more</a>
                 </span>
               </p>
               <div class="facilities clearfix">
@@ -314,10 +291,7 @@
 
     <div class="pinned-image pinned-image--medium">
       <div class="pinned-image__container">
-        <img
-          src="https://azsunriseresort.com/images/media/diving/p08Ue95G9Ic9Nlz_thumb_30pct.jpg"
-          alt=""
-        />
+        <img src="https://azsunriseresort.com/images/media/diving/p08Ue95G9Ic9Nlz_thumb_30pct.jpg" alt="" />
         <div class="pinned-image__container-overlay"></div>
       </div>
       <div class="pinned_over_content">
@@ -368,13 +342,8 @@
             </div>
             <!-- <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p> -->
             <p class="phone_element no_borders">
-              <a href="tel://076643222"
-                ><i class="bi bi-telephone"></i
-                ><span
-                  ><em>{{ $t("info.bookings") }}</em
-                  >076643222
-                </span></a
-              >
+              <a href="tel://076643222"><i class="bi bi-telephone"></i><span><em>{{ $t("info.bookings") }}</em>076643222
+                </span></a>
             </p>
           </div>
         </div>
@@ -419,12 +388,8 @@
             </div>
             <!-- / row -->
             <p class="text-end mt-3">
-              <a
-                href="javascript:void(0);"
-                @click.prevent="gotoBookDirect()"
-                class="btn_1 outline"
-                >{{ $t("menu.bookNow") }}</a
-              >
+              <a href="javascript:void(0);" @click.prevent="gotoBookDirect()" class="btn_1 outline">{{
+                $t("menu.bookNow") }}</a>
             </p>
           </div>
         </div>
@@ -465,9 +430,7 @@
                 <i class="bi bi-envelope-paper"></i>
                 <h4>{{ $t("contact_email_title") }}</h4>
                 <p>
-                  <a href="#0"
-                    >rsvn@azsunriseresort.com<br /><small>&nbsp;</small></a
-                  >
+                  <a href="#0">rsvn@azsunriseresort.com<br /><small>&nbsp;</small></a>
                 </p>
               </li>
             </ul>
@@ -754,14 +717,15 @@ function gotoBookDirect() {
     dateStr = "&checkInDate=" + startDate + "&checkOutDate=" + endDate;
   }
 
-  window.location.href =
-    "https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" +
-    dateStr;
+  // window.location.href = "https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" +
+  //   dateStr;
+  window.location.href = '/booking' // full redirect
 }
 </script>
 
 <style scoped>
 @media (max-width: 768px) {
+
   /* ซ่อนทั้ง carousel เมื่อความกว้างหน้าจอ <= 768px (มือถือ) */
   .fullscreen-btn {
     display: none !important;
