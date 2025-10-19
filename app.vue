@@ -2,11 +2,30 @@
 import { useHead } from '#imports'
 
 useHead({
+  title: 'A.Z. Sunrise Resort | Elegance and serenity in every moment',
   meta: [
+    {
+      name: 'description',
+      content:
+        'A.Z. Sunrise Resort — Elegance and serenity in every moment. Experience luxury, comfort, and tranquility near Layan Beach, Phuket.'
+    },
     {
       name: 'google-site-verification',
       content: 'bKg2lt8Ng2i5XQZjfewQmU42y7L5GP4yw_W4cKqzcdY'
-    }
+    },
+    { property: 'og:title', content: 'A.Z. Sunrise Resort | Elegance and serenity in every moment' },
+    { property: 'og:description', content: 'Experience luxury, comfort, and tranquility near Layan Beach, Phuket.' },
+    { property: 'og:image', content: 'https://azsunriseresort.com/img/cover.jpg' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://azsunriseresort.com/' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'A.Z. Sunrise Resort | Elegance and serenity in every moment' },
+    { name: 'twitter:description', content: 'Luxury and tranquility in Phuket — only at A.Z. Sunrise Resort.' },
+    { name: 'twitter:image', content: 'https://azsunriseresort.com/img/cover.jpg' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://azsunriseresort.com/' },
+    { rel: 'icon', type: 'image/png', href: '/favicon.png' }
   ],
   script: [
     {
