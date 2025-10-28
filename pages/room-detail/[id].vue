@@ -2,19 +2,25 @@
   <main>
     <div class="hero medium-height jarallax" data-jarallax data-speed="0.2">
       <client-only>
-        <img class="jarallax-img" :src="apiService.getImageUrl(
-          localizedRoomTypesDetail?.image?.path,
-          localizedRoomTypesDetail?.image?.thumbnail_name
-        )
-          " alt="" />
-        <div class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero"
-          data-opacity-mask="rgba(0, 0, 0, 0.5)">
+        <img
+          class="jarallax-img"
+          :src="
+            apiService.getImageUrl(
+              localizedRoomTypesDetail?.image?.path,
+              localizedRoomTypesDetail?.image?.thumbnail_name
+            )
+          "
+          alt=""
+        />
+        <div
+          class="wrapper opacity-mask d-flex align-items-center justify-content-center animate_hero"
+          data-opacity-mask="rgba(0, 0, 0, 0.5)"
+        >
           <div class="container">
             <div class="row justify-content-center justify-content-lg-start">
               <div class="col-sm-12 col-md-12 col-lg-10 static">
                 <div class="slide-text white">
-                  <small class="slide-animated one">
-                    {{ localizedDataSection1.title }}</small>
+                  <small class="slide-animated one"> {{ localizedDataSection1.title }}</small>
                   <h1 class="slide-animated two">
                     {{ localizedDataSection1.titleMini }}
                   </h1>
@@ -117,11 +123,7 @@
         <div data-cues="zoomIn">
           <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
             <div v-for="(gallery, idx) in roomTypesGallery?.galleries || []" :key="idx" class="item">
-              <img :src="apiService.getImageUrl(
-                gallery.image.path,
-                gallery.image.thumbnail_name
-              )
-                " alt="" />
+              <img :src="apiService.getImageUrl(gallery.image.path, gallery.image.thumbnail_name)" alt="" />
             </div>
           </div>
         </div>
@@ -161,16 +163,22 @@
             <h2>{{ $t("room.similar") }}</h2>
           </div>
           <div class="row">
-            <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6"
-              v-for="(roomOther, idx) in localizedRoomTypesDetailOther || []" :key="idx">
+            <div
+              class="col-xl-4 col-lg-6 col-md-6 col-sm-6"
+              v-for="(roomOther, idx) in localizedRoomTypesDetailOther || []"
+              :key="idx"
+            >
               <a :href="'/room-detail/' + roomOther.id" class="box_cat_rooms">
                 <figure>
-                  <div class="background-image" :style="{
-                    backgroundImage: `url(${apiService.getImageUrl(
-                      roomOther.image.path,
-                      roomOther.image.thumbnail_name
-                    )})`,
-                  }"></div>
+                  <div
+                    class="background-image"
+                    :style="{
+                      backgroundImage: `url(${apiService.getImageUrl(
+                        roomOther.image.path,
+                        roomOther.image.thumbnail_name
+                      )})`,
+                    }"
+                  ></div>
                   <div class="info">
                     <small>{{ roomOther.titleMini }}</small>
                     <h3>{{ roomOther.title }}</h3>
@@ -226,8 +234,13 @@
             </div>
             <!-- <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. </p> -->
             <p class="phone_element no_borders">
-              <a href="tel://076643222"><i class="bi bi-telephone"></i><span><em>{{ $t("info.bookings") }}</em>076643222
-                </span></a>
+              <a href="tel://076643222"
+                ><i class="bi bi-telephone"></i
+                ><span
+                  ><em>{{ $t("info.bookings") }}</em
+                  >076643222
+                </span></a
+              >
             </p>
           </div>
         </div>
@@ -272,7 +285,8 @@
             <!-- / row -->
             <p class="text-end mt-3">
               <a href="javascript:void(0);" @click.prevent="gotoBookDirect()" class="btn_1 outline">{{
-                $t("menu.bookNow") }}</a>
+                $t("menu.bookNow")
+              }}</a>
             </p>
           </div>
         </div>
@@ -307,9 +321,7 @@ const {
   data: responseDataSection,
   pending,
   error,
-} = await useAsyncData("landing-section", () =>
-  apiService.get(`/api/landingpage/content/${pageId}`)
-);
+} = await useAsyncData("landing-section", () => apiService.get(`/api/landingpage/content/${pageId}`));
 
 // 5) other sections loaded onMounted
 const responseDataSection1 = ref<Record<string, any>>({});
@@ -348,9 +360,7 @@ onMounted(async () => {
 });
 
 // 6) compute a short getLang ("cn" instead of "zh-CN")
-const getLang = computed(() =>
-  locale.value === "zh-CN" ? "cn" : locale.value
-);
+const getLang = computed(() => (locale.value === "zh-CN" ? "cn" : locale.value));
 
 // 7) localized getters for section1 & section2
 const localizedDataSection1 = computed(() => {
@@ -358,8 +368,7 @@ const localizedDataSection1 = computed(() => {
   const m = `title_mini_${getLang.value}`;
   return {
     title: responseDataSection1.value[t] ?? responseDataSection1.value.title_en,
-    titleMini:
-      responseDataSection1.value[m] ?? responseDataSection1.value.title_mini_en,
+    titleMini: responseDataSection1.value[m] ?? responseDataSection1.value.title_mini_en,
   };
 });
 
@@ -369,18 +378,11 @@ const localizedDataSection2 = computed(() => {
   const descKey = `description_${lang}`;
   const schedKey = `schedules_${lang}`;
 
-  const schedules =
-    responseDataSection2.value[schedKey] ||
-    responseDataSection2.value.schedules_en ||
-    [];
+  const schedules = responseDataSection2.value[schedKey] || responseDataSection2.value.schedules_en || [];
 
   return {
-    title:
-      responseDataSection2.value[titleKey] ||
-      responseDataSection2.value.title_en,
-    description:
-      responseDataSection2.value[descKey] ||
-      responseDataSection2.value.description_en,
+    title: responseDataSection2.value[titleKey] || responseDataSection2.value.title_en,
+    description: responseDataSection2.value[descKey] || responseDataSection2.value.description_en,
     schedules,
   };
 });
@@ -415,9 +417,7 @@ const localizedRoomTypes = computed(() => {
       title: localizedTitle,
       titleMini: localizedTitleMini,
       details: localizedDetails,
-      facilities: localizedFacilities?.filter(
-        (item: any) => item.status === "Y"
-      ),
+      facilities: localizedFacilities?.filter((item: any) => item.status === "Y"),
       image: room.image,
       // ถ้ามี fields อื่น ๆ ที่อยากให้ส่งผ่านไปด้วย ก็เพิ่มได้ตรงนี้
       // facilities: room[facilitiesKey] || room.facilities_en || [],
@@ -435,9 +435,7 @@ const localizedRoomTypesDetail = computed(() => {
   const roomId = Number(idParam);
 
   // ต้องเข้าถึงค่า .value ของ localizedRoomTypes (เพราะมันเป็น computed)
-  return (
-    localizedRoomTypes.value.find((item: any) => item.id === roomId) || null
-  );
+  return localizedRoomTypes.value.find((item: any) => item.id === roomId) || null;
 });
 
 const localizedRoomTypesDetailOther = computed(() => {
@@ -446,9 +444,7 @@ const localizedRoomTypesDetailOther = computed(() => {
   const roomId = Number(idParam);
 
   // ต้องเข้าถึงค่า .value ของ localizedRoomTypes (เพราะมันเป็น computed)
-  return (
-    localizedRoomTypes.value.filter((item: any) => item.id !== roomId) || []
-  );
+  return localizedRoomTypes.value.filter((item: any) => item.id !== roomId) || [];
 });
 
 const roomTypesGallery = computed(() => {
@@ -460,11 +456,7 @@ const roomTypesGallery = computed(() => {
   // );
   const roomId = Number(idParam);
 
-  return (
-    responseDataSection2.value.room_types?.find(
-      (item: any) => item.id === roomId
-    ) || null
-  );
+  return responseDataSection2.value.room_types?.find((item: any) => item.id === roomId) || null;
 });
 
 // 1.2 ฟังก์ชันเช็กว่าข้อความยาวเกิน 100 ไหม
@@ -507,10 +499,7 @@ function initCarousel() {
     nav: true,
     dots: false,
     center: true,
-    navText: [
-      "<i class='bi bi-arrow-left-short'></i>",
-      "<i class='bi bi-arrow-right-short'></i>",
-    ],
+    navText: ["<i class='bi bi-arrow-left-short'></i>", "<i class='bi bi-arrow-right-short'></i>"],
     responsive: {
       0: {
         items: 1,
@@ -528,11 +517,7 @@ function initCarousel() {
 function initDateBookingPicker() {
   const DateTime = easepick.DateTime;
 
-  const bookedDates = [
-    ["2023-09-01", "2023-09-04"],
-    "2023-09-07",
-    ["2023-10-11", "2023-10-17"],
-  ].map((d) => {
+  const bookedDates = [["2023-09-01", "2023-09-04"], "2023-09-07", ["2023-10-11", "2023-10-17"]].map((d) => {
     if (Array.isArray(d)) {
       const start = new DateTime(d[0], "YYYY-MM-DD");
       const end = new DateTime(d[1], "YYYY-MM-DD");
@@ -569,9 +554,7 @@ function initDateBookingPicker() {
         filter(date, picked) {
           if (picked.length === 1) {
             const incl = date.isBefore(picked[0]) ? "[)" : "(]";
-            return (
-              !picked[0].isSame(date, "day") && date.inArray(bookedDates, incl)
-            );
+            return !picked[0].isSame(date, "day") && date.inArray(bookedDates, incl);
           }
           return date.inArray(bookedDates, "[)");
         },
@@ -594,16 +577,13 @@ function gotoBookDirect() {
     dateStr = "&checkInDate=" + startDate + "&checkOutDate=" + endDate;
   }
 
-  // window.location.href =
-  //   "https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" +
-  //   dateStr;
-  window.location.href = '/booking' // full redirect
+  window.location.href = "https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" + dateStr;
+  // window.location.href = '/booking' // full redirect
 }
 </script>
 
 <style scoped>
 @media (max-width: 768px) {
-
   /* ซ่อนทั้ง carousel เมื่อความกว้างหน้าจอ <= 768px (มือถือ) */
   .fullscreen-btn {
     display: none !important;

@@ -14,10 +14,12 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-3">
-          <a href="index" class="logo_normal"><img src="/img/logo/AZ-sunrise-logo-h2.png" width="180" height="45"
-              alt="" /></a>
-          <a href="index" class="logo_sticky"><img src="/img/logo/AZ-sunrise-logo-h2.png" width="180" height="45"
-              alt="" /></a>
+          <a href="index" class="logo_normal"
+            ><img src="/img/logo/AZ-sunrise-logo-h2.png" width="180" height="45" alt=""
+          /></a>
+          <a href="index" class="logo_sticky"
+            ><img src="/img/logo/AZ-sunrise-logo-h2.png" width="180" height="45" alt=""
+          /></a>
         </div>
         <div class="col-9">
           <div class="main-menu">
@@ -28,9 +30,7 @@
             <nav id="mainNav">
               <ul>
                 <li>
-                  <a href="/index" class="link">{{
-                    $t("menu.home", { name: "vue-i18n" })
-                  }}</a>
+                  <a href="/index" class="link">{{ $t("menu.home", { name: "vue-i18n" }) }}</a>
                 </li>
                 <!-- <li class="submenu">
                                      <a href="#0" class="show-submenu">Rooms</a>
@@ -42,14 +42,10 @@
                                     </ul>
                                 </li> -->
                 <li>
-                  <a href="/rooms">{{
-                    $t("menu.rooms", { name: "vue-i18n" })
-                  }}</a>
+                  <a href="/rooms">{{ $t("menu.rooms", { name: "vue-i18n" }) }}</a>
                 </li>
                 <li>
-                  <a href="/restaurant">{{
-                    $t("menu.restaurant", { name: "vue-i18n" })
-                  }}</a>
+                  <a href="/restaurant">{{ $t("menu.restaurant", { name: "vue-i18n" }) }}</a>
                 </li>
                 <!-- <li class="submenu">
                                     <a href="#0" class="show-submenu">Other Pages</a>
@@ -68,22 +64,18 @@
                                     </ul>
                                 </li> -->
                 <li>
-                  <a href="/about">{{
-                    $t("menu.about", { name: "vue-i18n" })
-                  }}</a>
+                  <a href="/about">{{ $t("menu.about", { name: "vue-i18n" }) }}</a>
                 </li>
                 <li>
-                  <a href="/contact">{{
-                    $t("menu.contact", { name: "vue-i18n" })
-                  }}</a>
+                  <a href="/contact">{{ $t("menu.contact", { name: "vue-i18n" }) }}</a>
                 </li>
                 <li>
-                  <!-- <a href="https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" class="btn_1">{{
-                    $t("menu.bookNow", { name: "vue-i18n" }) }}</a> -->
-                  <a href="#" class="btn_1" @click.prevent="goToBooking">
+                  <a href="https://book-directonline.com/properties/AZSunriseVillaDIRECT?locale=en" class="btn_1">{{
+                    $t("menu.bookNow", { name: "vue-i18n" })
+                  }}</a>
+                  <!-- <a href="#" class="btn_1" @click.prevent="goToBooking">
                     {{ $t('menu.bookNow') }}
-                  </a>
-
+                  </a> -->
                 </li>
 
                 <li class="lang_top">
@@ -115,8 +107,8 @@ import { useI18n } from "vue-i18n";
 const { locale } = useI18n();
 
 const goToBooking = () => {
-  window.location.href = '/booking' // full redirect
-}
+  window.location.href = "/booking"; // full redirect
+};
 
 // โหลด locale จาก localStorage เมื่อเข้า
 if (process.client) {
