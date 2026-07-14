@@ -118,8 +118,8 @@
           <div class="owl-carousel owl-theme carousel_item_centered kenburns rounded-img">
             <div v-for="(gallery, idx) in roomTypesGallery?.galleries || []" :key="idx" class="item">
               <img :src="apiService.getImageUrl(
-                gallery.image.path,
-                gallery.image.thumbnail_name
+                gallery.image?.path,
+                gallery.image?.thumbnail_name
               )
                 " alt="" />
             </div>
@@ -167,8 +167,8 @@
                 <figure>
                   <div class="background-image" :style="{
                     backgroundImage: `url(${apiService.getImageUrl(
-                      roomOther.image.path,
-                      roomOther.image.thumbnail_name
+                      roomOther.image?.path,
+                      roomOther.image?.thumbnail_name
                     )})`,
                   }"></div>
                   <div class="info">
